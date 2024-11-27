@@ -32,7 +32,7 @@ _plugin_. Sigue estas recomendaciones para preparar tus documentos:
 
 ## Revisión y edición de las preguntas generadas
 
-Aunque el plugin genera preguntas automáticamente, es importante
+Aunque el _plugin_ genera preguntas automáticamente, es importante
 revisarlas antes de publicarlas:
 
 - **Verifica la relevancia**: Asegúrate de que cada pregunta esté
@@ -54,7 +54,7 @@ procesar en cada solicitud. Optimiza el contenido para evitar problemas:
 
 - **Resúmenes**: Si el documento original es demasiado largo, crea un
   resumen que cubra los puntos más importantes y utiliza este resumen
-  como entrada para el plugin.
+  como entrada para el _plugin_.
 - **Elimina texto redundante**: Identifica y elimina secciones
   repetitivas o poco relevantes que no aporten información clave al
   cuestionario.

@@ -1,6 +1,6 @@
 # Instalación
 
-El proceso de instalación del plugin {{< var plugin.name >}} para Moodle
+El proceso de instalación del _plugin_ {{< var plugin.name >}} para Moodle
 es sencillo, pero requiere seguir una serie de pasos detallados para
 garantizar que funciona correctamente.
 
@@ -13,13 +13,13 @@ A continuación, se describe el procedimiento completo.
 1. Accede al [repositorio oficial]({{< var repository >}}) en GitHub.
 2. Dentro de _releases_ se encuentran los manuales de usuario, el
    contenido del repositorio y el _plugin_ comprimido para descargar.
-   Este fichero el formato ` dalek-nightly-YYYMMDD.zip` que se
+   Este fichero el formato ` dalek-vX.Y.Z.zip` que se
    corresponde con la versión del _plugin_ del día indicado.
 3. Alternativamente, si tienes acceso a la línea de comandos y prefieres
    clonar el repositorio, ejecuta el siguiente comando:
 
    ```bash
-   git clone {{< var repository >}}
+   git clone ({{< var repository.base >}})
    ```
 
    El repositorio incluye múltiples directorios, pero el que nos
@@ -67,7 +67,7 @@ dependencia en tu servidor y vuelve a intentarlo.
 1. Una vez instalado, dirígete a _Administración del sitio > Plugins >
    Configuración de {{< var plugin.name >}}_.
 2. En la página de configuración, introduce tu **API Key** de OpenAI.
-   Esta clave es necesaria para que el plugin pueda generar preguntas y
+   Esta clave es necesaria para que el _plugin_ pueda generar preguntas y
    respuestas basadas en modelos de lenguaje.
 3. Configura otros parámetros básicos, como:
    - **Tamaño máximo de los archivos PDF** que los usuarios pueden
@@ -77,7 +77,7 @@ dependencia en tu servidor y vuelve a intentarlo.
 
 ### Paso 5: Comprobar el funcionamiento
 
-Asegúrate de que el plugin aparece en la lista de actividades
+Asegúrate de que el _plugin_ aparece en la lista de actividades
 disponibles en Moodle. Para verificarlo:
 
 1. Ve a un curso en el que tengas permisos de edición.
@@ -112,7 +112,7 @@ disponibles en Moodle. Para verificarlo:
   2. Comprueba que el directorio donde se aloja Moodle tiene permisos de
      escritura adecuados.
 
-- **El plugin no aparece en las actividades**
+- **El _plugin_ no aparece en las actividades**
   1. Confirma que la instalación se completó correctamente.
   2. Verifica los permisos de usuario para asegurarte de que el rol
      actual tiene acceso a la actividad.

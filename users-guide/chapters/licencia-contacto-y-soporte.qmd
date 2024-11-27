@@ -4,7 +4,7 @@ lang: es
 
 # Licencia, contacto y soporte
 
-El plugin {{< var plugin.long_name >}} es un desarrollo libre y abierto
+El _plugin_ {{< var plugin.long_name >}} es un desarrollo libre y abierto
 a toda la comunidad educativa y tecnológica. Este proyecto utiliza la
 licencia GPL 3.0 para el código fuente, garantizando la libertad de
 usar, modificar y distribuir el software mientras se mantiene la misma
@@ -33,8 +33,8 @@ que las contribuciones y problemas queden centralizados y accesibles a
 toda la comunidad, promoviendo la colaboración y el crecimiento del. En
 el repositorio puedes:
 
-1. **Consultar problemas y soluciones existentes**: Antes de abrir un
-   nuevo _issue_, revisa los existentes para comprobar si alguien más ya
+1. **Consultar problemas y soluciones existentes**: Antes de abrir una
+   nueva _issue_, revisa los existentes para comprobar si alguien más ya
    reportó el mismo problema o realizó una propuesta similar. Esto evita
    duplicidades y permite centralizar esfuerzos.
 2. **Abrir issues**: Si experimentas un problema, tienes una sugerencia
@@ -82,7 +82,7 @@ ayudar a resolver problemas.
   disponible como [web]({{< var repository.users_guide.web >}}) o como
   [pdf]({{< var repository.users_guide.pdf >}}) listo para descargar.
 - **Guía del desarrollador**:Incluye información específica acerca
-  de cómo está desarrollado el plugin. Puedes acceder a la última vesión
+  de cómo está desarrollado el _plugin_. Puedes acceder a la última vesión
   en formato [web]({{< var repository.developers_guide.web >}}) o como
   [pdf]({{< var repository.developers_guide.pdf >}}).
 
@@ -104,7 +104,7 @@ participar, aquí te indicamos cómo hacerlo:
    3. **Realiza cambios**: Añade tu contribución asegurándote de seguir
       las guías de estilo y convenciones (en caso de que las
       implementemos alguna vez; ¿te animas?).
-   4. Crea un _pull request_: Una vez termines, envía un _pull request_
+   4. **Crea un _pull request_**: Una vez termines, envía un _pull request_
       detallando los cambios realizados.
 2. **Propón ideas**: Si tienes sugerencias o nuevas funcionalidades que
    podrían mejorar {{< var plugin.name >}}, abre un _issue_ etiquetado

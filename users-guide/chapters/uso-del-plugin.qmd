@@ -9,7 +9,7 @@ siguiente:
 1. Crea la actividad en el curso.
 2. Configura el cuestionario introduciendo un título, descripción y
    contenido base.
-3. Deja que el plugin analice el material y genere preguntas
+3. Deja que el _plugin_ analice el material y genere preguntas
    automáticamente.
 4. Revisa y ajusta las preguntas para garantizar su relevancia.
 5. Publica el cuestionario y monitorea los resultados.
@@ -50,7 +50,7 @@ el curso donde deseas crear el cuestionario.
      > "Este cuestionario evalúa los conceptos de las técnicas clave
         para mejorar la eficiencia y precisión de modelos de aprendizaje
         automático".
-2. **Carga el contenido base**: El plugin necesita un documento que
+2. **Carga el contenido base**: El _plugin_ necesita un documento que
    contenga la información a partir de la cual se generarán las
    preguntas. Tienes dos opciones:
      - **Subir un archivo PDF**: Haz clic en _Elegir archivo_ selecciona

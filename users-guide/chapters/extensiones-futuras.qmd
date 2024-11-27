@@ -1,6 +1,6 @@
 # Extensiones futuras
 
-El plugin {{< var plugin.name >}} ha sido planteado como una
+El _plugin_ {{< var plugin.name >}} ha sido planteado como una
 aproximación al uso de LLM para dar soporte a docentes y estudiantes.
 Por lo tanto es un proyecto en evolución. A continuación, se describen
 algunas posibles extensiones y mejoras que podrían implementarse en
@@ -25,7 +25,7 @@ potentes están emergiendo. Las mejoras en esta área podrían incluir:
   software propietario.
 
 Para implementar esta extensión, sería necesario actualizar el código
-del plugin para soportar múltiples APIs y modelos, añadiendo una
+del _plugin_ para soportar múltiples APIs y modelos, añadiendo una
 interfaz en la configuración que permita a los administradores
 seleccionar el modelo deseado.
 
@@ -83,10 +83,10 @@ docentes. Algunas ideas incluyen:
 
 ## Integración con otas herramientas Externas
 
-El plugin podría integrarse con otras herramientas y servicios
+El _plugin_ podría integrarse con otras herramientas y servicios
 educativos más allá de Moodle para ampliar sus funcionalidades:
 
-- **Integración con sistemas de gestión de bibliografía**: Permitir a
+- **Sistemas de gestión de bibliografía**: Permitir a
   los docentes cargar referencias directamente desde gestores (e.g.,
   Zotero o Mendeley) para generar preguntas relacionadas.
 - **Conexión con bases de datos de conocimiento**: Incorporar contenido
@@ -103,7 +103,7 @@ Esto podría lograrse mediante:
   cuestionarios a procesos en segundo plano, permitiendo al docente
   continuar trabajando mientras el _plugin_ realiza el análisis.
 
-Esto requeriría optimizar la arquitectura del plugin y, posiblemente,
+Esto requeriría optimizar la arquitectura del _plugin_ y, posiblemente,
 integrar servicios de colas como RabbitMQ o Redis.
 
 ## Generación de _feedback_ más avanzada
