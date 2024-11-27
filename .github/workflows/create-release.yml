@@ -1,0 +1,59 @@
+name: Create release 📦
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto 🔧
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      - name: Build users guide 📚
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: all
+          path: users-guide
+
+      - name: Build developers guide 📚
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: all
+          path: developers-guide
+
+      - name: Move all rendered files to build folder 📦
+        run: |
+          mkdir -p build
+          for dir in users-guide developers-guide; do
+            if [ -d "${dir}" ]; then
+              mv ${dir}/_book/*.pdf build
+            fi
+          done
+
+      - name: Create moodle plugin zip 📦
+        run: |
+          mkdir -p build
+          zip -r build/dalek-${{ github.ref_name }}.zip dalek
+
+      - name: Create release 📦
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            build/*
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            Pluging alongwith the user and developer guides.
+          tag_name: ${{ github.ref_name }}
+          release_name: ${{ github.ref_name }}
