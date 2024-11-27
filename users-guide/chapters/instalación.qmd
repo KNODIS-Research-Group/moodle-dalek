@@ -19,7 +19,7 @@ A continuación, se describe el procedimiento completo.
    clonar el repositorio, ejecuta el siguiente comando:
 
    ```bash
-   git clone ({{< var repository.base >}})
+   git clone {{< var repository.base >}}
    ```
 
    El repositorio incluye múltiples directorios, pero el que nos
