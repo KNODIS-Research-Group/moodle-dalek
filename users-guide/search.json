@@ -1,0 +1,332 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Guía de usuario",
+    "section": "",
+    "text": "Prefacio\nLa educación es sido la base sobre la que se construye nuestro futuro, y los avances tecnológicos de los últimos años están cambiando la forma en la que enseñamos y aprendemos. Uno de esos avances es la inteligencia artificial que, al igual que hace en muchos otros dominios, puede ayudarnos de formas muy prácticas en el día a día de la enseñanza.\nEsta guía de usuario surge de la idea de acercar esas tecnologías al aula de una manera sencilla y útil. En concreto, se centra en DALEK, un plugin desarrollado para Moodle que facilita la creación de cuestionarios adaptativos basados en los contenidos de los cursos. DALEK no solo ahorra tiempo a los profesores, sino que también permite ofrecer a los estudiantes una enseñanza más personalizada de los contenidos que se supone deben adquirir, ajustándose a sus necesidades y rendimiento.\nEl objetivo de este manual es doble. Por un lado, quiere ser una guía práctica para que los docentes y administradores puedan instalar, configurar y usar este plugin. Por otro, busca mostrar cómo herramientas como esta pueden transformar la educación, haciendo que la tecnología sea un apoyo real y tangible en el aula.\nAunque aquí encontrarás instrucciones y explicaciones técnicas, este manual está pensado para ser claro y accesible. No necesitas ser un experto en tecnología para entenderlo ni para usar el plugin. Además, te invito a reflexionar sobre el impacto que estas herramientas pueden llegar a tener en la enseñanza: ¿cómo pueden ayudarnos a ser mejores docentes? ¿qué cambios podrían traer al sistema educativo?\nEsperamos que estas páginas no solo te ayuden a implementar DALEK en tus cursos, sino que también te inspiren a seguir explorando cómo la tecnología puede enriquecer la enseñanza. Este es un paso más hacia una educación centrada en las personas, en contraposicion a aquella centrada únicamente en los resultados.",
+    "crumbs": [
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "chapters/introducción.html",
+    "href": "chapters/introducción.html",
+    "title": "1  Introducción",
+    "section": "",
+    "text": "El plugin DALEK es una herramienta diseñada para la plataforma Moodle que permite la creación automática de cuestionarios adaptativos basados en contenido proporcionado por los usuarios. Utiliza grandes modelos de lenguaje (LLM) para analizar documentos y generar preguntas personalizadas, mejorando la experiencia educativa de estudiantes y profesores.\nEste manual describe detalladamente cómo instalar, configurar y utilizar el plugin. Está destinado a administradores de Moodle y educadores interesados en implementar este tipo de cuestionarios adaptativos en sus cursos.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/requisitos-previos.html",
+    "href": "chapters/requisitos-previos.html",
+    "title": "2  Requisitos previos",
+    "section": "",
+    "text": "Para instalar y utilizar el plugin DALEK, es necesario cumplir con los siguientes requisitos:\n\nMoodle: El plugin DALEK es una extensión de Moodle, por lo que es necesario contar con una instalación previa de esta plataforma. La versión mínima requerida es Moodle 4.1.\nServidor web: Como requisito para Moodle, es necesario contar con un servidor web que soporte PHP y MySQL. La versión de PHP necesaria es PHP 8.1 o superior.\nAPI Key de OpenAI: El plugin utiliza la API de OpenAI para generar preguntas a partir de documentos. Es necesario contar con una clave de API válida para que el plugin acceda a los modelos de lenguaje que utiliza el plugin.\nPermisos de administrador: Solo los administradores de Moodle pueden instalar y configurar plugins en la plataforma. Es necesario contar con permisos de administrador para instalar y configurar el plugin DALEK.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Requisitos previos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación.html",
+    "href": "chapters/instalación.html",
+    "title": "3  Instalación",
+    "section": "",
+    "text": "3.1 Proceso de instalación\nEl proceso de instalación del plugin DALEK para Moodle es sencillo, pero requiere seguir una serie de pasos detallados para garantizar que funciona correctamente.\nA continuación, se describe el procedimiento completo.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación.html#proceso-de-instalación",
+    "href": "chapters/instalación.html#proceso-de-instalación",
+    "title": "3  Instalación",
+    "section": "",
+    "text": "3.1.1 Paso 1: Descargar el plugin\n\nAccede al repositorio oficial en GitHub.\nDentro de releases se encuentran los manuales de usuario, el contenido del repositorio y el plugin comprimido para descargar. Este fichero el formato dalek-nightly-YYYMMDD.zip que se corresponde con la versión del plugin del día indicado.\nAlternativamente, si tienes acceso a la línea de comandos y prefieres clonar el repositorio, ejecuta el siguiente comando:\ngit clone \nEl repositorio incluye múltiples directorios, pero el que nos interesa es dalek. Para poder usarlo en Moodle debemos antes comprimirlo en un fichero zip. Podemos hacerlo desde la línea de comandos como sigue:\nzip -r dalek.zip dalek\nCon esto tendremos el plugin listo para instalar desde la ultima versión del repositorio.\n\n\n\n3.1.2 Paso 2: Subir el plugin a Moodle\n\nAccede a la administración de Moodle con una cuenta que tenga permisos de administrador.\nDirígete a la sección Administración del sitio &gt; Extensiones &gt; Instalar plugins.\nEn la opción Subir un paquete ZIP, selecciona el archivo comprimido del plugin descargado en el paso anterior.\nHaz clic en Subir este archivo. Moodle procesará el archivo y verificará su validez.\nSi todo ha sido correcto, Moodle mostrará un mensaje indicando que el plugin está listo para instalarse. Haz clic en Continuar.\n\n\n\n3.1.3 Paso 3: Verificación de Dependencias\nDurante el proceso de instalación, Moodle verificará si el servidor cumple con las dependencias necesarias para el plugin. Esto incluye:\n\nVersión de Moodle: El plugin requiere Moodle 4.1 o superior.\nVersión de PHP: Es necesario tener PHP 8.1 o superior.\nExtensiones de PHP:\n\ncurl: Permite la comunicación con la API de OpenAI.\njson: Necesaria para procesar respuestas de la API.\nmbstring: Para manejar cadenas de texto multibyte.\n\n\nSi falta alguna dependencia, detén el proceso de instalación, instala la dependencia en tu servidor y vuelve a intentarlo.\n\n\n3.1.4 Paso 4: Configuración inicial del plugin\n\nUna vez instalado, dirígete a Administración del sitio &gt; Plugins &gt; Configuración de DALEK.\nEn la página de configuración, introduce tu API Key de OpenAI. Esta clave es necesaria para que el plugin pueda generar preguntas y respuestas basadas en modelos de lenguaje.\nConfigura otros parámetros básicos, como:\n\nTamaño máximo de los archivos PDF que los usuarios pueden cargar.\nIdiomas permitidos para la generación de preguntas.\n\nHaz clic en Guardar cambios.\n\n\n\n3.1.5 Paso 5: Comprobar el funcionamiento\nAsegúrate de que el plugin aparece en la lista de actividades disponibles en Moodle. Para verificarlo:\n\nVe a un curso en el que tengas permisos de edición.\nHaz clic en Añadir una actividad o recurso.\nBusca Cuestionario LLM en la lista de actividades disponibles. Si aparece, la instalación se ha realizado correctamente.\nCrea un cuestionario de prueba para confirmar que el plugin funciona como se espera:\n\nAñade la actividad Cuestionario LLM.\nSube un archivo PDF con contenido sencillo (por ejemplo, un archivo con dos párrafos).\nAsegúrate de que el plugin genera preguntas basadas en el contenido y que puedes visualizarlas.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación.html#consejos-y-buenas-prácticas-durante-la-instalación",
+    "href": "chapters/instalación.html#consejos-y-buenas-prácticas-durante-la-instalación",
+    "title": "3  Instalación",
+    "section": "3.2 Consejos y buenas prácticas durante la instalación",
+    "text": "3.2 Consejos y buenas prácticas durante la instalación\n\nRespaldar Moodle: Antes de instalar cualquier plugin, realiza una copia de seguridad completa de tu instalación de Moodle. Esto implica un backup tanto de los archivos como de la base de datos.\nEntorno de pruebas: Si es posible, instala y prueba el plugin en un entorno de desarrollo antes de implantarlo en el entorno de producción.\nMonitorización de logs: Después de la instalación, revisa los registros del servidor y de Moodle para identificar posibles errores o conflictos con otros plugins.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación.html#posibles-problemas-durante-la-instalación",
+    "href": "chapters/instalación.html#posibles-problemas-durante-la-instalación",
+    "title": "3  Instalación",
+    "section": "3.3 Posibles problemas durante la instalación",
+    "text": "3.3 Posibles problemas durante la instalación\n\nError al subir el archivo ZIP\n\nVerifica que el archivo no esté corrupto y que sea compatible con tu versión de Moodle.\nComprueba que el directorio donde se aloja Moodle tiene permisos de escritura adecuados.\n\nEl plugin no aparece en las actividades\n\nConfirma que la instalación se completó correctamente.\nVerifica los permisos de usuario para asegurarte de que el rol actual tiene acceso a la actividad.\n\nProblemas con la API de OpenAI\n\nAsegúrate de que la API Key introducida es válida y está activa.\nComprueba la conexión a Internet desde el servidor.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html",
+    "href": "chapters/uso-del-plugin.html",
+    "title": "4  Uso del plugin",
+    "section": "",
+    "text": "4.1 Paso 1: Acceso y creación de la actividad\nEl uso del plugin de generación de cuestionarios adaptativos se puede dividir en varias etapas: configuración de la actividad, generación automática de preguntas, revisión y ajustes, y finalmente publicación del cuestionario. En esencia, el resumen del flujo de uso es el siguiente:\nSiguiendo este proceso se asegura que los cuestionarios son útiles y coherentes con el material del curso. A continuación, se detalla el uso paso a paso.\nInicia sesión en Moodle con una cuenta que tenga permisos de profesor en el curso donde deseas crear el cuestionario.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uso del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#paso-1-acceso-y-creación-de-la-actividad",
+    "href": "chapters/uso-del-plugin.html#paso-1-acceso-y-creación-de-la-actividad",
+    "title": "4  Uso del plugin",
+    "section": "",
+    "text": "Activa el modo de edición\n\nDentro del curso, haz clic en el botón Activar edición ubicado en la parte superior derecha de la página.\nEsto permitirá añadir nuevas actividades o recursos al curso.\n\nAñade una nueva actividad\n\nEn la sección donde quieres incluir el cuestionario, haz clic en el botón Añadir una actividad o un recurso.\nSe abrirá una ventana con una lista de actividades y recursos disponibles.\n\nSelecciona el tipo de actividad Cuestionario LLM\n\nBusca en la lista la actividad denominada Cuestionario LLM (el nombre que corresponde al plugin DALEK).\nHaz clic sobre ella para abrir la configuración inicial de la actividad.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uso del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#paso-2-configuración-inicial-del-cuestionario",
+    "href": "chapters/uso-del-plugin.html#paso-2-configuración-inicial-del-cuestionario",
+    "title": "4  Uso del plugin",
+    "section": "4.2 Paso 2: Configuración inicial del cuestionario",
+    "text": "4.2 Paso 2: Configuración inicial del cuestionario\n\nIntroduce un título y una descripción\n\nTítulo: Proporciona un nombre claro y descriptivo para el cuestionario, como “Evaluación de Tema 1” o “Cuestionario: Optimización y regularización”.\nDescripción: Añade una breve explicación del propósito del cuestionario. Por ejemplo:\n\n“Este cuestionario evalúa los conceptos de las técnicas clave para mejorar la eficiencia y precisión de modelos de aprendizaje automático”.\n\n\nCarga el contenido base: El plugin necesita un documento que contenga la información a partir de la cual se generarán las preguntas. Tienes dos opciones:\n\nSubir un archivo PDF: Haz clic en Elegir archivo selecciona el archivo desde tu ordenador y súbelo.\nIntroducir texto manualmente: Utiliza el campo de texto proporcionado para escribir directamente el contenido. Este método es útil si el material es breve.\n\nAplica ajustes opcionales (si quieres)\n\nConfigura la cantidad máxima de preguntas que deseas generar (si esta opción está habilitada por el administrador del sitio).\nDefine el idioma en el que se generarán las preguntas si estás trabajando en un entorno multilingüe.\n\nGuarda los cambios: Haz clic en Guardar cambios y mostrar para proceder con la generación de preguntas.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uso del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#paso-3-generación-automática-de-preguntas",
+    "href": "chapters/uso-del-plugin.html#paso-3-generación-automática-de-preguntas",
+    "title": "4  Uso del plugin",
+    "section": "4.3 Paso 3: Generación automática de preguntas",
+    "text": "4.3 Paso 3: Generación automática de preguntas\n\nProceso de análisis: Al guardar los cambios, el plugin comenzará a procesar el contenido. Este paso tardará unos segundos, dependiendo del tamaño del documento.\nCreación de preguntas\n\nEl plugin genera un conjunto de preguntas de tipo selección múltiple. Cada pregunta incluye varias opciones, una de las cuales está marcada como correcta.\nLas preguntas se basan exclusivamente en conceptos extraídos del contenido.\n\nNotificación de finalización\n\nUna vez completado el análisis, aparecerá un mensaje indicando que las preguntas han sido generadas correctamente.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uso del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#paso-4-revisión-y-ajustes",
+    "href": "chapters/uso-del-plugin.html#paso-4-revisión-y-ajustes",
+    "title": "4  Uso del plugin",
+    "section": "4.4 Paso 4: Revisión y ajustes",
+    "text": "4.4 Paso 4: Revisión y ajustes\n\nAccede al cuestionario: En la página del curso, haz clic en el cuestionario que acabas de crear para ver las preguntas generadas.\nRevisa las preguntas: Verifica que las preguntas sean relevantes y adecuadas para el contenido del curso. Asegúrate de que las respuestas correctas estén marcadas correctamente.\nRealiza los ajustes que consideres necesarios\n\nEditar preguntas: Haz clic en el botón Editar junto a cada pregunta para modificar el texto o las opciones de respuesta.\nEliminar preguntas: Si alguna pregunta no es adecuada, puedes eliminarla.\nAñadir nuevas preguntas: Utiliza el editor del cuestionario para incluir preguntas adicionales que no hayan sido generadas automáticamente.\n\nConfigura las opciones del cuestionario: Ajusta parámetros como:\n\nLímite de tiempo: Define el tiempo máximo permitido para completar el cuestionario.\nNúmero de intentos permitidos: Decide si los estudiantes pueden realizar el cuestionario varias veces.\nRetroalimentación personalizada: Activa la opción para que los estudiantes reciban comentarios detallados sobre sus respuestas.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uso del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#paso-5-publicación-del-cuestionario",
+    "href": "chapters/uso-del-plugin.html#paso-5-publicación-del-cuestionario",
+    "title": "4  Uso del plugin",
+    "section": "4.5 Paso 5: Publicación del cuestionario",
+    "text": "4.5 Paso 5: Publicación del cuestionario\nEn realidad esto es común para cuestionarios y el plugin DALEK, pero nunca está de más recordarlo, sobre todo si queremos identificar preguntas no suficientemente bien afinadas.\n\nHaz visible el cuestionario para los estudiantes: Asegúrate de que el cuestionario esté configurado como “Visible” en las opciones de disponibilidad del curso.\nRealiza una prueba: Antes de publicar el cuestionario, pruébalo como estudiante para verificar que todo funciona correctamente y que las preguntas son claras.\nMonitoriza los resultados: Una vez que los estudiantes comiencen a realizar el cuestionario, puedes acceder a la sección de calificaciones para revisar sus resultados y evaluar su desempeño.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uso del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/consejos-y-buenas-prácticas.html",
+    "href": "chapters/consejos-y-buenas-prácticas.html",
+    "title": "5  Consejos y buenas prácticas",
+    "section": "",
+    "text": "5.1 Preparación de los documentos de entrada\nDALEK trabaja con un sistema LLM y como tal, depende no solo de la calidad de los prompts los cuales son transparentes al usuario, sino también de la calidad del contenido con el que se alimenta al modelo.\nAquí te proporcionamos una serie de consejos detallados para maximizar su potencial.\nLa calidad de las preguntas generadas automáticamente depende en gran medida de la calidad y claridad del contenido que se proporciona al plugin. Sigue estas recomendaciones para preparar tus documentos:",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Consejos y buenas prácticas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/consejos-y-buenas-prácticas.html#preparación-de-los-documentos-de-entrada",
+    "href": "chapters/consejos-y-buenas-prácticas.html#preparación-de-los-documentos-de-entrada",
+    "title": "5  Consejos y buenas prácticas",
+    "section": "",
+    "text": "Formato claro y estructurado: Utiliza documentos PDF o textos que contengan títulos, subtítulos y párrafos claramente definidos. Evita el uso excesivo de tablas, imágenes o formatos complejos que puedan dificultar el análisis del contenido.\nDivide temas extensos: Si el contenido a evaluar es muy amplio, divide el material en secciones más pequeñas y genera cuestionarios individuales para cada sección. Esto ayuda al modelo a centrarse en un tema específico y mejora la relevancia de las preguntas.\nRevisión del lenguaje: Asegúrate de que el texto esté bien redactado, sin errores ortográficos ni gramaticales. Los modelos de lenguaje procesan mejor textos claros y coherentes.\nEliminar información irrelevante: Filtra cualquier contenido que no sea relevante para los objetivos del cuestionario. Información adicional o poco relacionada puede confundir al modelo y generar preguntas poco útiles.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Consejos y buenas prácticas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/consejos-y-buenas-prácticas.html#revisión-y-edición-de-las-preguntas-generadas",
+    "href": "chapters/consejos-y-buenas-prácticas.html#revisión-y-edición-de-las-preguntas-generadas",
+    "title": "5  Consejos y buenas prácticas",
+    "section": "5.2 Revisión y edición de las preguntas generadas",
+    "text": "5.2 Revisión y edición de las preguntas generadas\nAunque el plugin genera preguntas automáticamente, es importante revisarlas antes de publicarlas:\n\nVerifica la relevancia: Asegúrate de que cada pregunta esté directamente relacionada con el contenido proporcionado. Si una pregunta parece confusa o fuera de contexto, edítala o elimínala.\nEquilibra la dificultad: Revisa el nivel de dificultad de las preguntas y ajusta las respuestas según sea necesario. Un buen cuestionario debe incluir preguntas de diferentes niveles para evaluar tanto conocimientos básicos como avanzados.\nCorrige errores: Comprueba que no haya errores en las preguntas, opciones de respuesta o en las explicaciones proporcionadas. Un error puede generar confusión y afectar mucho en el aprendizaje del estudiante.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Consejos y buenas prácticas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/consejos-y-buenas-prácticas.html#gestión-de-tokens-y-límite-de-texto",
+    "href": "chapters/consejos-y-buenas-prácticas.html#gestión-de-tokens-y-límite-de-texto",
+    "title": "5  Consejos y buenas prácticas",
+    "section": "5.3 Gestión de tokens y límite de texto",
+    "text": "5.3 Gestión de tokens y límite de texto\nEl modelo LLM tiene un límite en la cantidad de tokens que puede procesar en cada solicitud. Optimiza el contenido para evitar problemas:\n\nResúmenes: Si el documento original es demasiado largo, crea un resumen que cubra los puntos más importantes y utiliza este resumen como entrada para el plugin.\nElimina texto redundante: Identifica y elimina secciones repetitivas o poco relevantes que no aporten información clave al cuestionario.\nPruebas con documentos reducidos: Si experimentas problemas, prueba reduciendo el tamaño del texto y analiza si las preguntas generadas son más precisas.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Consejos y buenas prácticas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/consejos-y-buenas-prácticas.html#pruebas-y-ajustes-antes-de-la-publicación",
+    "href": "chapters/consejos-y-buenas-prácticas.html#pruebas-y-ajustes-antes-de-la-publicación",
+    "title": "5  Consejos y buenas prácticas",
+    "section": "5.4 Pruebas y ajustes antes de la publicación",
+    "text": "5.4 Pruebas y ajustes antes de la publicación\nNunca publiques un cuestionario sin revisarlo completamente. Trata de seguir siempre estos pasos:\n\nVista previa: Utiliza la función de vista previa de Moodle para revisar el cuestionario desde la perspectiva del estudiante. Esto te permitirá detectar posibles errores en las preguntas o configuraciones.\nSimula un examen: Intenta completar el cuestionario como si fueras un estudiante. Evalúa si las preguntas son claras, si las respuestas son adecuadas y si el tiempo límite es suficiente.\nSolicita opiniones: Pide a un colega que revise el cuestionario y proporcione comentarios antes de hacerlo público. Una segunda opinión puede ayudarte a detectar problemas que tú podrías haber pasado por alto.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Consejos y buenas prácticas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/extensiones-futuras.html",
+    "href": "chapters/extensiones-futuras.html",
+    "title": "6  Extensiones futuras",
+    "section": "",
+    "text": "6.1 Compatibilidad con modelos de lenguaje más avanzados\nEl plugin DALEK ha sido planteado como una aproximación al uso de LLM para dar soporte a docentes y estudiantes. Por lo tanto es un proyecto en evolución. A continuación, se describen algunas posibles extensiones y mejoras que podrían implementarse en versiones futuras para ampliar su funcionalidad y adaptarse a nuevos requisitos tanto tecnológicos como pedagógicos.\nEl uso de modelos de lenguaje como GPT-3.5 es una base sólida para la generación de contenido, pero la tecnología avanza rápidamente. GPT 4o supera con creces las capacidades de GPT 3.5, y nuevos modelos más potentes están emergiendo. Las mejoras en esta área podrían incluir:\nPara implementar esta extensión, sería necesario actualizar el código del plugin para soportar múltiples APIs y modelos, añadiendo una interfaz en la configuración que permita a los administradores seleccionar el modelo deseado.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Extensiones futuras</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/extensiones-futuras.html#compatibilidad-con-modelos-de-lenguaje-más-avanzados",
+    "href": "chapters/extensiones-futuras.html#compatibilidad-con-modelos-de-lenguaje-más-avanzados",
+    "title": "6  Extensiones futuras",
+    "section": "",
+    "text": "Soporte para GPT-4, GPT 1o y versiones posteriores: Estos modelos ofrecen mayor capacidad de comprensión, análisis y generación de contenido más preciso, permitiendo una mejor personalización de los cuestionarios.\nIntegración con modelos de código abierto: Implementar compatibilidad con alternativas como BLOOM o LLaMA, que permiten mayor control sobre los datos procesados y una reducción de costes en el uso de API externas. Bueno, y que son Open Source, mucho mejor que usar software propietario.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Extensiones futuras</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/extensiones-futuras.html#soporte-multilingüe-ampliado",
+    "href": "chapters/extensiones-futuras.html#soporte-multilingüe-ampliado",
+    "title": "6  Extensiones futuras",
+    "section": "6.2 Soporte multilingüe ampliado",
+    "text": "6.2 Soporte multilingüe ampliado\nActualmente, DALEK genera preguntas en el idioma predominante del contenido cargado. Sin embargo, se podrían incluir funciones avanzadas para gestionar múltiples idiomas:\n\nTraducción de cuestionarios: Los docentes podrían solicitar que las preguntas generadas se traduzcan a otro idioma utilizando servicios como DeepL o la API de traducción de OpenAI.\nInterfaz multilingüe para estudiantes: Los estudiantes podrían seleccionar su idioma preferido para interactuar con los cuestionarios, garantizando accesibilidad global.\n\nEsto requeriría integrar servicios de traducción, lo que implica configurar nuevas dependencias y gestionar límites de uso de dichas API.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Extensiones futuras</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/extensiones-futuras.html#mejora-en-la-generación-de-preguntas",
+    "href": "chapters/extensiones-futuras.html#mejora-en-la-generación-de-preguntas",
+    "title": "6  Extensiones futuras",
+    "section": "6.3 Mejora en la generación de preguntas",
+    "text": "6.3 Mejora en la generación de preguntas\nAunque actualmente DALEK genera preguntas relevantes basadas en el contenido proporcionado, futuras versiones podrían incluir:\n\nSoporte para más tipos de preguntas: Incorporar preguntas de tipo “verdadero o falso”, “emparejamiento”, y “respuestas cortas”, además de las de opción múltiple ya disponibles.\nAnálisis semántico más profundo: Utilizar herramientas de procesamiento de lenguaje natural (NLP), incluidos los mismos LLM, para identificar conceptos clave, jerarquías de contenido y temas secundarios, generando preguntas más variadas y completas.\nIncorporación de niveles de dificultad: Permitir a los docentes establecer niveles de dificultad (básico, intermedio, avanzado), de manera que las preguntas generadas se adapten al perfil del curso y los estudiantes.\n\nEsto implicaría ajustes en la lógica de generación de preguntas, así como una mayor personalización de las opciones configurables en la interfaz de usuario.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Extensiones futuras</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/extensiones-futuras.html#análisis-y-estadísticas-del-rendimiento-de-los-estudiantes",
+    "href": "chapters/extensiones-futuras.html#análisis-y-estadísticas-del-rendimiento-de-los-estudiantes",
+    "title": "6  Extensiones futuras",
+    "section": "6.4 Análisis y estadísticas del rendimiento de los estudiantes",
+    "text": "6.4 Análisis y estadísticas del rendimiento de los estudiantes\nDALEK podría evolucionar para no solo generar cuestionarios, sino también proporcionar métricas útiles para los docentes. Algunas ideas incluyen:\n\nInformes de rendimiento: Análisis automáticos de los resultados de los estudiantes, destacando áreas fuertes y no tan fuertes.\nRecomendaciones personalizadas: Basándose en los resultados de los cuestionarios, DALEK podría sugerir contenido adicional o nuevas preguntas adaptadas a cada estudiante.\nComparativas grupales: Mostrar gráficos y datos que comparen el rendimiento de diferentes grupos de estudiantes.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Extensiones futuras</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/extensiones-futuras.html#integración-con-otas-herramientas-externas",
+    "href": "chapters/extensiones-futuras.html#integración-con-otas-herramientas-externas",
+    "title": "6  Extensiones futuras",
+    "section": "6.5 Integración con otas herramientas Externas",
+    "text": "6.5 Integración con otas herramientas Externas\nEl plugin podría integrarse con otras herramientas y servicios educativos más allá de Moodle para ampliar sus funcionalidades:\n\nIntegración con sistemas de gestión de bibliografía: Permitir a los docentes cargar referencias directamente desde gestores (e.g., Zotero o Mendeley) para generar preguntas relacionadas.\nConexión con bases de datos de conocimiento: Incorporar contenido de fuentes externas como Wikipedia o bases de datos científicas para enriquecer los cuestionarios con información adicional.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Extensiones futuras</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/extensiones-futuras.html#optimización-del-rendimiento-y-la-escalabilidad",
+    "href": "chapters/extensiones-futuras.html#optimización-del-rendimiento-y-la-escalabilidad",
+    "title": "6  Extensiones futuras",
+    "section": "6.6 Optimización del rendimiento y la escalabilidad",
+    "text": "6.6 Optimización del rendimiento y la escalabilidad\nA medida que el plugin se adoptade por un mayor número de usuarios, será esencial optimizar su rendimiento para manejar cargas más altas. Esto podría lograrse mediante:\n\nProcesamiento asíncrono de contenidos: Delegar la generación de cuestionarios a procesos en segundo plano, permitiendo al docente continuar trabajando mientras el plugin realiza el análisis.\n\nEsto requeriría optimizar la arquitectura del plugin y, posiblemente, integrar servicios de colas como RabbitMQ o Redis.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Extensiones futuras</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/extensiones-futuras.html#generación-de-feedback-más-avanzada",
+    "href": "chapters/extensiones-futuras.html#generación-de-feedback-más-avanzada",
+    "title": "6  Extensiones futuras",
+    "section": "6.7 Generación de feedback más avanzada",
+    "text": "6.7 Generación de feedback más avanzada\nEl feedback es esencial para un aprendizaje efectivo. DALEK podría mejorar esta funcionalidad mediante:\n\nRetroalimentación adaptativa: Personalizar las explicaciones y sugerencias basándose en las respuestas incorrectas de los estudiantes, ayudándoles a entender mejor el contenido.\nExplicaciones detalladas: Proveer una breve explicación para cada pregunta, generada automáticamente a partir del contenido base.\nRutas de aprendizaje: Sugerir actividades o materiales adicionales dependiendo del rendimiento del estudiante en los cuestionarios.\n\nEste desarrollo requeriría ajustar el análisis del modelo para centrarse no solo en las preguntas, sino también en generar respuestas detalladas y en analizar las respuestas de usuarios para identificar las posibles lagunas existentes en cada uno de ellos.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Extensiones futuras</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencia-contacto-y-soporte.html",
+    "href": "chapters/licencia-contacto-y-soporte.html",
+    "title": "7  Licencia, contacto y soporte",
+    "section": "",
+    "text": "7.1 Soporte técnico\nEl plugin DALEK: Digital Analysis and Learning Enhancement Kit es un desarrollo libre y abierto a toda la comunidad educativa y tecnológica. Este proyecto utiliza la licencia GPL 3.0 para el código fuente, garantizando la libertad de usar, modificar y distribuir el software mientras se mantiene la misma licencia en trabajos derivados. Además, la documentación asociada al proyecto está disponible bajo una licencia de Creative Commons Reconocimiento 4.0 Internacional (CC BY 4.0), permitiendo su reutilización con la atribución adecuada.\nEl objetivo de DALEK no es solo proporcionar una herramienta potente para la generación de cuestionarios adaptativos, sino también fomentar una comunidad activa de usuarios y desarrolladores que puedan contribuir al crecimiento y mejora continua del proyecto. Este apartado detalla cómo puedes contactar para obtener soporte, participar en su desarrollo o proponer mejoras.\nSi tienes algún problema al instalar o utilizar DALEK, puedes usar el repositorio oficial en GitHub. Este está diseñado para centralizar toda la comunicación relacionada con el proyecto, facilitando el seguimiento de problemas, sugerencias y mejoras.\nEl uso del este repositorio oficial para todo tipo de soporte asegura que las contribuciones y problemas queden centralizados y accesibles a toda la comunidad, promoviendo la colaboración y el crecimiento del. En el repositorio puedes:",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Licencia, contacto y soporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencia-contacto-y-soporte.html#soporte-técnico",
+    "href": "chapters/licencia-contacto-y-soporte.html#soporte-técnico",
+    "title": "7  Licencia, contacto y soporte",
+    "section": "",
+    "text": "Consultar problemas y soluciones existentes: Antes de abrir un nuevo issue, revisa los existentes para comprobar si alguien más ya reportó el mismo problema o realizó una propuesta similar. Esto evita duplicidades y permite centralizar esfuerzos.\nAbrir issues: Si experimentas un problema, tienes una sugerencia o deseas proponer mejoras, abre un issue. Para ello:\n\nInicia sesión en tu cuenta de GitHub.\nDirígete a la sección Issues del repositorio.\nHaz clic en New Issue y selecciona el tipo de issue (problema, sugerencia, pregunta, etc.).\nCompleta el formulario detallando:\n\nUna descripción clara del problema o idea.\nPasos para reproducir el error, en caso de ser un problema.\nCapturas de pantalla o fragmentos de logs, si es relevante.\n\nEnvía el issue para que sea revisado por los mantenedores del proyecto.\n\nSeguir Actualizaciones: Todas las versiones nuevas, correcciones de errores y funcionalidades añadidas se publican como releases en el repositorio. Visita la pestaña Releases para mantener tu instalación actualizada.\nParticipar en discusiones: Puedes participar en discusiones abiertas sobre futuras características, problemas específicos o cualquier tema relacionado con DALEK. La pestaña Discussions está abierta a toda la comunidad.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Licencia, contacto y soporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencia-contacto-y-soporte.html#sec-issues-pub",
+    "href": "chapters/licencia-contacto-y-soporte.html#sec-issues-pub",
+    "title": "7  Licencia, contacto y soporte",
+    "section": "7.2 Reglas para la publicación de issues",
+    "text": "7.2 Reglas para la publicación de issues\nPara facilitar la resolución de problemas y la evaluación de sugerencias, sigue estas pautas al abrir un issue:\n\nSé claro y detallado: Describe el problema o la idea de forma precisa. Incluye pasos para reproducir problemas o detalles específicos para sugerencias.\nIncluye información relevante: Si es un problema técnico, menciona la versión de Moodle, el sistema operativo, la configuración del servidor, y cualquier mensaje de error relevante.\nSé respetuoso y colaborativo: Recuerda que DALEK es un proyecto comunitario. Los mantenedores del proyecto y el resto de usuarios apreciarán un tono respetuoso y constructivo.\n\n\n7.2.1 Documentación y recursos\nAdemás de los issues, el repositorio incluye recursos que pueden ayudar a resolver problemas.\n\nGuía de usuario: Es justo la guía que estás leyendo. Se encuentra disponible como web o como pdf listo para descargar.\nGuía del desarrollador:Incluye información específica acerca de cómo está desarrollado el plugin. Puedes acceder a la última vesión en formato web o como pdf.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Licencia, contacto y soporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencia-contacto-y-soporte.html#participación-en-el-proyecto",
+    "href": "chapters/licencia-contacto-y-soporte.html#participación-en-el-proyecto",
+    "title": "7  Licencia, contacto y soporte",
+    "section": "7.3 Participación en el proyecto",
+    "text": "7.3 Participación en el proyecto\nDALEK está diseñado para ser un proyecto vivo y en constante mejora gracias a las contribuciones de la comunidad. Si deseas participar, aquí te indicamos cómo hacerlo:\n\nContribuye con código o documentación\n\nHaz un fork: En el repositorio oficial realiza un fork del proyecto para crear una copia en tu cuenta.\nCrea una rama: Trabaja en una nueva funcionalidad o corrección en una rama dedicada:\ngit checkout -b nueva-funcionalidad\nRealiza cambios: Añade tu contribución asegurándote de seguir las guías de estilo y convenciones (en caso de que las implementemos alguna vez; ¿te animas?).\nCrea un pull request: Una vez termines, envía un pull request detallando los cambios realizados.\n\nPropón ideas: Si tienes sugerencias o nuevas funcionalidades que podrían mejorar DALEK, abre un issue etiquetado como enhancement en GitHub. Describe tu idea de manera clara y justifica su relevancia.\nTraduce: Si te encuentras cómodo con otros idiomas, puedes contribuir traduciendo el plugin o la documentación.\nReporta errores: La mejor forma de ayudar es informar de errores que te encuentres -y todavía mejor acompañándolos con un parche que los corrija-. Para ello descríbelos tal y somo se especifica en la sección Sección 7.2.\nPromueve el proyecto: Ayuda a difundir DALEK entre tus colegas y en comunidades educativas o tecnológicas. Cuantos más usuarios tenga, más rápida será su evolución.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Licencia, contacto y soporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencia-contacto-y-soporte.html#código-de-conducta",
+    "href": "chapters/licencia-contacto-y-soporte.html#código-de-conducta",
+    "title": "7  Licencia, contacto y soporte",
+    "section": "7.4 Código de conducta",
+    "text": "7.4 Código de conducta\nEl proyecto DALEK sigue un código de conducta basado en la inclusión, el respeto y la colaboración abierta. Toda interacción en el repositorio debe adherirse a estos principios. Consulta el archivo CODE_OF_CONDUCT.md en el repositorio para más información.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Licencia, contacto y soporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencia-contacto-y-soporte.html#filosofía-del-proyecto",
+    "href": "chapters/licencia-contacto-y-soporte.html#filosofía-del-proyecto",
+    "title": "7  Licencia, contacto y soporte",
+    "section": "7.5 Filosofía del proyecto",
+    "text": "7.5 Filosofía del proyecto\nDALEK se basa en los siguientes principios:\n\nAcceso abierto: Todo el mundo puede usar y mejorar el software sin restricciones innecesarias.\nTransparencia: El código y la documentación están y estarán disponibles públicamente para garantizar la confianza y permitir su auditoría.\nColaboración comunitaria: El proyecto prospera gracias a la participación activa de educadores, desarrolladores y estudiantes.\nMejora continua: Las nuevas ideas y funcionalidades son siempre bienvenidas, fomentando la evolución del software.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Licencia, contacto y soporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencia-contacto-y-soporte.html#licencias",
+    "href": "chapters/licencia-contacto-y-soporte.html#licencias",
+    "title": "7  Licencia, contacto y soporte",
+    "section": "7.6 Licencias",
+    "text": "7.6 Licencias\n\nCódigo: Distribuido bajo licencia GPL 3.0. Esto asegura que cualquier modificación o redistribución del código debe mantener la misma licencia, promoviendo la libertad y el acceso continuo.\nDocumentación: Disponible bajo licencia Creative Commons BY 4.0, permitiendo su uso, modificación y distribución siempre que se reconozca al autor original.\n\nPara más detalles sobre las licencias, consulta los archivos LICENSE-GPL (código) y LICENSE-CC-BY-SA (documentación) en el repositorio.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Licencia, contacto y soporte</span>"
+    ]
+  }
+]

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Instalación del plugin – Guía de desarrollador</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/uso-del-plugin.html" rel="next">
+<link href="../chapters/estructura-del-plugin.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-52267d870f217a66dbfd24a6d5e99412.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/instalación-del-plugin.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Instalación del <em>plugin</em></span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Guía de desarrollador</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/introducción.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/requisitos-previos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Requisitos previos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/estructura-del-plugin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estructura del <em>plugin</em></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/instalación-del-plugin.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Instalación del <em>plugin</em></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/uso-del-plugin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/desarrollo-y-personalización.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Desarrollo y personalización</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/solución-de-problemas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solución de problemas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/licencias-y-contribuciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Licencias y contribuciones</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/referencias-y-recursos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Referencias y recursos</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#descarga-e-instalación" id="toc-descarga-e-instalación" class="nav-link active" data-scroll-target="#descarga-e-instalación"><span class="header-section-number">4.1</span> Descarga e instalación</a>
+  <ul class="collapse">
+  <li><a href="#paso-1-obtener-los-archivos-del-plugin" id="toc-paso-1-obtener-los-archivos-del-plugin" class="nav-link" data-scroll-target="#paso-1-obtener-los-archivos-del-plugin"><span class="header-section-number">4.1.1</span> Paso 1: Obtener los archivos del <em>plugin</em></a></li>
+  <li><a href="#paso-2-copiar-el-plugin-al-directorio-adecuado" id="toc-paso-2-copiar-el-plugin-al-directorio-adecuado" class="nav-link" data-scroll-target="#paso-2-copiar-el-plugin-al-directorio-adecuado"><span class="header-section-number">4.1.2</span> Paso 2: Copiar el <em>plugin</em> al directorio adecuado</a></li>
+  <li><a href="#paso-3-comprobar-los-permisos-de-los-archivos" id="toc-paso-3-comprobar-los-permisos-de-los-archivos" class="nav-link" data-scroll-target="#paso-3-comprobar-los-permisos-de-los-archivos"><span class="header-section-number">4.1.3</span> Paso 3: Comprobar los permisos de los archivos</a></li>
+  </ul></li>
+  <li><a href="#activación-del-plugin-en-moodle" id="toc-activación-del-plugin-en-moodle" class="nav-link" data-scroll-target="#activación-del-plugin-en-moodle"><span class="header-section-number">4.2</span> Activación del <em>plugin</em> en Moodle</a>
+  <ul class="collapse">
+  <li><a href="#paso-1-acceder-al-panel-de-administración" id="toc-paso-1-acceder-al-panel-de-administración" class="nav-link" data-scroll-target="#paso-1-acceder-al-panel-de-administración"><span class="header-section-number">4.2.1</span> Paso 1: Acceder al panel de administración</a></li>
+  <li><a href="#paso-2-comprobar-la-instalación-automática" id="toc-paso-2-comprobar-la-instalación-automática" class="nav-link" data-scroll-target="#paso-2-comprobar-la-instalación-automática"><span class="header-section-number">4.2.2</span> Paso 2: Comprobar la instalación automática</a></li>
+  <li><a href="#paso-3-revisión-de-requisitos" id="toc-paso-3-revisión-de-requisitos" class="nav-link" data-scroll-target="#paso-3-revisión-de-requisitos"><span class="header-section-number">4.2.3</span> Paso 3: Revisión de requisitos</a></li>
+  <li><a href="#paso-4-completar-la-instalación" id="toc-paso-4-completar-la-instalación" class="nav-link" data-scroll-target="#paso-4-completar-la-instalación"><span class="header-section-number">4.2.4</span> Paso 4: Completar la instalación</a></li>
+  </ul></li>
+  <li><a href="#configuración-inicial-del-plugin" id="toc-configuración-inicial-del-plugin" class="nav-link" data-scroll-target="#configuración-inicial-del-plugin"><span class="header-section-number">4.3</span> Configuración inicial del plugin</a>
+  <ul class="collapse">
+  <li><a href="#paso-1-acceder-a-la-configuración" id="toc-paso-1-acceder-a-la-configuración" class="nav-link" data-scroll-target="#paso-1-acceder-a-la-configuración"><span class="header-section-number">4.3.1</span> Paso 1: Acceder a la configuración</a></li>
+  <li><a href="#paso-2-configurar-la-api-key-de-openai" id="toc-paso-2-configurar-la-api-key-de-openai" class="nav-link" data-scroll-target="#paso-2-configurar-la-api-key-de-openai"><span class="header-section-number">4.3.2</span> Paso 2: Configurar la API Key de OpenAI</a></li>
+  </ul></li>
+  <li><a href="#comprobaciones-finales" id="toc-comprobaciones-finales" class="nav-link" data-scroll-target="#comprobaciones-finales"><span class="header-section-number">4.4</span> Comprobaciones finales</a>
+  <ul class="collapse">
+  <li><a href="#paso-1-verificar-la-funcionalidad" id="toc-paso-1-verificar-la-funcionalidad" class="nav-link" data-scroll-target="#paso-1-verificar-la-funcionalidad"><span class="header-section-number">4.4.1</span> Paso 1: Verificar la funcionalidad</a></li>
+  <li><a href="#paso-2-habilitar-la-depuración-opcional" id="toc-paso-2-habilitar-la-depuración-opcional" class="nav-link" data-scroll-target="#paso-2-habilitar-la-depuración-opcional"><span class="header-section-number">4.4.2</span> Paso 2: Habilitar la depuración (opcional)</a></li>
+  <li><a href="#paso-3-probar-diferentes-configuraciones" id="toc-paso-3-probar-diferentes-configuraciones" class="nav-link" data-scroll-target="#paso-3-probar-diferentes-configuraciones"><span class="header-section-number">4.4.3</span> Paso 3: Probar diferentes configuraciones</a></li>
+  </ul></li>
+  <li><a href="#actualización-del-plugin" id="toc-actualización-del-plugin" class="nav-link" data-scroll-target="#actualización-del-plugin"><span class="header-section-number">4.5</span> Actualización del <em>plugin</em></a>
+  <ul class="collapse">
+  <li><a href="#paso-1-obtener-la-nueva-versión" id="toc-paso-1-obtener-la-nueva-versión" class="nav-link" data-scroll-target="#paso-1-obtener-la-nueva-versión"><span class="header-section-number">4.5.1</span> Paso 1: Obtener la nueva versión</a></li>
+  <li><a href="#paso-2-reemplazar-los-archivos" id="toc-paso-2-reemplazar-los-archivos" class="nav-link" data-scroll-target="#paso-2-reemplazar-los-archivos"><span class="header-section-number">4.5.2</span> Paso 2: Reemplazar los archivos</a></li>
+  <li><a href="#paso-3-completar-la-actualización" id="toc-paso-3-completar-la-actualización" class="nav-link" data-scroll-target="#paso-3-completar-la-actualización"><span class="header-section-number">4.5.3</span> Paso 3: Completar la actualización</a></li>
+  <li><a href="#paso-4-verificar-compatibilidad" id="toc-paso-4-verificar-compatibilidad" class="nav-link" data-scroll-target="#paso-4-verificar-compatibilidad"><span class="header-section-number">4.5.4</span> Paso 4: Verificar compatibilidad</a></li>
+  </ul></li>
+  <li><a href="#notas-adicionales" id="toc-notas-adicionales" class="nav-link" data-scroll-target="#notas-adicionales"><span class="header-section-number">4.6</span> Notas adicionales</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Instalación del <em>plugin</em></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>La instalación del <em>plugin</em> en Moodle requiere seguir unos pasos sencillos pero cruciales para asegurar su funcionamiento correcto. A continuación, se describe detalladamente el proceso.</p>
+<section id="descarga-e-instalación" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="descarga-e-instalación"><span class="header-section-number">4.1</span> Descarga e instalación</h2>
+<section id="paso-1-obtener-los-archivos-del-plugin" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="paso-1-obtener-los-archivos-del-plugin"><span class="header-section-number">4.1.1</span> Paso 1: Obtener los archivos del <em>plugin</em></h3>
+<ol type="1">
+<li>Descarga la versión más reciente del <em>plugin</em> desde el <a href="https://github.com/KNODIS-Research-Group/moodle-dalek">repositorio oficial</a>.
+<ul>
+<li>Asegúrate de que la versión del <em>plugin</em> sea compatible con la versión de Moodle que utilizas. DALEK requiere Moodle 4.1 o superior.</li>
+</ul></li>
+<li>Comprueba que el archivo descargado esté en formato comprimido <code>.zip</code> o <code>.tar.gz</code>.</li>
+</ol>
+</section>
+<section id="paso-2-copiar-el-plugin-al-directorio-adecuado" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="paso-2-copiar-el-plugin-al-directorio-adecuado"><span class="header-section-number">4.1.2</span> Paso 2: Copiar el <em>plugin</em> al directorio adecuado</h3>
+<ol type="1">
+<li>Descomprime el archivo descargado en tu equipo.</li>
+<li>Verifica que la carpeta raíz del <em>plugin</em> tenga un nombre distinto al resto de <em>plugins</em> instalados (por defecto es <code>dalek</code>). Si el nombre coincide con otro plugin que tenas instalado, cámbialo para que coincida.</li>
+<li>Accede al directorio donde está instalado Moodle en tu servidor. Por ejemplo, si Moodle está instalado en <code>/var/www/moodle/</code>, utiliza esa ruta.</li>
+<li>Copia la carpeta descomprimida del <em>plugin</em> (<code>dalek</code>) dentro del directorio <code>mod</code> de Moodle (por defecto en <code>/var/www/moodle/mod/</code>.</li>
+</ol>
+</section>
+<section id="paso-3-comprobar-los-permisos-de-los-archivos" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="paso-3-comprobar-los-permisos-de-los-archivos"><span class="header-section-number">4.1.3</span> Paso 3: Comprobar los permisos de los archivos</h3>
+<ol type="1">
+<li><p>Asegúrate de que el usuario del servidor web (normalmente <code>www-data</code> en sistemas GNU/Linux) tenga permisos de lectura y escritura sobre los archivos y carpetas del <em>plugin</em>.</p></li>
+<li><p>Ejecuta el siguiente comando en la terminal para ajustar los permisos si fuera necesario:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chown <span class="at">-R</span> www-data:www-data /var/www/moodle/mod/dalek</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod <span class="at">-R</span> 755 /var/www/moodle/mod/dalek</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+</section>
+<section id="activación-del-plugin-en-moodle" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="activación-del-plugin-en-moodle"><span class="header-section-number">4.2</span> Activación del <em>plugin</em> en Moodle</h2>
+<section id="paso-1-acceder-al-panel-de-administración" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="paso-1-acceder-al-panel-de-administración"><span class="header-section-number">4.2.1</span> Paso 1: Acceder al panel de administración</h3>
+<ol type="1">
+<li>Inicia sesión en Moodle como administrador.</li>
+<li>Ve a la página de administración localizada en <em>Administración del sitio &gt; Notificaciones</em></li>
+</ol>
+</section>
+<section id="paso-2-comprobar-la-instalación-automática" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="paso-2-comprobar-la-instalación-automática"><span class="header-section-number">4.2.2</span> Paso 2: Comprobar la instalación automática</h3>
+<ol type="1">
+<li>Moodle detectará automáticamente el nuevo <em>plugin</em> en el directorio <code>mod</code> y mostrará una notificación indicando que hay un <em>plugin</em> listo para instalar.</li>
+<li>Revisa los detalles de la instalación y confirma para continuar.</li>
+</ol>
+</section>
+<section id="paso-3-revisión-de-requisitos" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="paso-3-revisión-de-requisitos"><span class="header-section-number">4.2.3</span> Paso 3: Revisión de requisitos</h3>
+<ol type="1">
+<li>Moodle verificará que el servidor cumpla con los requisitos mínimos para el <em>plugin</em>:
+<ul>
+<li>Versión de Moodle: 4.1 o superior.</li>
+<li>Versión de PHP: 8.1 o superior.</li>
+<li>Extensiones de PHP necesarias, como curl y json.</li>
+</ul></li>
+<li>Si algún requisito no se cumple, Moodle mostrará un error. Resuelve los problemas indicados antes de proceder.</li>
+</ol>
+</section>
+<section id="paso-4-completar-la-instalación" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="paso-4-completar-la-instalación"><span class="header-section-number">4.2.4</span> Paso 4: Completar la instalación</h3>
+<ol type="1">
+<li>Si todo está correcto, Moodle instalará automáticamente las tablas de base de datos necesarias para el <em>plugin</em>, utilizando el archivo <code>install.xml</code> incluido en la carpeta <code>db</code>.</li>
+<li>Una vez finalizado, aparecerá un mensaje de confirmación indicando que el <em>plugin</em> se instaló correctamente.</li>
+</ol>
+</section>
+</section>
+<section id="configuración-inicial-del-plugin" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="configuración-inicial-del-plugin"><span class="header-section-number">4.3</span> Configuración inicial del plugin</h2>
+<section id="paso-1-acceder-a-la-configuración" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="paso-1-acceder-a-la-configuración"><span class="header-section-number">4.3.1</span> Paso 1: Acceder a la configuración</h3>
+<ol type="1">
+<li>Tras la instalación, accede a la configuración del plugin a través de <em>Administración del sitio &gt; Plugins &gt; Actividades &gt; DALEK</em></li>
+</ol>
+</section>
+<section id="paso-2-configurar-la-api-key-de-openai" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="paso-2-configurar-la-api-key-de-openai"><span class="header-section-number">4.3.2</span> Paso 2: Configurar la API Key de OpenAI</h3>
+<p>DALEK requiere una API Key válida para conectarse al servicio de OpenAI y generar preguntas basadas en los textos aportados por los estudiantes.</p>
+<ol type="1">
+<li>Introduce tu API Key en el campo correspondiente. Si no tienes una API Key:
+<ul>
+<li>Regístrate en el <a href="https://platform.openai.com/">portal de OpenAI</a>.</li>
+<li>Genera una clave desde la sección de configuración de la API.</li>
+</ul></li>
+<li>Guarda los cambios.</li>
+</ol>
+</section>
+</section>
+<section id="comprobaciones-finales" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="comprobaciones-finales"><span class="header-section-number">4.4</span> Comprobaciones finales</h2>
+<section id="paso-1-verificar-la-funcionalidad" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="paso-1-verificar-la-funcionalidad"><span class="header-section-number">4.4.1</span> Paso 1: Verificar la funcionalidad</h3>
+<ol type="1">
+<li>Crea un curso de prueba en Moodle y añade una actividad utilizando el <em>plugin</em> DALEK.</li>
+<li>Sube un archivo PDF con contenido para generar un cuestionario.</li>
+<li>Comprueba que el cuestionario se genera correctamente y que las preguntas son coherentes.</li>
+</ol>
+</section>
+<section id="paso-2-habilitar-la-depuración-opcional" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="paso-2-habilitar-la-depuración-opcional"><span class="header-section-number">4.4.2</span> Paso 2: Habilitar la depuración (opcional)</h3>
+<ol type="1">
+<li>Si encuentras errores, habilita el modo de depuración en Moodle para obtener más detalles en <em>Administración del sitio &gt; Desarrollo &gt; Depuración</em></li>
+</ol>
+</section>
+<section id="paso-3-probar-diferentes-configuraciones" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="paso-3-probar-diferentes-configuraciones"><span class="header-section-number">4.4.3</span> Paso 3: Probar diferentes configuraciones</h3>
+<p>Experimenta con distintas configuraciones de OpenAI y ajustes del <em>plugin</em> para asegurarte de que cumple con las necesidades de tu asignatura o curso.</p>
+</section>
+</section>
+<section id="actualización-del-plugin" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="actualización-del-plugin"><span class="header-section-number">4.5</span> Actualización del <em>plugin</em></h2>
+<section id="paso-1-obtener-la-nueva-versión" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="paso-1-obtener-la-nueva-versión"><span class="header-section-number">4.5.1</span> Paso 1: Obtener la nueva versión</h3>
+<p>Descarga la última versión del plugin desde el <a href="https://github.com/KNODIS-Research-Group/moodle-dalek">repositorio oficial</a></p>
+</section>
+<section id="paso-2-reemplazar-los-archivos" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="paso-2-reemplazar-los-archivos"><span class="header-section-number">4.5.2</span> Paso 2: Reemplazar los archivos</h3>
+<ol type="1">
+<li><p>Realiza una copia de seguridad (nunca viene mal) de la carpeta del <em>plugin</em> a reemplazar:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /var/www/moodle/mod/dalek /var/www/moodle/mod/dalek.old</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Sustituye los archivos antiguos con los de la nueva versión.</p></li>
+</ol>
+</section>
+<section id="paso-3-completar-la-actualización" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="paso-3-completar-la-actualización"><span class="header-section-number">4.5.3</span> Paso 3: Completar la actualización</h3>
+<ol type="1">
+<li>Accede a <em>Administración del sitio &gt; Notificaciones</em></li>
+<li>Moodle detectará automáticamente la actualización y aplicará los cambios necesarios en la base de datos.</li>
+</ol>
+</section>
+<section id="paso-4-verificar-compatibilidad" class="level3" data-number="4.5.4">
+<h3 data-number="4.5.4" class="anchored" data-anchor-id="paso-4-verificar-compatibilidad"><span class="header-section-number">4.5.4</span> Paso 4: Verificar compatibilidad</h3>
+<ol type="1">
+<li>Comprueba que la nueva versión es totalmente funcional realizando pruebas en un curso.</li>
+</ol>
+</section>
+</section>
+<section id="notas-adicionales" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="notas-adicionales"><span class="header-section-number">4.6</span> Notas adicionales</h2>
+<ul>
+<li><strong>Backup previo</strong>: Aunque lo hemos explicitado, siempre <strong>siempre</strong>, antes de cualquier actualización o modificación importante, realiza una copia de seguridad completa de Moodle, incluyendo la base de datos.</li>
+<li><strong>Soporte técnico</strong>: Si encuentras problemas durante la instalación o configuración, consulta la documentación oficial de Moodle o abre un <em>issue</em> en el repositorio del <em>plugin</em>.</li>
+</ul>
+<p>Con estos pasos, el plugin DALEK estará completamente operativo en la instalación de Moodle. Si necesitas ayuda adicional, consulta la sección de soporte en esta guía.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/estructura-del-plugin.html" class="pagination-link" aria-label="Estructura del _plugin_">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estructura del <em>plugin</em></span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/uso-del-plugin.html" class="pagination-link" aria-label="Uso del plugin">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

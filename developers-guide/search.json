@@ -1,0 +1,502 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Guía de desarrollador",
+    "section": "",
+    "text": "Prefacio\nEste es el manual para desarrolladores del plugin DALEK: Digital Analysis and Learning Enhancement Kit, una herramienta diseñada para mejorar la la eficiencia de los docentes a la hora de evaluar mediante cuestionarios dentro de la plataforma Moodle. Este documento tiene como objetivo ser una guía para quienes deseen entender, personalizar o extender el funcionamiento de DALEK, facilitando tanto su integración como su evolución en entornos educativos.\nEste manual se ha creado con dos objetivos principales:",
+    "crumbs": [
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "index.html#a-quién-está-dirigido",
+    "href": "index.html#a-quién-está-dirigido",
+    "title": "Guía de desarrollador",
+    "section": "¿A quién está dirigido?",
+    "text": "¿A quién está dirigido?\nEste documento está dirigido a desarrolladores con conocimientos básicos o avanzados de programación, familiarizados con PHP y la arquitectura de Moodle. También es útil para administradores de sistemas educativos que necesiten entender el funcionamiento del plugin para mantenerlo en entornos de producción.\nSi eres nuevo en el desarrollo de Moodle, no te preocupes: el manual incluye explicaciones claras (esperamos) y referencias a documentación externa que te guiarán en los conceptos fundamentales. Si ya tienes experiencia, encontrarás información detallada que te permitirá trabajar directamente en la personalización del plugin.",
+    "crumbs": [
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "index.html#qué-encontrarás-en-este-manual",
+    "href": "index.html#qué-encontrarás-en-este-manual",
+    "title": "Guía de desarrollador",
+    "section": "¿Qué encontrarás en este manual?",
+    "text": "¿Qué encontrarás en este manual?\nEste manual está organizado de la siguiente manera:\n\nUna descripción detallada de la estructura del plugin, incluyendo su integración con la API de Moodle y las dependencias externas que utiliza.\nInstrucciones paso a paso para instalar y configurar DALEK en tu plataforma Moodle.\nGuías para personalizar el plugin y añadir nuevas funcionalidades.\nSoluciones a problemas comunes, métodos para depurar errores y sugerencias para realizar pruebas efectivas.\nInformación sobre licencias y cómo contribuir al desarrollo del plugin o usar su base para nuevos proyectos.",
+    "crumbs": [
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "index.html#licencias-y-filosofía-del-proyecto",
+    "href": "index.html#licencias-y-filosofía-del-proyecto",
+    "title": "Guía de desarrollador",
+    "section": "Licencias y filosofía del proyecto",
+    "text": "Licencias y filosofía del proyecto\nEl plugin DALEK está licenciado bajo GPLv3, lo que significa que puedes usar, modificar y redistribuir el código siempre que respetes los términos de esta licencia. Por su parte, este manual está licenciado bajo CC-BY-SA, lo que fomenta su uso, adaptación y mejora, siempre que se reconozca el trabajo original y se mantenga la misma licencia en versiones derivadas.\nEsta filosofía abierta refleja los valores del proyecto: creemos que la educación debe estar al alcance de todos, y que las herramientas tecnológicas que la respaldan deben ser accesibles y adaptables.",
+    "crumbs": [
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "index.html#tu-papel-en-el-desarrollo",
+    "href": "index.html#tu-papel-en-el-desarrollo",
+    "title": "Guía de desarrollador",
+    "section": "Tu papel en el desarrollo",
+    "text": "Tu papel en el desarrollo\nEl desarrollo de DALEK no termina con este manual ni con su primera versión. Como desarrollador, tu contribución es clave para ampliar las posibilidades del plugin. Ya sea solucionando un problema, implementando una nueva funcionalidad, mejorando y ampliando la documentación o compartiendo ideas para mejorar el sistema, tu participación ayuda a mantener vivo el proyecto y a hacerlo más útil para la comunidad educativa.\nEsperamos que este manual no solo sea una herramienta práctica, sino también una invitación a formar parte de un esfuerzo colaborativo para mejorar la educación.",
+    "crumbs": [
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "chapters/introducción.html",
+    "href": "chapters/introducción.html",
+    "title": "1  Introducción",
+    "section": "",
+    "text": "1.1 Resumen del plugin\nEste documento está diseñado para ser una guía técnica completa destinada a los desarrolladores interesados en trabajar con el plugin DALEK: Digital Analysis and Learning Enhancement Kit. Su objetivo es proporcionar toda la información necesaria para comprender, instalar, personalizar y extender el plugin en entornos Moodle. Además, incluye detalles sobre su arquitectura interna, los requisitos técnicos, y consejos para la solución de problemas.\nEl manual está pensado tanto para aquellos que desean contribuir al desarrollo del plugin como para quienes buscan integrarlo o adaptarlo a las necesidades específicas de sus plataformas educativas.\nDALEK es un plugin desarrollado para Moodle, que utiliza modelos de lenguaje avanzados (LLM, como ChatGPT) para generar cuestionarios adaptativos de manera automática. Este sistema tiene como objetivo mejorar la personalización de la evaluación educativa, creando preguntas basadas en contenidos textuales proporcionados por los docentes, como memorias, informes o apuntes en formato PDF.\nLa principal ventaja de DALEK es su capacidad para reducir la carga de trabajo de los docentes a la hora de diseñar actividades de evaluación y garantizar que estas estén alineadas con los contenidos. Además, fomenta una evaluación más equitativa y personalizada, ajustándose al nivel y contexto de cada estudiante.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introducción.html#características-clave-del-plugin",
+    "href": "chapters/introducción.html#características-clave-del-plugin",
+    "title": "1  Introducción",
+    "section": "1.2 Características clave del plugin:",
+    "text": "1.2 Características clave del plugin:\n\nGeneración automática de preguntas a partir de documentos de texto, utilizando la API de OpenAI.\nIntegración completa con Moodle, respetando su estructura de permisos, roles y flujos de trabajo.\nConfiguración flexible para adaptar la generación de cuestionarios a las necesidades de cada docente o institución.\nSoporte multilingüe a través del sistema de internacionalización de Moodle.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introducción.html#estructura-del-documento",
+    "href": "chapters/introducción.html#estructura-del-documento",
+    "title": "1  Introducción",
+    "section": "1.3 Estructura del documento",
+    "text": "1.3 Estructura del documento\nEl manual está organizado en capítulos que cubren todos los aspectos del plugin. A continuación, se resumen los contenidos que se incluyen:\n\nRequisitos previos: Software y conocimientos necesarios para instalar y trabajar con el plugin.\nEstructura del plugin: Explicación detallada de la arquitectura de carpetas y archivos.\nInstalación del plugin: Instrucciones paso a paso para instalar y configurar DALEK en Moodle.\nUso del plugin: Guía para los usuarios finales y administradores que deseen configurar actividades con el plugin.\nDesarrollo y personalización: Información para programadores que deseen ampliar o modificar la funcionalidad del plugin.\nSolución de problemas: Consejos para resolver errores comunes y utilizar herramientas de depuración.\nPruebas y validación: Metodologías para asegurar el correcto funcionamiento del plugin.\nLicencias y contribuciones: Detalles sobre las licencias aplicadas y cómo colaborar con el proyecto.\nReferencias y recursos: Enlaces y documentación útil para aprender más sobre Moodle, OpenAI y herramientas relacionadas.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/requisitos-previos.html",
+    "href": "chapters/requisitos-previos.html",
+    "title": "2  Requisitos previos",
+    "section": "",
+    "text": "2.1 Software necesario\nAntes de empezar a trabajar con el plugin, es importante asegurarse de cumplir con una serie de requisitos, tanto de software como de conocimientos. Este apartado detalla todo lo necesario para una instalación correcta y una buena preparación para el desarrollo.\nPara que el plugin funcione correctamente y puedas desarrollarlo o modificarlo, debes contar con el siguiente software:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Requisitos previos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/requisitos-previos.html#software-necesario",
+    "href": "chapters/requisitos-previos.html#software-necesario",
+    "title": "2  Requisitos previos",
+    "section": "",
+    "text": "2.1.1 Moodle\nMoodle es el entorno en el que opera el plugin. Es imprescindible que la instalación esté activa y correctamente configurada en un servidor accesible, por lo que si no es así, , descárgalo desde su sitio oficial, y sigue las guías de instalación. Asegúrate de que tu servidor cumple los requisitos de la versión de Moodle.\n\nVersión requerida: Moodle 4.1 o superior.\n\n\n\n2.1.2 PHP\nPHP es el lenguaje principal en el que está desarrollado Moodle y este plugin. La versión 8.1 garantiza compatibilidad con las funcionalidades modernas del lenguaje y el rendimiento necesario para manejar la carga de trabajo de Moodle.\n\nVersión requerida: PHP 8.1 o superior.\n\n\n\n2.1.3 Servidor local o remoto\nSi trabajas en local para desarrollo, utiliza un servidor como XAMPP, WampServer o MAMP (según tu sistema operativo). Para entornos de producción o pruebas avanzadas, configura un servidor remoto con herramientas como Apache o Nginx.\n\n\n2.1.4 Composer\nComposer es una herramienta de gestión de dependencias para PHP.\nEste plugin utiliza dependencias externas que se gestionan con Composer por lo que, si no lo tienes instalado, es recomendable que lo hagas. Basta con descargarlo desde su sitio oficial, instalarlo y asegurarte de que se encuentra en el PATH de tu sistema.\n\n\n2.1.5 Servidor SQL\nEs otro de los requisitos necesarios para que Moodle funcione. Prácticamente cualquiera de los principales sistemas gestores de bases de datos nos vale (e.g. MariaDB, Postgrsql). Aun así, comprueba el manual de requisitos de Moodle para instalar el que mejor se ajuste a tus necesidades.\n\n\n2.1.6 Cliente SQL\nPara interactuar con la base de datos desde fuerea de Moodle (algo muy útil en entornos de desarrollo), viene bien tener un cliente SQL como:\n\nDBeaver (multiplataforma).\nHeidiSQL (Windows).\nMySQL Workbench (multiplataforma y nuestro preferido si usas MySQL o MariaDB como gestor de bases de datos).\nphpMyAdmin, si prefieres una interfaz web.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Requisitos previos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/requisitos-previos.html#conocimientos-recomendados",
+    "href": "chapters/requisitos-previos.html#conocimientos-recomendados",
+    "title": "2  Requisitos previos",
+    "section": "2.2 Conocimientos recomendados",
+    "text": "2.2 Conocimientos recomendados\nAunque no es estrictamente necesario ser un experto, tener ciertos conocimientos facilitará mucho el proceso de instalación, personalización o desarrollo del plugin.\nEs importante conocer las bases del lenguaje PHP, ya que el código del plugin está escrito en este lenguaje. También es interesante tener conocimientos de cómo interactuar con API REST, ya que el plugin se conecta con la API de OpenAI para generar preguntas adaptativas.\nYa que Moodle almacena datos del plugin en su base de datos, es recomendable, aunque no imprescindible, nociones de lenguaje SQL, sobre todo referente a cómo interpretar esquemas y como realizar consultas y modificaciones.\nPor último, si te has planteado colaborar en el desarrollo del plugin, es recomendable tener conocimientos de sistema de control de versiones, concretamente de Git, ya que el repositorio se encuentra alojado en GitHub.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Requisitos previos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/requisitos-previos.html#configuración-de-un-entorno-de-desarrollo",
+    "href": "chapters/requisitos-previos.html#configuración-de-un-entorno-de-desarrollo",
+    "title": "2  Requisitos previos",
+    "section": "2.3 Configuración de un entorno de desarrollo",
+    "text": "2.3 Configuración de un entorno de desarrollo\nA continuación, te mostramos cómo preparar un entorno para trabajar con el plugin.\n\n2.3.1 Paso 1: Configura un servidor local\n\nInstala XAMPP, WampServer o el servidor que prefieras.\nConfigura el servidor para que sea compatible con Moodle:\n\nActiva extensiones necesarias de PHP como curl, xml, intl, zip, y gd.\nConfigura un acceso a una base de datos, por ejemplo MariaDB.\n\n\n\n\n2.3.2 Paso 2: Instala Moodle\n\nDescarga Moodle desde su sitio oficial.\nSigue las instrucciones de instalación, asegurándote de crear una base de datos y un usuario con permisos adecuados.\nAccede al administrador de Moodle para verificar que la instalación ha concluido con éxito.\n\n\n\n2.3.3 Paso 3: Instala Composer\n\nUna vez instalado, navega al directorio del plugin y ejecuta:\ncomposer install\nEsto descargará todas las dependencias definidas en el archivo composer.json.\n\n\n\n2.3.4 Paso 4: Configura tu editor o IDE\n\nUsa un editor de código moderno como Visual Studio Code o PhpStorm.\nInstala extensiones útiles:\n\nFormateadores y analizadores de código PHP.\nPlugins específicos para Moodle, si están disponibles.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Requisitos previos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/estructura-del-plugin.html",
+    "href": "chapters/estructura-del-plugin.html",
+    "title": "3  Estructura del plugin",
+    "section": "",
+    "text": "3.1 Descripción general\nDALEK está compuesto por una estructura organizada en carpetas y archivos que cumplen funciones específicas dentro del entorno Moodle. A continuación, se describe cada componente para entender su propósito y funcionalidad.\nLa estructura del plugin sigue el estándar de desarrollo de Moodle, lo que permite su integración con la plataforma. A continuación, se presenta el árbol de directorios y archivos principales del plugin, junto con una breve descripción de cada uno:",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Estructura del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/estructura-del-plugin.html#descripción-general",
+    "href": "chapters/estructura-del-plugin.html#descripción-general",
+    "title": "3  Estructura del plugin",
+    "section": "",
+    "text": "├── backup/         # Gestión de copias de seguridad y restauración.\n├── classes/        # Clases PHP, incluyendo eventos y lógica principal.\n├── db/             # Configuración de base de datos y permisos.\n├── lang/           # Archivos de idioma para la internacionalización.\n├── vendor/         # Dependencias externas gestionadas con Composer.\n├── composer.json   # Configuración de las dependencias del plugin.\n├── lib.php         # Funciones generales y API interna.\n├── mod_form.php    # Formulario de configuración del plugin.\n├── settings.php    # Configuración general accesible desde Moodle.\n├── version.php     # Información sobre la versión del plugin.\n└── view.php        # Archivo principal para mostrar la interfaz del plugin.\n\n3.1.1 backup/\nEste directorio contiene los scripts necesarios para gestionar las copias de seguridad y restauraciones de Moodle relacionadas con el plugin.\n\nbackup_cuestionariollm_activity_task.class.php: Define la tarea de copia de seguridad para las actividades generadas por el plugin.\nrestore_cuestionariollm_activity_task.class.php: Configura cómo se restauran las actividades del plugin desde una copia de seguridad.\n*_stepslib.php: Contienen las instrucciones paso a paso para realizar las copias de seguridad y restauraciones.\n\n\n\n3.1.2 classes/\nEn esta carpeta se encuentran las clases principales del plugin, organizadas según las convenciones de Moodle. Un subdirectorio típico dentro de esta carpeta es event/.\n\nevent/: Contiene clases de eventos que Moodle utiliza para rastrearlas interacciones del usuario con el plugin.\n\ncourse_module_instance_list_viewed.php: Evento que registra cuándo un usuario visualiza la lista de actividades del plugin.\ncourse_module_viewed.php: Evento que registra cuándo un usuario accede a una actividad específica.\n\n\nSi deseas añadir nuevas funcionalidades al plugin, como eventos personalizados, este es el lugar donde debes incluir las clases correspondientes.\n\n\n3.1.3 db/\nLa carpeta db/ contiene archivos relacionados con la configuración de la base de datos y los permisos.\n\naccess.php: Define las capacidades o permisos que los usuarios pueden tener al interactuar con el plugin. Por ejemplo, permisos para crear, editar o eliminar actividades.\ninstall.xml: Archivo XML que describe la estructura de las tablas utilizadas por el plugin en la base de datos de Moodle. Si necesitas añadir nuevas tablas o campos, este archivo debe ser actualizado.\n\n\n\n3.1.4 lang/\nEsta carpeta almacena los archivos de idioma necesarios para internacionalizar el plugin.\n\nen/cuestionariollm.php: Contiene las cadenas de texto en inglés para el plugin. Si deseas traducir el plugin a otros idiomas, debes crear carpetas como es/ (español) o fr/ (francés), copiando y adaptando este archivo.\n\n\n\n3.1.5 vendor/\nEsta carpeta contiene las bibliotecas externas gestionadas con Composer, necesarias para el funcionamiento del plugin. Algunas de las dependencias incluidas son:\n\nguzzlehttp: Biblioteca para realizar solicitudes HTTP hacia la API de OpenAI.\nsmalot/pdfparser: Biblioteca para procesar archivos PDF y extraer texto.\npsr7: Implementación de estándares PSR para el manejo de solicitudes y respuestas HTTP.\n\nNota: No modifiques manualmente los archivos de esta carpeta. Si necesitas añadir o actualizar dependencias, utiliza Composer y el archivo composer.json.\n\n\n3.1.6 Archivos principales\nA continuación, se explican los archivos más importantes del plugin, que se encuentran en el nivel raíz:\ncomposer.json: Contiene la configuración de las dependencias externas del plugin. Si necesitas añadir una nueva biblioteca, este archivo debe ser editado y actualizado con Composer. lib.php: Este archivo centraliza funciones genéricas del plugin. Aquí se pueden definir hooks que extiendan o personalicen el comportamiento de Moodle. mod_form.php: Archivo que define el formulario de configuración del plugin cuando se crea o edita una actividad en Moodle. Aquí puedes personalizar las opciones que el usuario ve al configurar la actividad. settings.php: Archivo utilizado para definir configuraciones generales del plugin, accesibles desde el panel de administración de Moodle. Por ejemplo, este archivo puede incluir la configuración de la API Key de OpenAI. version.php: Contiene la información sobre la versión del plugin, como el número de versión, la compatibilidad con Moodle y las dependencias requeridas. view.php: Es el archivo principal que renderiza la interfaz del plugin cuando los usuarios acceden a una actividad.\npix/\nEsta carpeta almacena los recursos gráficos del plugin, como iconos. Por ejemplo:\n\nmonologo.svg: Icono utilizado para representar el plugin en la interfaz de Moodle.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Estructura del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/estructura-del-plugin.html#buenas-prácticas-al-trabajar-con-la-estructura",
+    "href": "chapters/estructura-del-plugin.html#buenas-prácticas-al-trabajar-con-la-estructura",
+    "title": "3  Estructura del plugin",
+    "section": "3.2 Buenas prácticas al trabajar con la estructura",
+    "text": "3.2 Buenas prácticas al trabajar con la estructura\n\nNo modificar directamente las dependencias de vendor/: Usa Composer para gestionar estas bibliotecas.\nUsar nombres descriptivos: Los nombres de archivos y carpetas deben reflejar claramente su función.\nMantener la compatibilidad con Moodle: Sigue las convenciones de desarrollo de Moodle para garantizar que el plugin funcione correctamente con futuras actualizaciones.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Estructura del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación-del-plugin.html",
+    "href": "chapters/instalación-del-plugin.html",
+    "title": "4  Instalación del plugin",
+    "section": "",
+    "text": "4.1 Descarga e instalación\nLa instalación del plugin en Moodle requiere seguir unos pasos sencillos pero cruciales para asegurar su funcionamiento correcto. A continuación, se describe detalladamente el proceso.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Instalación del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación-del-plugin.html#descarga-e-instalación",
+    "href": "chapters/instalación-del-plugin.html#descarga-e-instalación",
+    "title": "4  Instalación del plugin",
+    "section": "",
+    "text": "4.1.1 Paso 1: Obtener los archivos del plugin\n\nDescarga la versión más reciente del plugin desde el repositorio oficial.\n\nAsegúrate de que la versión del plugin sea compatible con la versión de Moodle que utilizas. DALEK requiere Moodle 4.1 o superior.\n\nComprueba que el archivo descargado esté en formato comprimido .zip o .tar.gz.\n\n\n\n4.1.2 Paso 2: Copiar el plugin al directorio adecuado\n\nDescomprime el archivo descargado en tu equipo.\nVerifica que la carpeta raíz del plugin tenga un nombre distinto al resto de plugins instalados (por defecto es dalek). Si el nombre coincide con otro plugin que tenas instalado, cámbialo para que coincida.\nAccede al directorio donde está instalado Moodle en tu servidor. Por ejemplo, si Moodle está instalado en /var/www/moodle/, utiliza esa ruta.\nCopia la carpeta descomprimida del plugin (dalek) dentro del directorio mod de Moodle (por defecto en /var/www/moodle/mod/.\n\n\n\n4.1.3 Paso 3: Comprobar los permisos de los archivos\n\nAsegúrate de que el usuario del servidor web (normalmente www-data en sistemas GNU/Linux) tenga permisos de lectura y escritura sobre los archivos y carpetas del plugin.\nEjecuta el siguiente comando en la terminal para ajustar los permisos si fuera necesario:\nsudo chown -R www-data:www-data /var/www/moodle/mod/dalek\nsudo chmod -R 755 /var/www/moodle/mod/dalek",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Instalación del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación-del-plugin.html#activación-del-plugin-en-moodle",
+    "href": "chapters/instalación-del-plugin.html#activación-del-plugin-en-moodle",
+    "title": "4  Instalación del plugin",
+    "section": "4.2 Activación del plugin en Moodle",
+    "text": "4.2 Activación del plugin en Moodle\n\n4.2.1 Paso 1: Acceder al panel de administración\n\nInicia sesión en Moodle como administrador.\nVe a la página de administración localizada en Administración del sitio &gt; Notificaciones\n\n\n\n4.2.2 Paso 2: Comprobar la instalación automática\n\nMoodle detectará automáticamente el nuevo plugin en el directorio mod y mostrará una notificación indicando que hay un plugin listo para instalar.\nRevisa los detalles de la instalación y confirma para continuar.\n\n\n\n4.2.3 Paso 3: Revisión de requisitos\n\nMoodle verificará que el servidor cumpla con los requisitos mínimos para el plugin:\n\nVersión de Moodle: 4.1 o superior.\nVersión de PHP: 8.1 o superior.\nExtensiones de PHP necesarias, como curl y json.\n\nSi algún requisito no se cumple, Moodle mostrará un error. Resuelve los problemas indicados antes de proceder.\n\n\n\n4.2.4 Paso 4: Completar la instalación\n\nSi todo está correcto, Moodle instalará automáticamente las tablas de base de datos necesarias para el plugin, utilizando el archivo install.xml incluido en la carpeta db.\nUna vez finalizado, aparecerá un mensaje de confirmación indicando que el plugin se instaló correctamente.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Instalación del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación-del-plugin.html#configuración-inicial-del-plugin",
+    "href": "chapters/instalación-del-plugin.html#configuración-inicial-del-plugin",
+    "title": "4  Instalación del plugin",
+    "section": "4.3 Configuración inicial del plugin",
+    "text": "4.3 Configuración inicial del plugin\n\n4.3.1 Paso 1: Acceder a la configuración\n\nTras la instalación, accede a la configuración del plugin a través de Administración del sitio &gt; Plugins &gt; Actividades &gt; DALEK\n\n\n\n4.3.2 Paso 2: Configurar la API Key de OpenAI\nDALEK requiere una API Key válida para conectarse al servicio de OpenAI y generar preguntas basadas en los textos aportados por los estudiantes.\n\nIntroduce tu API Key en el campo correspondiente. Si no tienes una API Key:\n\nRegístrate en el portal de OpenAI.\nGenera una clave desde la sección de configuración de la API.\n\nGuarda los cambios.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Instalación del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación-del-plugin.html#comprobaciones-finales",
+    "href": "chapters/instalación-del-plugin.html#comprobaciones-finales",
+    "title": "4  Instalación del plugin",
+    "section": "4.4 Comprobaciones finales",
+    "text": "4.4 Comprobaciones finales\n\n4.4.1 Paso 1: Verificar la funcionalidad\n\nCrea un curso de prueba en Moodle y añade una actividad utilizando el plugin DALEK.\nSube un archivo PDF con contenido para generar un cuestionario.\nComprueba que el cuestionario se genera correctamente y que las preguntas son coherentes.\n\n\n\n4.4.2 Paso 2: Habilitar la depuración (opcional)\n\nSi encuentras errores, habilita el modo de depuración en Moodle para obtener más detalles en Administración del sitio &gt; Desarrollo &gt; Depuración\n\n\n\n4.4.3 Paso 3: Probar diferentes configuraciones\nExperimenta con distintas configuraciones de OpenAI y ajustes del plugin para asegurarte de que cumple con las necesidades de tu asignatura o curso.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Instalación del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación-del-plugin.html#actualización-del-plugin",
+    "href": "chapters/instalación-del-plugin.html#actualización-del-plugin",
+    "title": "4  Instalación del plugin",
+    "section": "4.5 Actualización del plugin",
+    "text": "4.5 Actualización del plugin\n\n4.5.1 Paso 1: Obtener la nueva versión\nDescarga la última versión del plugin desde el repositorio oficial\n\n\n4.5.2 Paso 2: Reemplazar los archivos\n\nRealiza una copia de seguridad (nunca viene mal) de la carpeta del plugin a reemplazar:\ncp -r /var/www/moodle/mod/dalek /var/www/moodle/mod/dalek.old\nSustituye los archivos antiguos con los de la nueva versión.\n\n\n\n4.5.3 Paso 3: Completar la actualización\n\nAccede a Administración del sitio &gt; Notificaciones\nMoodle detectará automáticamente la actualización y aplicará los cambios necesarios en la base de datos.\n\n\n\n4.5.4 Paso 4: Verificar compatibilidad\n\nComprueba que la nueva versión es totalmente funcional realizando pruebas en un curso.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Instalación del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instalación-del-plugin.html#notas-adicionales",
+    "href": "chapters/instalación-del-plugin.html#notas-adicionales",
+    "title": "4  Instalación del plugin",
+    "section": "4.6 Notas adicionales",
+    "text": "4.6 Notas adicionales\n\nBackup previo: Aunque lo hemos explicitado, siempre siempre, antes de cualquier actualización o modificación importante, realiza una copia de seguridad completa de Moodle, incluyendo la base de datos.\nSoporte técnico: Si encuentras problemas durante la instalación o configuración, consulta la documentación oficial de Moodle o abre un issue en el repositorio del plugin.\n\nCon estos pasos, el plugin DALEK estará completamente operativo en la instalación de Moodle. Si necesitas ayuda adicional, consulta la sección de soporte en esta guía.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Instalación del _plugin_</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html",
+    "href": "chapters/uso-del-plugin.html",
+    "title": "5  Uso del plugin",
+    "section": "",
+    "text": "5.1 Introducción al flujo básico del plugin\nEn este capítulo explicamos cómo utilizar DALEK desde la perspectiva de un usuario que desee aprovechar al máximo sus funcionalidades para crear cuestionarios adaptativos basados en documentos cargados.\nEl flujo de trabajo del plugin se basa en los siguientes pasos principales:",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Uso del plugin</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#introducción-al-flujo-básico-del-plugin",
+    "href": "chapters/uso-del-plugin.html#introducción-al-flujo-básico-del-plugin",
+    "title": "5  Uso del plugin",
+    "section": "",
+    "text": "Carga del documento base: El profesor carga un documento (en formato PDF) que será utilizado como base para la generación de preguntas.\nProcesamiento del contenido: El plugin analiza el contenido del documento y lo envía a un LLM a través de la API de OpenAI.\nGeneración de preguntas: El LLM devuelve un conjunto de preguntas adaptadas al contenido del documento.\nConfiguración del cuestionario: El profesor ajusta las opciones del cuestionario, como el número de preguntas y el formato de las mismas.\nPublicación y uso: El cuestionario se publica en el curso de Moodle para que los estudiantes puedan resolverlo.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Uso del plugin</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#añadir-una-nueva-actividad-de-cuestionario-adaptativo",
+    "href": "chapters/uso-del-plugin.html#añadir-una-nueva-actividad-de-cuestionario-adaptativo",
+    "title": "5  Uso del plugin",
+    "section": "5.2 Añadir una nueva actividad de cuestionario adaptativo",
+    "text": "5.2 Añadir una nueva actividad de cuestionario adaptativo\n\n5.2.1 Paso 1: Acceso a la configuración del curso\n\nEntra en Moodle como profesor con permisos de edición.\nNavega al curso donde deseas añadir el cuestionario.\nActiva el modo de edición haciendo clic en el botón correspondiente.\n\n\n\n5.2.2 Paso 2: Añadir una actividad\n\nHaz clic en Añadir una actividad o un recurso dentro del tema o sección deseada.\nEn el cuadro emergente, selecciona Cuestionario LLM y pulsa Añadir.\n\n\n\n5.2.3 Paso 3: Configuración inicial\nSe abrirá un formulario con las siguientes opciones principales:\n\nNombre del cuestionario: Introduce un título descriptivo para la actividad (por ejemplo, “Cuestionario sobre Redes Neuronales Convolucionales”).\nDescripción: Proporciona una breve explicación del cuestionario para los estudiantes.\nArchivo base: Sube un archivo PDF que será procesado por el plugin. El archivo debe ser claro y estructurado, ya que el modelo de lenguaje utiliza este texto para generar las preguntas.\nNúmero de preguntas: Define cuántas preguntas deseas incluir en el cuestionario.\nIdioma: Selecciona el idioma del cuestionario. Por defecto, estará en español.\n\n\n\n5.2.4 Paso 4: Guardar y procesar\n\nUna vez completado el formulario, pulsa Guardar y regresar al curso o Guardar y mostrar.\n\nEn este punto el plugin procesará el archivo y generará automáticamente las preguntas.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Uso del plugin</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#configuración-avanzada-de-las-preguntas",
+    "href": "chapters/uso-del-plugin.html#configuración-avanzada-de-las-preguntas",
+    "title": "5  Uso del plugin",
+    "section": "5.3 Configuración avanzada de las preguntas",
+    "text": "5.3 Configuración avanzada de las preguntas\nDespués de la generación inicial, el profesor puede ajustar las preguntas generadas. Para ello:\n\nEntra en la actividad recién creada.\nHaz clic en el botón Editar preguntas.\nAparecerá una lista con las preguntas generadas. Cada pregunta incluye:\n\nEl texto de la pregunta.\nOpciones de respuesta: En caso de preguntas de opción múltiple.\nRespuesta correcta: Resaltada para facilitar la revisión.\n\nSe dispone, en caso de que sea encesario, de las siguientes opciones de edición:\n\nModificar el texto de la pregunta: Pulsa el icono de edición junto a la pregunta para ajustarla.\nAñadir nuevas preguntas: Haz clic en el botón Añadir pregunta manualmente para incluir preguntas no generadas por el plugin.\nEliminar preguntas: Marca las preguntas no deseadas y selecciona la opción de eliminar.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Uso del plugin</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#publicación-del-cuestionario",
+    "href": "chapters/uso-del-plugin.html#publicación-del-cuestionario",
+    "title": "5  Uso del plugin",
+    "section": "5.4 Publicación del cuestionario",
+    "text": "5.4 Publicación del cuestionario\nUna vez revisadas y ajustadas las preguntas:\n\nDirígete a la página principal de la actividad.\nPulsa el botón Hacer visible si la actividad está oculta.\nComparte las instrucciones con los estudiantes en el foro del curso o mediante un mensaje directo.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Uso del plugin</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/uso-del-plugin.html#resolución-del-cuestionario-por-parte-de-los-estudiantes",
+    "href": "chapters/uso-del-plugin.html#resolución-del-cuestionario-por-parte-de-los-estudiantes",
+    "title": "5  Uso del plugin",
+    "section": "5.5 Resolución del cuestionario por parte de los estudiantes",
+    "text": "5.5 Resolución del cuestionario por parte de los estudiantes\nDesde la perspectiva del estudiante:\n\nAl acceder al curso, verán la actividad con el nombre definido.\nAl hacer clic en la actividad, se mostrará el cuestionario con las preguntas configuradas.\nUna vez completado el cuestionario, los resultados se guardarán automáticamente en el sistema.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Uso del plugin</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/desarrollo-y-personalización.html",
+    "href": "chapters/desarrollo-y-personalización.html",
+    "title": "6  Desarrollo y personalización",
+    "section": "",
+    "text": "6.1 Añadiendo funcionalidades\nEste capítulo ofrece una guía detallada para entender cómo podemos personalizar o extender el plugin de acuerdo a las necesidades de desarrollo.\nVeamos cómo añadir nuevas funcionalidades a través de varios ejemplos:",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Desarrollo y personalización</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/desarrollo-y-personalización.html#añadiendo-funcionalidades",
+    "href": "chapters/desarrollo-y-personalización.html#añadiendo-funcionalidades",
+    "title": "6  Desarrollo y personalización",
+    "section": "",
+    "text": "6.1.1 Añadir soporte para otro proveedor de LLM\n\nCrear una clase para el nuevo proveedor:\n\nUbica la nueva clase en el directorio classes/\nDefine una interfaz común para interactuar con el proveedor. Por ejemplo:\nnamespace cuestionariollm\\provider;\n\nclass CustomLLMProvider {\n    public function __construct($apikey) {\n        $this-&gt;apikey = $apikey;\n    }\n\n    public function generate_question($text) {\n        // Implementar la lógica para conectarse al nuevo proveedor.\n    }\n}\n\nActualizar la lógica de generación de preguntas:\n\nEn lib.php, ajusta la función principal que genera las preguntas para permitir seleccionar entre proveedores.\n\nModificar la configuración:\n\nEdita settings.php para añadir una opción que permita seleccionar el proveedor deseado desde la interfaz de Moodle.\n\n\n\n\n6.1.2 Añadir nuevos eventos\n\nCrea un archivo en classes/event/ siguiendo el formato de los existentes. Por ejemplo, course_module_deleted.php:\nnamespace cuestionariollm\\event;\n\ndefined('MOODLE_INTERNAL') || die();\n\nclass course_module_deleted extends \\core\\event\\base {\n    protected function init() {\n        $this-&gt;data['crud'] = 'd';\n        $this-&gt;data['level'] = self::LEVEL_TEACHING;\n    }\n\n    public static function get_name() {\n        return get_string('eventcoursemoduledeleted', 'cuestionariollm');\n    }\n\n    public function get_description() {\n        return \"El módulo con id {$this-&gt;contextinstanceid} ha sido eliminado.\";\n    }\n}\nRegistra el evento en Moodle para que quede disponible en el sistema.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Desarrollo y personalización</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/desarrollo-y-personalización.html#personalización-de-las-preguntas-generadas",
+    "href": "chapters/desarrollo-y-personalización.html#personalización-de-las-preguntas-generadas",
+    "title": "6  Desarrollo y personalización",
+    "section": "6.2 Personalización de las preguntas generadas",
+    "text": "6.2 Personalización de las preguntas generadas\nLa personalización de las preguntas generadas es la característica más interesantes del plugin, ya que permite adaptar las evaluaciones a las necesidades específicas de los cursos, liberando al docente de parte de la carga que ello implica.\n\n6.2.1 Modificación de parámetros enviados a OpenAI\n\nLocaliza la función responsable:\n\nEn lib.php, busca la función que realiza la llamada a la API de OpenAI. Por ejemplo: ```php $response = $client-&gt;post(‘https://api.openai.com/v1/completions’, [ ‘headers’ =&gt; [‘Authorization’ =&gt; “Bearer $apikey”], ‘json’ =&gt; [ ‘model’ =&gt; ‘text-davinci-003’, ‘prompt’ =&gt; $prompt, ‘max_tokens’ =&gt; 200, ‘temperature’ =&gt; 0.7, ]]);\n\nAjusta los parámetros:\n\nCambia valores como temperature para controlar la creatividad de las respuestas, o max_tokens para limitar la longitud.\n\nRealiza varias pruebas con diferentes textos de entrada para verificar que los ajustes producen los resultados esperados.\n\n\n\n6.2.2 Control del formato de las preguntas\n\nEditar la plantilla de generación:\n\nEn el mismo archivo, modifica el contenido del prompt para ajustar el estilo de las preguntas generadas. Por ejemplo:\n$prompt = \"Genera una pregunta de opción múltiple basada en el siguiente texto: $texto\";\n\nAñadir opciones avanzadas:\n\nPor ejemplo, permitir que el usuario elija el tipo de pregunta (verdadero/falso, opción múltiple, ensayo) desde la configuración del módulo.\n\n\n\n\n6.2.3 Modificación del esquema de base de datos\nEn algunos casos, es posible que desees extender la funcionalidad del plugin mediante nuevas tablas o campos en la base de datos. Para ello:\n\nActualiza install.xml: Añade una nueva tabla o un nuevo campo siguiendo el formato XML. Ejemplo de una nueva tabla:\n&lt;TABLE NAME=\"cuestionariollm_extra_data\"&gt;\n    &lt;FIELDS&gt;\n        &lt;FIELD NAME=\"id\" TYPE=\"int\" LENGTH=\"10\" NOTNULL=\"true\" SEQUENCE=\"true\"/&gt;\n        &lt;FIELD NAME=\"moduleid\" TYPE=\"int\" LENGTH=\"10\" NOTNULL=\"true\"/&gt;\n        &lt;FIELD NAME=\"extra_info\" TYPE=\"text\" NOTNULL=\"false\"/&gt;\n    &lt;/FIELDS&gt;\n    &lt;KEYS&gt;\n        &lt;KEY NAME=\"primary\" TYPE=\"primary\" FIELDS=\"id\"/&gt;\n    &lt;/KEYS&gt;\n&lt;/TABLE&gt;\nCrea funciones de acceso en lib.php: Por ejemplo, para insertar datos: php    function insert_extra_data($moduleid, $extra_info) {        global $DB;        $record = new stdClass();        $record-&gt;moduleid = $moduleid;        $record-&gt;extra_info = $extra_info;        $DB-&gt;insert_record('cuestionariollm_extra_data', $record);     }",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Desarrollo y personalización</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/solución-de-problemas.html",
+    "href": "chapters/solución-de-problemas.html",
+    "title": "7  Solución de problemas",
+    "section": "",
+    "text": "7.1 Errores comunes y sus soluciones\nEn este capítulo detallaremos cómo identificar y resolver los problemas más comunes que pueden surgir al instalar, configurar o usar el plugin DALEK en Moodle. Se incluyen en ellos los pasos para habilitar la depuración, interpretar mensajes de error y solucionar conflictos con dependencias u otros plugins.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solución de problemas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/solución-de-problemas.html#errores-comunes-y-sus-soluciones",
+    "href": "chapters/solución-de-problemas.html#errores-comunes-y-sus-soluciones",
+    "title": "7  Solución de problemas",
+    "section": "",
+    "text": "7.1.1 Error durante la instalación del plugin\nAl instalar el plugin desde el panel de administración de Moodle, aparece un mensaje de error indicando que faltan dependencias o que la versión de Moodle no es compatible.\n\nCausa/s posible:\n\nMoodle no está actualizado a la versión mínima requerida (4.1).\nNo se han instalado correctamente las dependencias con Composer.\n\nSolución:\n\nAsegúrate de que Moodle está actualizado. Si es necesario, descarga la última versión.\nEn la raíz del plugin, ejecuta:\ncomposer install\nEsto instalará las dependencias necesarias.\nReintenta la instalación desde el panel de administración.\n\n\n\n\n7.1.2 El cuestionario no se genera correctamente\nEl plugin crea una actividad, pero no aparecen preguntas generadas automáticamente.\n\nCausa/s posible:\n\nLa API Key de OpenAI no está configurada o no es válida.\nEl archivo cargado (PDF o texto) tiene un formato incompatible.\n\nSolución:\n\nVerifica que la API Key está configurada correctamente en settings.php. Prueba la conexión con:\n$client = new \\OpenAI\\Client('tu_api_key');\nAsegúrate de que el archivo cargado tiene texto legible (no imágenes escaneadas). Puedes usar herramientas como pdftotext para verificar.\nRevisa los permisos del servidor para subir archivos. Moodle requiere que los archivos cargados cumplan con los límites de tamaño configurados en php.ini (upload_max_filesize y post_max_size).\n\n\n\n\n7.1.3 Problemas de rendimiento en el servidor\nMoodle se ralentiza notablemente cuando el plugin está en uso.\n\nCausa/s posible:\n\nLas solicitudes a la API de OpenAI no están optimizadas o el servidor de Moodle tiene recursos limitados.\n\nSolución:\n\nRevisa los tiempos de respuesta de la API de OpenAI desde el archivo de registro.\nSi el problema persiste, habilita el almacenamiento en caché de las respuestas del modelo. Esto puede hacerse mediante una modificación en lib.php para guardar temporalmente las respuestas generadas.\nConsidera optimizar la configuración de PHP en el servidor (por ejemplo, aumentando max_execution_time y memory_limit).\n\n\n\n\n7.1.4 Conflictos con otros plugins\nAlgunas funciones del plugin no funcionan correctamente o Moodle muestra errores relacionados con otros plugins.\n\nCausa posible:\n\nOtro plugin está sobrescribiendo eventos o funciones usadas por DALEK.\n\nSolución:\n\nDesactiva temporalmente los otros plugins sospechosos desde el panel de administración.\nRevisa los eventos registrados en classes/event/. Si es necesario, modifica las clases para evitar conflictos de nombres.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solución de problemas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/solución-de-problemas.html#habilitar-la-depuración-en-moodle",
+    "href": "chapters/solución-de-problemas.html#habilitar-la-depuración-en-moodle",
+    "title": "7  Solución de problemas",
+    "section": "7.2 Habilitar la depuración en Moodle",
+    "text": "7.2 Habilitar la depuración en Moodle\nCuando algo no funciona como se espera, habilitar la depuración en Moodle es una muy buena forma para ayudar a identificar la causa exacta del problema.\nLos pasos para habilitar la depuración son los siguientes:\n\nAccede a la configuración de depuración:\n\nVe a Administración del sitio &gt; Desarrollo &gt; Depurador.\n\nSelecciona el nivel de depuración más alto: DESARROLLADOR.\nMarca la casilla para mostrar mensajes de depuración directamente en la interfaz.\nGuarda los cambios.\nReproduce el error y analiza los mensajes que aparecen en pantalla.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solución de problemas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/solución-de-problemas.html#uso-de-los-registros-logs",
+    "href": "chapters/solución-de-problemas.html#uso-de-los-registros-logs",
+    "title": "7  Solución de problemas",
+    "section": "7.3 Uso de los registros (logs)",
+    "text": "7.3 Uso de los registros (logs)\nMoodle registra eventos y errores que pueden ser útiles para resolver problemas. Sus ubicaciones son las siguientes:\n\nLos registros del servidor web (Apache o Nginx) suelen estar en:\n\n/var/log/apache2/error.log (Apache).\n/var/log/nginx/error.log (Nginx).\n\nMoodle también tiene sus propios registros accesibles desde:\n\nAdministración del sitio &gt; Informes &gt; Registros.\n\n\n¿Qué tendríamos que buscar:\n\nErrores específicos relacionados con DALEK, como:\nException: OpenAI API request failed with status 401 (Unauthorized)\nDetalles de la actividad del plugin, como fallos al cargar archivos o errores en la generación de preguntas.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solución de problemas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/solución-de-problemas.html#solución-de-conflictos-de-dependencias",
+    "href": "chapters/solución-de-problemas.html#solución-de-conflictos-de-dependencias",
+    "title": "7  Solución de problemas",
+    "section": "7.4 Solución de conflictos de dependencias",
+    "text": "7.4 Solución de conflictos de dependencias\nEl plugin utiliza varias bibliotecas externas gestionadas con Composer. Si hay conflictos de versiones, podrían llegar a aparecer errores.\nPasos para resolver conflictos:\n\nReinstalar dependencias:\n\nElimina el directorio vendor/:\n\nrm -rf vendor/\nReinstala las dependencias:\ncomposer install\nVerifica la versión de las dependencias:\n\nComprueba el archivo composer.json para asegurarte de que las versiones especificadas son compatibles.\n\nActualiza Composer y dependencias:\ncomposer self-update  # Actualiza Composer\ncomposer update       # Actualiza las dependencias",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solución de problemas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/solución-de-problemas.html#preguntas-frecuentes",
+    "href": "chapters/solución-de-problemas.html#preguntas-frecuentes",
+    "title": "7  Solución de problemas",
+    "section": "7.5 Preguntas frecuentes",
+    "text": "7.5 Preguntas frecuentes\n\n7.5.1 ¿Por qué no puedo subir archivos grandes al plugin?\n\nVerifica los límites en php.ini:\nupload_max_filesize = 20M\npost_max_size = 20M\nReinicia el servidor después de realizar cambios.\n\n\n\n7.5.2 ¿Qué hacer si la API de OpenAI no responde?\n\nComprueba el estado del servicio en su página de estado oficial.\nAsegúrate de que el servidor tiene acceso a Internet.\n\n\n\n7.5.3 ¿Cómo depurar errores relacionados con las preguntas generadas?\n\nActiva los logs detallados en la API de OpenAI configurando el modo\nde prueba (test_mode) en el plugin.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solución de problemas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencias-y-contribuciones.html",
+    "href": "chapters/licencias-y-contribuciones.html",
+    "title": "8  Licencias y contribuciones",
+    "section": "",
+    "text": "8.1 Licencia del código fuente: GPLv3\nEl plugin DALEK: Digital Analysis and Learning Enhancement Kit y su documentación están distribuidos bajo licencias que aseguran la libertad de uso, modificación y redistribución, respetando las normativas de software libre y acceso abierto.\nA continuación, se detallan las licencias aplicables y las formas de contribuir al proyecto.\nEl código fuente del plugin está publicado bajo la Licencia Pública General de GNU versión 3 (GPLv3), que garantiza las siguientes libertades:",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Licencias y contribuciones</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencias-y-contribuciones.html#licencia-del-código-fuente-gplv3",
+    "href": "chapters/licencias-y-contribuciones.html#licencia-del-código-fuente-gplv3",
+    "title": "8  Licencias y contribuciones",
+    "section": "",
+    "text": "Uso libre: Puedes utilizar el plugin para cualquier propósito, sin restricciones de tipo comercial, académico o personal.\nAcceso al código fuente: Puedes inspeccionar, estudiar y comprender cómo funciona el plugin. Esto fomenta la transparencia y la confianza en el software.\nModificación: Tienes el derecho de modificar el código fuente para adaptarlo a tus necesidades. Por ejemplo, puedes añadir nuevas funcionalidades, mejorar el rendimiento o personalizar su integración en Moodle.\nDistribución: Puedes redistribuir el plugin original o tus versiones modificadas, siempre que respetes las mismas condiciones de la GPLv3, es decir:\n\nProporcionar acceso al código fuente.\nIncluir una copia de la licencia GPLv3.\nAsegurarte de que las modificaciones también estén licenciadas bajo GPLv3.\n\n\n\n8.1.1 Obligaciones de la GPLv3\nSi decides redistribuir el plugin o una versión modificada, debes:\n\nIncluir el aviso de copyright original.\nAcompañar el código fuente con una copia de la licencia GPLv3.\nGarantizar que las modificaciones sean públicas y accesibles bajo los mismos términos.\n\nPara más información sobre la GPLv3, visita la web oficial de la Free Software Foundation](https://www.gnu.org/licenses/gpl-3.0.html).",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Licencias y contribuciones</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencias-y-contribuciones.html#licencia-de-la-documentación-cc-by-sa",
+    "href": "chapters/licencias-y-contribuciones.html#licencia-de-la-documentación-cc-by-sa",
+    "title": "8  Licencias y contribuciones",
+    "section": "8.2 Licencia de la documentación: CC-BY-SA",
+    "text": "8.2 Licencia de la documentación: CC-BY-SA\nLa documentación del plugin, incluyendo este manual, está licenciada bajo Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA). Esto significa que:\n\nAtribución (BY): Puedes compartir (copiar y redistribuir) y adaptar (modificar o transformar) este documento para cualquier propósito, incluso comercial, siempre que reconozcas la autoría original. Esto implica:\n\nMencionar a los autores originales (por ejemplo, “Basado en el manual de DALEK”).\nIncluir un enlace a la licencia.\nIndicar si realizaste cambios en el documento.\n\nCompartir igual (SA): Si modificas o adaptas este documento, debes distribuir tu versión bajo la misma licencia CC-BY-SA. Esto asegura que cualquier mejora o variación sea accesible para otros usuarios en condiciones similares.\nSin restricciones adicionales: No puedes imponer términos legales o tecnológicos que limiten los derechos concedidos por esta licencia.\n\nPara más información sobre esta licencia, puedes visitar la web de la licencia CC-BY-SA.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Licencias y contribuciones</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencias-y-contribuciones.html#contribuciones-al-proyecto",
+    "href": "chapters/licencias-y-contribuciones.html#contribuciones-al-proyecto",
+    "title": "8  Licencias y contribuciones",
+    "section": "8.3 Contribuciones al proyecto",
+    "text": "8.3 Contribuciones al proyecto\nEl desarrollo de DALEK está abierto a la colaboración de cualquier persona interesada en mejorar el plugin o aportar ideas. A continuación, se explica cómo puedes contribuir.\n\nReportar problemas: Si encuentras errores, problemas de compatibilidad o sugerencias de mejora, puedes abrir un issue en el repositorio oficial en GitHub del proyecto. Detalla claramente:\n\nEl problema encontrado.\nPasos para reproducirlo.\nMensajes de error (si los hay).\nTu entorno de trabajo (versión de Moodle, PHP, etc.).\n\nProponer mejoras: Si tienes ideas para nuevas funcionalidades o mejoras, abre un issue con una descripción detallada de tu propuesta.\nAportar código: Puedes realizar un fork del repositorio, trabajar en tus cambios y enviar un pull request (PR). Asegúrate de seguir las directrices de estilo y contribuir con código documentado y probado. Cada PR debe incluir:\n\nUna descripción clara de los cambios realizados.\nExplicación de cómo probar los cambios.\nReferencia a cualquier issue relacionado.\n\nTraducir el plugin: Si deseas colaborar con traducciones, puedes enviar archivos de idioma para otros idiomas además del español e inglés.\nCrear o mejorar la documentación: Puedes aportar guías adicionales, ejemplos prácticos o tutoriales para mejorar la experiencia de otros usuarios y desarrolladores.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Licencias y contribuciones</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/licencias-y-contribuciones.html#reconocimientos",
+    "href": "chapters/licencias-y-contribuciones.html#reconocimientos",
+    "title": "8  Licencias y contribuciones",
+    "section": "8.4 Reconocimientos",
+    "text": "8.4 Reconocimientos\nAgradecemos a todos los contribuyentes actuales y futuros por su esfuerzo y dedicación al proyecto. DALEK es una herramienta en constante evolución gracias a la colaboración abierta de la comunidad.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Licencias y contribuciones</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/referencias-y-recursos.html",
+    "href": "chapters/referencias-y-recursos.html",
+    "title": "9  Referencias y recursos",
+    "section": "",
+    "text": "9.1 Moodle Developer Docs\nEn este capítulo se recogen las principales referencias y recursos que pueden ser de utilidad para el desarrollo, personalización y uso del plugin.\nEl objetivo es proporcionar información práctica y accesible para que los desarrolladores puedan resolver dudas, aprender nuevas funcionalidades o ampliar sus conocimientos sobre Moodle, PHP y las tecnologías empleadas en el plugin.\nMoodle es un sistema modular que ofrece múltiples APIs para interactuar con sus componentes principales. Es imprescindible conocer estas API para desarrollar plugins que sigan las mejores prácticas y mantengan la compatibilidad con futuras versiones de Moodle.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias y recursos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/referencias-y-recursos.html#moodle-developer-docs",
+    "href": "chapters/referencias-y-recursos.html#moodle-developer-docs",
+    "title": "9  Referencias y recursos",
+    "section": "",
+    "text": "Documentación oficial\nhttps://moodledev.io/\nAquí se encuentra toda la documentación técnica de Moodle, incluyendo guías para desarrolladores, ejemplos de código y explicaciones detalladas de las APIs. Es el punto de partida para cualquier desarrollador interesado en trabajar con Moodle.\nForo de desarrolladores de Moodle\nhttps://moodle.org/mod/forum/view.php?id=55\nEspacio para interactuar con la comunidad de desarrolladores de Moodle, resolver dudas y compartir ideas.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias y recursos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/referencias-y-recursos.html#repositorio-del-plugin",
+    "href": "chapters/referencias-y-recursos.html#repositorio-del-plugin",
+    "title": "9  Referencias y recursos",
+    "section": "9.2 Repositorio del plugin",
+    "text": "9.2 Repositorio del plugin\nEl repositorio oficial del plugin DALEK contiene el código fuente actualizado, así como instrucciones detalladas sobre la instalación, configuración y uso del plugin.\n\nGitHub\nhttps://github.com/KNODIS-Research-Group/moodle-dalek En este repositorio también se gestionan los issues, pull requests y contribuciones al proyecto.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias y recursos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/referencias-y-recursos.html#documentación-de-openai",
+    "href": "chapters/referencias-y-recursos.html#documentación-de-openai",
+    "title": "9  Referencias y recursos",
+    "section": "9.3 Documentación de OpenAI",
+    "text": "9.3 Documentación de OpenAI\nEl plugin utiliza la API de OpenAI para generar contenido adaptativo. La comprensión y el correcto uso de esta API son fundamentales para personalizar o extender las funcionalidades del plugin.\n\nGuía de inicio rápido de OpenAI\nhttps://platform.openai.com/docs/quickstart\nProporciona ejemplos prácticos para comenzar a utilizar la API.\nReferencia completa de la API\nhttps://platform.openai.com/docs/api-reference\nIncluye información sobre los endpoints disponibles, parámetros y respuestas de la API.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias y recursos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/referencias-y-recursos.html#recursos-sobre-php-y-composer",
+    "href": "chapters/referencias-y-recursos.html#recursos-sobre-php-y-composer",
+    "title": "9  Referencias y recursos",
+    "section": "9.4 Recursos sobre PHP y Composer",
+    "text": "9.4 Recursos sobre PHP y Composer\nEl desarrollo del plugin requiere bastante conocimiento de PHP, así como del uso de Composer para la gestión de dependencias.\n\nDocumentación oficial de PHP\nhttps://www.php.net/docs.php\nContiene guías completas, ejemplos y documentación de las funciones del lenguaje.\nDocumentación de Composer\nhttps://getcomposer.org/doc/\nExplica cómo instalar y usar Composer para gestionar dependencias en proyectos PHP.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias y recursos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/referencias-y-recursos.html#recursos-para-el-manejo-de-dependencias",
+    "href": "chapters/referencias-y-recursos.html#recursos-para-el-manejo-de-dependencias",
+    "title": "9  Referencias y recursos",
+    "section": "9.5 Recursos para el manejo de dependencias",
+    "text": "9.5 Recursos para el manejo de dependencias\nEl plugin utiliza varias dependencias externas, como guzzlehttp para realizar solicitudes HTTP y smalot/pdfparser para procesar archivos PDF. Aquí se incluyen los enlaces a sus respectivas documentaciones:\n\nGuzzle (HTTP client)\nhttps://docs.guzzlephp.org/\nInformación sobre cómo realizar peticiones HTTP eficientes y manejar respuestas.\nSmalot PDFParser\nhttps://github.com/smalot/pdfparser\nRepositorio oficial con ejemplos y documentación para trabajar con archivos PDF.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias y recursos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/referencias-y-recursos.html#recursos-adicionales",
+    "href": "chapters/referencias-y-recursos.html#recursos-adicionales",
+    "title": "9  Referencias y recursos",
+    "section": "9.6 Recursos adicionales",
+    "text": "9.6 Recursos adicionales\n\nGuías de buenas prácticas en desarrollo PHP\nhttps://phptherightway.com/\nUna recopilación de buenas prácticas y recomendaciones para desarrolladores PHP.\nControl de versiones con Git\n\nhttps://git-scm.com/doc\nDocumentación oficial de Git para el control de versiones.\n\nhttps://learngitbranching.js.org/\nTutorial interactivo para aprender a trabajar con ramas en Git.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias y recursos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/referencias-y-recursos.html#recursos-para-pruebas",
+    "href": "chapters/referencias-y-recursos.html#recursos-para-pruebas",
+    "title": "9  Referencias y recursos",
+    "section": "9.7 Recursos para pruebas",
+    "text": "9.7 Recursos para pruebas\nLa calidad del plugin se garantiza a través de pruebas exhaustivas. Moodle soporta PHPUnit para pruebas unitarias.\n\nPHPUnit\nhttps://phpunit.de/documentation.html\nGuía oficial para configurar y utilizar PHPUnit.\nPruebas específicas de Moodle\nhttps://moodledev.io/docs/automation/phpunit\nExplicación de cómo configurar y ejecutar pruebas unitarias dentro de Moodle.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias y recursos</span>"
+    ]
+  }
+]
