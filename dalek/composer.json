@@ -1,0 +1,23 @@
+{
+    "name": "vendor/cuestionariollm",
+    "description": "Composer project for the plugin cuestionariollm for moodle",
+    "type": "project",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Gonzalo Romero",
+            "email": "gonzalo.romeros@alumnos.upm.es"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "openai-php/client": "dev-main",
+        "guzzlehttp/guzzle": "8.0.x-dev",
+        "smalot/pdfparser": "dev-master"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
