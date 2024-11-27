@@ -1,0 +1,133 @@
+# Desarrollo y personalización
+
+Este capítulo ofrece una guía detallada para entender cómo podemos
+personalizar o extender el _plugin_ de acuerdo a las necesidades de
+desarrollo.
+
+## Añadiendo funcionalidades
+
+Veamos cómo añadir nuevas funcionalidades a través de varios ejemplos:
+
+### Añadir soporte para otro proveedor de LLM
+
+1. Crear una clase para el nuevo proveedor:
+   - Ubica la nueva clase en el directorio `classes/`
+   - Define una interfaz común para interactuar con el proveedor. Por
+     ejemplo:
+     ```php
+     namespace cuestionariollm\provider;
+
+     class CustomLLMProvider {
+         public function __construct($apikey) {
+             $this->apikey = $apikey;
+         }
+
+         public function generate_question($text) {
+             // Implementar la lógica para conectarse al nuevo proveedor.
+         }
+     }
+     ```
+2. Actualizar la lógica de generación de preguntas:
+   - En `lib.php`, ajusta la función principal que genera las preguntas
+     para permitir seleccionar entre proveedores.
+3. Modificar la configuración:
+   - Edita `settings.php` para añadir una opción que permita seleccionar
+     el proveedor deseado desde la interfaz de Moodle.
+
+### Añadir nuevos eventos
+
+1. Crea un archivo en `classes/event/` siguiendo el formato de los
+   existentes. Por ejemplo, `course_module_deleted.php`:
+   ```php
+   namespace cuestionariollm\event;
+
+   defined('MOODLE_INTERNAL') || die();
+
+   class course_module_deleted extends \core\event\base {
+       protected function init() {
+           $this->data['crud'] = 'd';
+           $this->data['level'] = self::LEVEL_TEACHING;
+       }
+
+       public static function get_name() {
+           return get_string('eventcoursemoduledeleted', 'cuestionariollm');
+       }
+
+       public function get_description() {
+           return "El módulo con id {$this->contextinstanceid} ha sido eliminado.";
+       }
+   }
+   ```
+2. Registra el evento en Moodle para que quede disponible en el sistema.
+
+## Personalización de las preguntas generadas
+
+La personalización de las preguntas generadas es la característica más
+interesantes del _plugin_, ya que permite adaptar las evaluaciones a las
+necesidades específicas de los cursos, liberando al docente de parte de
+la carga que ello implica.
+
+### Modificación de parámetros enviados a OpenAI
+
+1. Localiza la función responsable:
+   - En `lib.php`, busca la función que realiza la llamada a la API de
+     OpenAI. Por ejemplo:
+     ```php
+     $response = $client->post('https://api.openai.com/v1/completions', [
+         'headers' => ['Authorization' => "Bearer $apikey"],
+         'json' => [
+             'model' => 'text-davinci-003',
+             'prompt' => $prompt,
+             'max_tokens' => 200,
+             'temperature' => 0.7,
+         ]
+     ]);
+2. Ajusta los parámetros:
+   - Cambia valores como `temperature` para controlar la creatividad de
+     las respuestas, o `max_tokens` para limitar la longitud.
+3. Realiza varias pruebas con diferentes textos de entrada para
+   verificar que los ajustes producen los resultados esperados.
+
+### Control del formato de las preguntas
+
+1. Editar la plantilla de generación:
+   - En el mismo archivo, modifica el contenido del _prompt_ para
+     ajustar el estilo de las preguntas generadas. Por ejemplo:
+     ```php
+     $prompt = "Genera una pregunta de opción múltiple basada en el siguiente texto: $texto";
+     ```
+2. Añadir opciones avanzadas:
+   - Por ejemplo, permitir que el usuario elija el tipo de pregunta
+     (verdadero/falso, opción múltiple, ensayo) desde la configuración
+     del módulo.
+
+### Modificación del esquema de base de datos
+
+En algunos casos, es posible que desees extender la funcionalidad del
+_plugin_ mediante nuevas tablas o campos en la base de datos. Para ello:
+
+1. **Actualiza `install.xml`**: Añade una nueva tabla o un nuevo campo
+   siguiendo el formato XML. Ejemplo de una nueva tabla:
+   ```php
+   <TABLE NAME="cuestionariollm_extra_data">
+       <FIELDS>
+           <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+           <FIELD NAME="moduleid" TYPE="int" LENGTH="10" NOTNULL="true"/>
+           <FIELD NAME="extra_info" TYPE="text" NOTNULL="false"/>
+       </FIELDS>
+       <KEYS>
+           <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+       </KEYS>
+   </TABLE>
+   ```
+2. **Crea funciones de acceso en `lib.php`**: Por ejemplo, para insertar
+   datos:
+   ```php
+   function insert_extra_data($moduleid, $extra_info) {
+       global $DB;
+       $record = new stdClass();
+       $record->moduleid = $moduleid;
+       $record->extra_info = $extra_info;
+       $DB->insert_record('cuestionariollm_extra_data', $record);
+    }
+    ```

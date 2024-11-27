@@ -1,0 +1,124 @@
+# Requisitos previos
+
+Antes de empezar a trabajar con el _plugin_, es importante asegurarse de
+cumplir con una serie de requisitos, tanto de software como de
+conocimientos. Este apartado detalla todo lo necesario para una
+instalación correcta y una buena preparación para el desarrollo.
+
+## Software necesario
+
+Para que el _plugin_ funcione correctamente y puedas desarrollarlo o
+modificarlo, debes contar con el siguiente software:
+
+### Moodle
+
+Moodle es el entorno en el que opera el plugin. Es imprescindible que la
+instalación esté activa y correctamente configurada en un servidor
+accesible, por lo que si no es así, , descárgalo desde su
+[sitio oficial](https://moodle.org/), y sigue las guías de instalación.
+Asegúrate de que tu servidor cumple los requisitos de la versión de
+Moodle.
+
+- **Versión requerida**: Moodle 4.1 o superior.
+
+### PHP
+
+PHP es el lenguaje principal en el que está desarrollado Moodle y este
+_plugin_. La versión 8.1 garantiza compatibilidad con las
+funcionalidades modernas del lenguaje y el rendimiento necesario para
+manejar la carga de trabajo de Moodle.
+
+- **Versión requerida**: PHP 8.1 o superior.
+
+### Servidor local o remoto
+
+Si trabajas en local para desarrollo, utiliza un servidor como XAMPP,
+WampServer o MAMP (según tu sistema operativo). Para entornos de
+producción o pruebas avanzadas, configura un servidor remoto con
+herramientas como Apache o Nginx.
+
+### Composer
+
+Composer es una herramienta de gestión de dependencias para PHP.
+
+Este _plugin_ utiliza dependencias externas que se gestionan con
+Composer por lo que, si no lo tienes instalado, es recomendable que lo
+hagas. Basta con descargarlo desde su
+[sitio oficial](https://getcomposer.org/), instalarlo y asegurarte de
+que se encuentra en el `PATH` de tu sistema.
+
+### Servidor SQL
+
+Es otro de los requisitos necesarios para que Moodle funcione.
+Prácticamente cualquiera de los principales sistemas gestores de bases
+de datos nos vale (e.g. MariaDB, Postgrsql). Aun así, comprueba el
+manual de requisitos de Moodle para instalar el que mejor se ajuste a
+tus necesidades.
+
+### Cliente SQL
+
+Para interactuar con la base de datos desde fuerea de Moodle (algo muy
+útil en entornos de desarrollo), viene bien tener un cliente SQL como:
+
+- DBeaver (multiplataforma).
+- HeidiSQL (Windows).
+- MySQL Workbench (multiplataforma y nuestro preferido si usas MySQL o
+  MariaDB como gestor de bases de datos).
+- phpMyAdmin, si prefieres una interfaz web.
+
+## Conocimientos recomendados
+
+Aunque no es estrictamente necesario ser un experto, tener ciertos
+conocimientos facilitará mucho el proceso de instalación,
+personalización o desarrollo del plugin.
+
+Es importante conocer las bases del lenguaje PHP, ya que el código del
+plugin está escrito en este lenguaje. También es interesante tener
+conocimientos de cómo interactuar con API REST, ya que el plugin se
+conecta con la API de OpenAI para generar preguntas adaptativas.
+
+Ya que Moodle almacena datos del _plugin_ en su base de datos, es
+recomendable, aunque no imprescindible, nociones de lenguaje SQL, sobre
+todo referente a cómo interpretar esquemas y como realizar consultas y
+modificaciones.
+
+Por último, si te has planteado colaborar en el desarrollo del _plugin_,
+es recomendable tener conocimientos de sistema de control de versiones,
+concretamente de Git, ya que el repositorio se encuentra alojado en
+GitHub.
+
+## Configuración de un entorno de desarrollo
+
+A continuación, te mostramos cómo preparar un entorno para trabajar con
+el _plugin_.
+
+### Paso 1: Configura un servidor local
+
+1. Instala XAMPP, WampServer o el servidor que prefieras.
+2. Configura el servidor para que sea compatible con Moodle:
+   - Activa extensiones necesarias de PHP como `curl`, `xml`, `intl`,
+     `zip`, y `gd`.
+   - Configura un acceso a una base de datos, por ejemplo MariaDB.
+
+### Paso 2: Instala Moodle
+
+1. Descarga Moodle desde su [sitio oficial](https://moodle.org/).
+2. Sigue las instrucciones de instalación, asegurándote de crear una
+   base de datos y un usuario con permisos adecuados.
+3. Accede al administrador de Moodle para verificar que la instalación
+   ha concluido con éxito.
+
+### Paso 3: Instala Composer
+
+1. Una vez instalado, navega al directorio del plugin y ejecuta:
+   ```bash
+   composer install
+   ```
+   Esto descargará todas las dependencias definidas en el archivo composer.json.
+
+### Paso 4: Configura tu editor o IDE
+
+1. Usa un editor de código moderno como Visual Studio Code o PhpStorm.
+2. Instala extensiones útiles:
+   - Formateadores y analizadores de código PHP.
+   - _Plugins_ específicos para Moodle, si están disponibles.

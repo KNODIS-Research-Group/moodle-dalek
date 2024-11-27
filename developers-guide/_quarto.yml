@@ -1,0 +1,26 @@
+project:
+  type: book
+
+book:
+  title: Guía de desarrollador
+  date: "09/16/2024"
+  chapters:
+    - index.qmd
+    - chapters/introducción.qmd
+    - chapters/requisitos-previos.qmd
+    - chapters/estructura-del-plugin.qmd
+    - chapters/instalación-del-plugin.qmd
+    - chapters/uso-del-plugin.qmd
+    - chapters/desarrollo-y-personalización.qmd
+    - chapters/solución-de-problemas.qmd
+    - chapters/licencias-y-contribuciones.qmd
+    - chapters/referencias-y-recursos.qmd
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

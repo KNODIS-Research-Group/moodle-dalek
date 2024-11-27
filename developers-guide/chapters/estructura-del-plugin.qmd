@@ -1,0 +1,138 @@
+# Estructura del _plugin_
+
+{{< var plugin.name >}} está compuesto por una estructura organizada en
+carpetas y archivos que cumplen funciones específicas dentro del entorno
+Moodle. A continuación, se describe cada componente para entender su
+propósito y funcionalidad.
+
+## Descripción general
+
+La estructura del _plugin_ sigue el estándar de desarrollo de Moodle, lo
+que permite su integración con la plataforma. A continuación, se
+presenta el árbol de directorios y archivos principales del _plugin_,
+junto con una breve descripción de cada uno:
+
+```text
+├── backup/         # Gestión de copias de seguridad y restauración.
+├── classes/        # Clases PHP, incluyendo eventos y lógica principal.
+├── db/             # Configuración de base de datos y permisos.
+├── lang/           # Archivos de idioma para la internacionalización.
+├── vendor/         # Dependencias externas gestionadas con Composer.
+├── composer.json   # Configuración de las dependencias del plugin.
+├── lib.php         # Funciones generales y API interna.
+├── mod_form.php    # Formulario de configuración del plugin.
+├── settings.php    # Configuración general accesible desde Moodle.
+├── version.php     # Información sobre la versión del plugin.
+└── view.php        # Archivo principal para mostrar la interfaz del plugin.
+```
+
+### `backup/`
+
+Este directorio contiene los scripts necesarios para gestionar las
+copias de seguridad y restauraciones de Moodle relacionadas con el
+_plugin_.
+
+- `backup_cuestionariollm_activity_task.class.php`: Define la tarea de
+  copia de seguridad para las actividades generadas por el _plugin_.
+- `restore_cuestionariollm_activity_task.class.php`: Configura cómo se
+  restauran las actividades del _plugin_ desde una copia de seguridad.
+- `*_stepslib.php`: Contienen las instrucciones paso a paso para
+  realizar las copias de seguridad y restauraciones.
+
+### `classes/`
+
+En esta carpeta se encuentran las clases principales del _plugin_,
+organizadas según las convenciones de Moodle. Un subdirectorio típico
+dentro de esta carpeta es `event/`.
+
+- `event/`: Contiene clases de eventos que Moodle utiliza para 
+  rastrearlas interacciones del usuario con el _plugin_.
+  - `course_module_instance_list_viewed.php`: Evento que registra cuándo
+    un usuario visualiza la lista de actividades del _plugin_.
+  - `course_module_viewed.php`: Evento que registra cuándo un usuario
+    accede a una actividad específica.
+
+Si deseas añadir nuevas funcionalidades al _plugin_, como eventos
+personalizados, este es el lugar donde debes incluir las clases
+correspondientes.
+
+### `db/`
+
+La carpeta `db/` contiene archivos relacionados con la configuración de
+la base de datos y los permisos.
+
+- `access.php`: Define las capacidades o permisos que los usuarios
+  pueden tener al interactuar con el plugin. Por ejemplo, permisos para
+  crear, editar o eliminar actividades.
+- `install.xml`: Archivo XML que describe la estructura de las tablas
+  utilizadas por el plugin en la base de datos de Moodle. Si necesitas
+  añadir nuevas tablas o campos, este archivo debe ser actualizado.
+
+### `lang/`
+
+Esta carpeta almacena los archivos de idioma necesarios para
+internacionalizar el `plugin`.
+
+- `en/cuestionariollm.php`: Contiene las cadenas de texto en inglés para
+  el _plugin_. Si deseas traducir el plugin a otros idiomas, debes crear
+  carpetas como `es/` (español) o `fr/` (francés), copiando y adaptando
+  este archivo.
+
+### `vendor/`
+
+Esta carpeta contiene las bibliotecas externas gestionadas con Composer,
+necesarias para el funcionamiento del _plugin_. Algunas de las
+dependencias incluidas son:
+
+- `guzzlehttp`: Biblioteca para realizar solicitudes HTTP hacia la API
+  de OpenAI.
+- `smalot/pdfparser`: Biblioteca para procesar archivos PDF y extraer
+  texto.
+- `psr7`: Implementación de estándares PSR para el manejo de solicitudes
+  y respuestas HTTP.
+
+**Nota**: No modifiques manualmente los archivos de esta carpeta. Si
+necesitas añadir o actualizar dependencias, utiliza Composer y el
+archivo `composer.json`.
+
+### Archivos principales
+
+A continuación, se explican los archivos más importantes del _plugin_,
+que se encuentran en el nivel raíz:
+
+`composer.json`: Contiene la configuración de las dependencias externas
+del _plugin_. Si necesitas añadir una nueva biblioteca, este archivo
+debe ser editado y actualizado con Composer.
+`lib.php`: Este archivo centraliza funciones genéricas del _plugin_.
+Aquí se pueden definir hooks que extiendan o personalicen el
+comportamiento de Moodle.
+`mod_form.php`: Archivo que define el formulario de configuración del
+_plugin_ cuando se crea o edita una actividad en Moodle. Aquí puedes
+personalizar las opciones que el usuario ve al configurar la actividad.
+`settings.php`: Archivo utilizado para definir configuraciones generales
+del plugin, accesibles desde el panel de administración de Moodle. Por
+ejemplo, este archivo puede incluir la configuración de la API Key de
+OpenAI.
+`version.php`: Contiene la información sobre la versión del _plugin_,
+como el número de versión, la compatibilidad con Moodle y las
+dependencias requeridas.
+`view.php`: Es el archivo principal que renderiza la interfaz del plugin
+cuando los usuarios acceden a una actividad.
+
+`pix/`
+
+Esta carpeta almacena los recursos gráficos del _plugin_, como iconos.
+Por ejemplo:
+
+- `monologo.svg`: Icono utilizado para representar el plugin en la
+  interfaz de Moodle.
+
+## Buenas prácticas al trabajar con la estructura
+
+- **No modificar directamente las dependencias de `vendor/`**: Usa
+  Composer para gestionar estas bibliotecas.
+- **Usar nombres descriptivos**: Los nombres de archivos y carpetas
+  deben reflejar claramente su función.
+- **Mantener la compatibilidad con Moodle**: Sigue las convenciones de
+  desarrollo de Moodle para garantizar que el _plugin_ funcione
+  correctamente con futuras actualizaciones.

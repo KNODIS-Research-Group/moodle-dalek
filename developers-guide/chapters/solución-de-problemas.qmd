@@ -1,0 +1,162 @@
+# Solución de problemas
+
+En este capítulo detallaremos cómo identificar y resolver los problemas
+más comunes que pueden surgir al instalar, configurar o usar el plugin
+{{< var plugin.name >}} en Moodle. Se incluyen en ellos los pasos para
+habilitar la depuración, interpretar mensajes de error y solucionar
+conflictos con dependencias u otros plugins.
+
+## Errores comunes y sus soluciones
+
+### Error durante la instalación del plugin
+
+Al instalar el plugin desde el panel de administración de Moodle,
+aparece un mensaje de error indicando que faltan dependencias o que la
+versión de Moodle no es compatible.
+
+- Causa/s posible:
+  - Moodle no está actualizado a la versión mínima requerida (4.1).
+  - No se han instalado correctamente las dependencias con Composer.
+- Solución:
+  1. Asegúrate de que Moodle está actualizado. Si es necesario, descarga
+     la última versión.
+  2. En la raíz del plugin, ejecuta:
+     ```bash
+     composer install
+     ```
+     Esto instalará las dependencias necesarias.
+  3. Reintenta la instalación desde el panel de administración.
+
+### El cuestionario no se genera correctamente
+
+El plugin crea una actividad, pero no aparecen preguntas generadas
+automáticamente.
+
+- Causa/s posible:
+  - La API Key de OpenAI no está configurada o no es válida.
+  - El archivo cargado (PDF o texto) tiene un formato incompatible.
+- Solución:
+  1. Verifica que la API Key está configurada correctamente en
+     `settings.php`. Prueba la conexión con:
+     ```php
+     $client = new \OpenAI\Client('tu_api_key');
+     ```
+  2. Asegúrate de que el archivo cargado tiene texto legible (no imágenes
+     escaneadas). Puedes usar herramientas como `pdftotext` para
+     verificar.
+  3. Revisa los permisos del servidor para subir archivos. Moodle requiere
+     que los archivos cargados cumplan con los límites de tamaño
+     configurados en `php.ini` (`upload_max_filesize` y `post_max_size`).
+
+### Problemas de rendimiento en el servidor
+
+Moodle se ralentiza notablemente cuando el _plugin_ está en uso.
+
+- Causa/s posible:
+  - Las solicitudes a la API de OpenAI no están optimizadas o el
+    servidor de Moodle tiene recursos limitados.
+- Solución:
+  1. Revisa los tiempos de respuesta de la API de OpenAI desde el
+     archivo de registro.
+  2. Si el problema persiste, habilita el almacenamiento en caché de las
+     respuestas del modelo. Esto puede hacerse mediante una modificación
+     en `lib.php` para guardar temporalmente las respuestas generadas.
+  3. Considera optimizar la configuración de PHP en el servidor (por
+     ejemplo, aumentando `max_execution_time` y `memory_limit`).
+
+### Conflictos con otros plugins
+
+Algunas funciones del _plugin_ no funcionan correctamente o Moodle
+muestra errores relacionados con otros _plugins_.
+
+- Causa posible:
+  - Otro plugin está sobrescribiendo eventos o funciones usadas por
+    {{< var plugin.name >}}.
+- Solución:
+  1. Desactiva temporalmente los otros _plugins_ sospechosos desde el
+     panel de administración.
+  2. Revisa los eventos registrados en `classes/event/`. Si es
+     necesario, modifica las clases para evitar conflictos de nombres.
+
+## Habilitar la depuración en Moodle
+
+Cuando algo no funciona como se espera, habilitar la depuración en
+Moodle es una muy buena forma para ayudar a identificar la causa exacta
+del problema.
+
+Los pasos para habilitar la depuración son los siguientes:
+
+1. Accede a la configuración de depuración:
+   - Ve a _Administración del sitio > Desarrollo > Depurador_.
+2. Selecciona el nivel de depuración más alto: **DESARROLLADOR**.
+3. Marca la casilla para mostrar mensajes de depuración directamente en
+   la interfaz.
+4. Guarda los cambios.
+5. Reproduce el error y analiza los mensajes que aparecen en pantalla.
+
+## Uso de los registros (_logs_)
+
+Moodle registra eventos y errores que pueden ser útiles para resolver
+problemas. Sus ubicaciones son las siguientes:
+
+- Los registros del servidor web (Apache o Nginx) suelen estar en:
+  - `/var/log/apache2/error.log` (Apache).
+  - `/var/log/nginx/error.log` (Nginx).
+- Moodle también tiene sus propios registros accesibles desde:
+  - _Administración del sitio > Informes > Registros_.
+
+¿Qué tendríamos que buscar:
+
+- Errores específicos relacionados con {{< var plugin.name >}}, como:
+  ```text
+  Exception: OpenAI API request failed with status 401 (Unauthorized)
+  ```
+- Detalles de la actividad del plugin, como fallos al cargar archivos o errores en la generación de preguntas.
+
+## Solución de conflictos de dependencias
+
+El _plugin_ utiliza varias bibliotecas externas gestionadas con
+Composer. Si hay conflictos de versiones, podrían llegar a aparecer
+errores.
+
+Pasos para resolver conflictos:
+
+1. Reinstalar dependencias:
+   - Elimina el directorio `vendor/`:
+   ```bash
+   rm -rf vendor/
+   ```
+2. Reinstala las dependencias:
+   ```bash
+   composer install
+   ```
+3. Verifica la versión de las dependencias:
+   - Comprueba el archivo `composer.json` para asegurarte de que las
+     versiones especificadas son compatibles.
+4. Actualiza Composer y dependencias:
+   ```bash
+   composer self-update  # Actualiza Composer
+   composer update       # Actualiza las dependencias
+   ```
+
+## Preguntas frecuentes
+
+### ¿Por qué no puedo subir archivos grandes al plugin?
+
+1. Verifica los límites en `php.ini`:
+   ```text
+   upload_max_filesize = 20M
+   post_max_size = 20M
+   ```
+2. Reinicia el servidor después de realizar cambios.
+
+### ¿Qué hacer si la API de OpenAI no responde?
+
+1. Comprueba el estado del servicio en su página de estado oficial.
+2. Asegúrate de que el servidor tiene acceso a Internet.
+
+### ¿Cómo depurar errores relacionados con las preguntas generadas?
+
+1. Activa los _logs_ detallados en la API de OpenAI configurando el modo
+2. de prueba (`test_mode`) en el _plugin_.
+3. 

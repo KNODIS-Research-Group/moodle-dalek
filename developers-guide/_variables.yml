@@ -1,0 +1,13 @@
+plugin:
+  name: DALEK
+  long_name: "DALEK: Digital Analysis and Learning Enhancement Kit"
+  version: 0.0.1
+
+repository:
+  base: https://github.com/KNODIS-Research-Group/moodle-dalek
+  users_guide:
+    web: https://KNODIS-Research-Group.github.io/moodle-dalek/users-guide/
+    pdf: https://KNODIS-Research-Group.github.io/moodle-dalek/users-guide/Guía-de-usuario.pdf
+  developers_guide:
+    web: https://KNODIS-Research-Group.github.io/moodle-dalek/developers-guide/
+    pdf: https://KNODIS-Research-Group.github.io/moodle-dalek/developers-guide/Guía-del-desarrollador.pdf

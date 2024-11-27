@@ -1,0 +1,108 @@
+
+# Referencias y recursos
+
+En este capítulo se recogen las principales referencias y recursos que
+pueden ser de utilidad para el desarrollo, personalización y uso del
+_plugin_.
+
+El objetivo es proporcionar información práctica y accesible
+para que los desarrolladores puedan resolver dudas, aprender nuevas
+funcionalidades o ampliar sus conocimientos sobre Moodle, PHP y las
+tecnologías empleadas en el _plugin_.
+
+## _Moodle Developer Docs_
+
+Moodle es un sistema modular que ofrece múltiples APIs para interactuar
+con sus componentes principales. Es imprescindible conocer estas API
+para desarrollar plugins que sigan las mejores prácticas y mantengan la
+compatibilidad con futuras versiones de Moodle.
+
+- **Documentación oficial**  
+  [https://moodledev.io/](https://moodledev.io/)  
+  Aquí se encuentra toda la documentación técnica de Moodle, incluyendo guías para desarrolladores, ejemplos de código y explicaciones detalladas de las APIs. Es el punto de partida para cualquier desarrollador interesado en trabajar con Moodle.
+
+- **Foro de desarrolladores de Moodle**  
+  [https://moodle.org/mod/forum/view.php?id=55](https://moodle.org/mod/forum/view.php?id=55)  
+  Espacio para interactuar con la comunidad de desarrolladores de Moodle, resolver dudas y compartir ideas.
+
+## Repositorio del plugin
+
+El repositorio oficial del plugin {{< var plugin.name >}} contiene el
+código fuente actualizado, así como instrucciones detalladas sobre la
+instalación, configuración y uso del plugin.
+
+- **GitHub**  
+  [{{< var repository.base >}}]({{< var repository.base >}})
+  En este repositorio también se gestionan los issues, pull requests y contribuciones al proyecto.
+
+## Documentación de OpenAI
+
+El plugin utiliza la API de OpenAI para generar contenido adaptativo. La
+comprensión y el correcto uso de esta API son fundamentales para
+personalizar o extender las funcionalidades del plugin.
+
+- **Guía de inicio rápido de OpenAI**  
+  [https://platform.openai.com/docs/quickstart](https://platform.openai.com/docs/quickstart)  
+  Proporciona ejemplos prácticos para comenzar a utilizar la API.
+
+- **Referencia completa de la API**  
+  [https://platform.openai.com/docs/api-reference](https://platform.openai.com/docs/api-reference)  
+  Incluye información sobre los endpoints disponibles, parámetros y
+  respuestas de la API.
+
+## Recursos sobre PHP y Composer
+
+El desarrollo del plugin requiere bastante conocimiento de PHP, así como
+del uso de Composer para la gestión de dependencias.
+
+- **Documentación oficial de PHP**  
+  [https://www.php.net/docs.php](https://www.php.net/docs.php)  
+  Contiene guías completas, ejemplos y documentación de las funciones
+  del lenguaje.
+
+- **Documentación de Composer**  
+  [https://getcomposer.org/doc/](https://getcomposer.org/doc/)  
+  Explica cómo instalar y usar Composer para gestionar dependencias en
+  proyectos PHP.
+
+## Recursos para el manejo de dependencias
+
+El plugin utiliza varias dependencias externas, como `guzzlehttp` para
+realizar solicitudes HTTP y `smalot/pdfparser` para procesar archivos
+PDF. Aquí se incluyen los enlaces a sus respectivas documentaciones:
+
+- **Guzzle (HTTP client)**  
+  [https://docs.guzzlephp.org/](https://docs.guzzlephp.org/)  
+  Información sobre cómo realizar peticiones HTTP eficientes y manejar
+  respuestas.
+
+- **Smalot PDFParser**  
+  [https://github.com/smalot/pdfparser](https://github.com/smalot/pdfparser)  
+  Repositorio oficial con ejemplos y documentación para trabajar con
+  archivos PDF.
+
+## Recursos adicionales
+
+- **Guías de buenas prácticas en desarrollo PHP**  
+  [https://phptherightway.com/](https://phptherightway.com/)  
+  Una recopilación de buenas prácticas y recomendaciones para
+  desarrolladores PHP.
+
+- **Control de versiones con Git**  
+  - [https://git-scm.com/doc](https://git-scm.com/doc)  
+    Documentación oficial de Git para el control de versiones.  
+  - [https://learngitbranching.js.org/](https://learngitbranching.js.org/)  
+    Tutorial interactivo para aprender a trabajar con ramas en Git.
+
+## Recursos para pruebas
+
+La calidad del plugin se garantiza a través de pruebas exhaustivas.
+Moodle soporta PHPUnit para pruebas unitarias.
+
+- **PHPUnit**  
+  [https://phpunit.de/documentation.html](https://phpunit.de/documentation.html)  
+  Guía oficial para configurar y utilizar PHPUnit.
+
+- **Pruebas específicas de Moodle**  
+  [https://moodledev.io/docs/automation/phpunit](https://moodledev.io/docs/automation/phpunit)  
+  Explicación de cómo configurar y ejecutar pruebas unitarias dentro de Moodle.

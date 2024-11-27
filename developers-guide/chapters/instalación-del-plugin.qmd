@@ -1,0 +1,159 @@
+# Instalación del _plugin_
+
+La instalación del _plugin_ en Moodle requiere seguir unos pasos
+sencillos pero cruciales para asegurar su funcionamiento correcto. A
+continuación, se describe detalladamente el proceso.
+
+## Descarga e instalación
+
+### Paso 1: Obtener los archivos del _plugin_
+
+1. Descarga la versión más reciente del _plugin_ desde el
+   [repositorio oficial]({{< var repository.base >}}).
+   - Asegúrate de que la versión del _plugin_ sea compatible con la
+     versión de Moodle que utilizas. {{< var plugin.name >}} requiere
+     Moodle 4.1 o superior.
+2. Comprueba que el archivo descargado esté en formato comprimido `.zip`
+   o `.tar.gz`.
+
+### Paso 2: Copiar el _plugin_ al directorio adecuado
+
+1. Descomprime el archivo descargado en tu equipo.
+2. Verifica que la carpeta raíz del _plugin_ tenga un nombre distinto al
+   resto de _plugins_ instalados (por defecto es `dalek`). Si el nombre
+   coincide con otro plugin que tenas instalado, cámbialo para que
+   coincida.
+3. Accede al directorio donde está instalado Moodle en tu servidor. Por
+   ejemplo, si Moodle está instalado en `/var/www/moodle/`, utiliza esa
+   ruta.
+4. Copia la carpeta descomprimida del _plugin_ (`dalek`) dentro del
+   directorio `mod` de Moodle (por defecto en `/var/www/moodle/mod/`.
+
+### Paso 3: Comprobar los permisos de los archivos
+
+1. Asegúrate de que el usuario del servidor web (normalmente `www-data`
+   en sistemas GNU/Linux) tenga permisos de lectura y escritura sobre
+   los archivos y carpetas del _plugin_.
+2. Ejecuta el siguiente comando en la terminal para ajustar los permisos
+   si fuera necesario:
+   ```bash
+   sudo chown -R www-data:www-data /var/www/moodle/mod/dalek
+   sudo chmod -R 755 /var/www/moodle/mod/dalek
+   ```
+
+## Activación del _plugin_ en Moodle
+
+### Paso 1: Acceder al panel de administración
+
+1. Inicia sesión en Moodle como administrador.
+2. Ve a la página de administración localizada en _Administración del
+   sitio > Notificaciones_
+
+### Paso 2: Comprobar la instalación automática
+
+1. Moodle detectará automáticamente el nuevo _plugin_ en el directorio
+   `mod` y mostrará una notificación indicando que hay un _plugin_ listo
+   para instalar.
+2. Revisa los detalles de la instalación y confirma para continuar.
+
+### Paso 3: Revisión de requisitos
+
+1. Moodle verificará que el servidor cumpla con los requisitos mínimos
+   para el _plugin_:
+   - Versión de Moodle: 4.1 o superior.
+   - Versión de PHP: 8.1 o superior.
+   - Extensiones de PHP necesarias, como curl y json.
+2. Si algún requisito no se cumple, Moodle mostrará un error. Resuelve
+   los problemas indicados antes de proceder.
+
+### Paso 4: Completar la instalación
+
+1. Si todo está correcto, Moodle instalará automáticamente las tablas de
+   base de datos necesarias para el _plugin_, utilizando el archivo
+   `install.xml` incluido en la carpeta `db`.
+2. Una vez finalizado, aparecerá un mensaje de confirmación indicando
+   que el _plugin_ se instaló correctamente.
+
+## Configuración inicial del plugin
+
+### Paso 1: Acceder a la configuración
+
+1. Tras la instalación, accede a la configuración del plugin a través de
+   _Administración del sitio > Plugins > Actividades >
+   {{< var plugin.name >}}_
+
+### Paso 2: Configurar la API Key de OpenAI
+
+{{< var plugin.name >}} requiere una API Key válida para conectarse al
+servicio de OpenAI y generar preguntas basadas en los textos aportados
+por los estudiantes.
+
+1. Introduce tu API Key en el campo correspondiente. Si no tienes una
+   API Key:
+   - Regístrate en el [portal de OpenAI](https://platform.openai.com/).
+   - Genera una clave desde la sección de configuración de la API.
+2. Guarda los cambios.
+
+## Comprobaciones finales
+
+### Paso 1: Verificar la funcionalidad
+
+1. Crea un curso de prueba en Moodle y añade una actividad utilizando el
+   _plugin_ {{< var plugin.name >}}.
+2. Sube un archivo PDF con contenido para generar un cuestionario.
+3. Comprueba que el cuestionario se genera correctamente y que las
+   preguntas son coherentes.
+
+### Paso 2: Habilitar la depuración (opcional)
+
+1. Si encuentras errores, habilita el modo de depuración en Moodle para
+   obtener más detalles en _Administración del sitio > Desarrollo >
+   Depuración_
+
+### Paso 3: Probar diferentes configuraciones
+
+Experimenta con distintas configuraciones de OpenAI y ajustes del
+_plugin_ para asegurarte de que cumple con las necesidades de tu
+asignatura o curso.
+
+## Actualización del _plugin_
+
+### Paso 1: Obtener la nueva versión
+
+Descarga la última versión del plugin desde el
+[repositorio oficial]({{< var repository.base >}})
+
+### Paso 2: Reemplazar los archivos
+
+1. Realiza una copia de seguridad (nunca viene mal) de la carpeta del
+   _plugin_ a reemplazar:
+
+   ```bash
+   cp -r /var/www/moodle/mod/dalek /var/www/moodle/mod/dalek.old
+   ```
+2. Sustituye los archivos antiguos con los de la nueva versión.
+
+### Paso 3: Completar la actualización
+
+1. Accede a _Administración del sitio > Notificaciones_
+2. Moodle detectará automáticamente la actualización y aplicará los
+   cambios necesarios en la base de datos.
+
+### Paso 4: Verificar compatibilidad
+
+1. Comprueba que la nueva versión es totalmente funcional realizando
+   pruebas en un curso.
+
+## Notas adicionales
+
+- **Backup previo**: Aunque lo hemos explicitado, siempre **siempre**,
+  antes de cualquier actualización o modificación importante, realiza
+  una copia de seguridad completa de Moodle, incluyendo la base de
+  datos.
+- **Soporte técnico**: Si encuentras problemas durante la instalación o
+  configuración, consulta la documentación oficial de Moodle o abre un
+  _issue_ en el repositorio del _plugin_.
+
+Con estos pasos, el plugin {{< var plugin.name >}} estará completamente
+operativo en la instalación de Moodle. Si necesitas ayuda adicional,
+consulta la sección de soporte en esta guía.

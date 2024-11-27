@@ -1,0 +1,103 @@
+# Uso del plugin
+
+En este capítulo explicamos cómo utilizar {{< var plugin.name >}} desde
+la perspectiva de un usuario que desee aprovechar al máximo sus
+funcionalidades para crear cuestionarios adaptativos basados en
+documentos cargados.
+
+## Introducción al flujo básico del _plugin_
+
+El flujo de trabajo del _plugin_ se basa en los siguientes pasos
+principales:
+
+1. **Carga del documento base**: El profesor carga un documento (en
+   formato PDF) que será utilizado como base para la generación de
+   preguntas.
+2. **Procesamiento del contenido**: El plugin analiza el contenido del
+   documento y lo envía a un LLM a través de la API de OpenAI.
+3. **Generación de preguntas**: El LLM devuelve un conjunto de preguntas
+   adaptadas al contenido del documento.
+4. **Configuración del cuestionario**: El profesor ajusta las opciones
+   del cuestionario, como el número de preguntas y el formato de las
+   mismas.
+5. **Publicación y uso**: El cuestionario se publica en el curso de
+   Moodle para que los estudiantes puedan resolverlo.
+
+## Añadir una nueva actividad de cuestionario adaptativo
+
+### Paso 1: Acceso a la configuración del curso
+
+1. Entra en Moodle como profesor con permisos de edición.
+2. Navega al curso donde deseas añadir el cuestionario.
+3. Activa el modo de edición haciendo clic en el botón correspondiente.
+
+### Paso 2: Añadir una actividad
+
+1. Haz clic en _Añadir una actividad o un recurso_ dentro del tema o
+   sección deseada.
+2. En el cuadro emergente, selecciona _Cuestionario LLM_ y pulsa Añadir.
+
+### Paso 3: Configuración inicial
+
+Se abrirá un formulario con las siguientes opciones principales:
+
+- **Nombre del cuestionario**: Introduce un título descriptivo para la
+  actividad (por ejemplo, "Cuestionario sobre Redes Neuronales
+  Convolucionales").
+- **Descripción**: Proporciona una breve explicación del cuestionario
+  para los estudiantes.
+- **Archivo base**: Sube un archivo PDF que será procesado por el
+  _plugin_. El archivo debe ser claro y estructurado, ya que el modelo
+  de lenguaje utiliza este texto para generar las preguntas.
+- **Número de preguntas**: Define cuántas preguntas deseas incluir en el
+  cuestionario.
+- **Idioma**: Selecciona el idioma del cuestionario. Por defecto, estará
+  en español.
+
+### Paso 4: Guardar y procesar
+
+1. Una vez completado el formulario, pulsa _Guardar y regresar_ al curso
+   o _Guardar y mostrar_.
+
+En este punto el _plugin_ procesará el archivo y generará
+automáticamente las preguntas.
+
+## Configuración avanzada de las preguntas
+
+Después de la generación inicial, el profesor puede ajustar las
+preguntas generadas. Para ello:
+
+1. Entra en la actividad recién creada.
+2. Haz clic en el botón Editar preguntas.
+3. Aparecerá una lista con las preguntas generadas. Cada pregunta
+   incluye:
+   - El **texto** de la pregunta.
+   - **Opciones de respuesta**: En caso de preguntas de opción múltiple.
+   - **Respuesta correcta**: Resaltada para facilitar la revisión.
+4. Se dispone, en caso de que sea encesario, de las siguientes opciones
+   de edición:
+   - **Modificar el texto de la pregunta**: Pulsa el icono de edición
+     junto a la pregunta para ajustarla.
+   - **Añadir nuevas preguntas**: Haz clic en el botón Añadir pregunta
+     manualmente para incluir preguntas no generadas por el _plugin_.
+   - **Eliminar preguntas**: Marca las preguntas no deseadas y
+     selecciona la opción de eliminar.
+
+## Publicación del cuestionario
+
+Una vez revisadas y ajustadas las preguntas:
+
+1. Dirígete a la página principal de la actividad.
+2. Pulsa el botón Hacer visible si la actividad está oculta.
+3. Comparte las instrucciones con los estudiantes en el foro del curso o
+   mediante un mensaje directo.
+
+## Resolución del cuestionario por parte de los estudiantes
+
+Desde la perspectiva del estudiante:
+
+1. Al acceder al curso, verán la actividad con el nombre definido.
+2. Al hacer clic en la actividad, se mostrará el cuestionario con las
+   preguntas configuradas.
+3. Una vez completado el cuestionario, los resultados se guardarán
+   automáticamente en el sistema.
