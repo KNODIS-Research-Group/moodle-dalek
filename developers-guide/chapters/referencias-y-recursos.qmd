@@ -12,7 +12,7 @@ tecnologías empleadas en el _plugin_.
 
 ## _Moodle Developer Docs_
 
-Moodle es un sistema modular que ofrece múltiples APIs para interactuar
+Moodle es un sistema modular que ofrece múltiples API para interactuar
 con sus componentes principales. Es imprescindible conocer estas API
 para desarrollar plugins que sigan las mejores prácticas y mantengan la
 compatibilidad con futuras versiones de Moodle.
@@ -25,21 +25,21 @@ compatibilidad con futuras versiones de Moodle.
   [https://moodle.org/mod/forum/view.php?id=55](https://moodle.org/mod/forum/view.php?id=55)  
   Espacio para interactuar con la comunidad de desarrolladores de Moodle, resolver dudas y compartir ideas.
 
-## Repositorio del plugin
+## Repositorio del _plugin_
 
-El repositorio oficial del plugin {{< var plugin.name >}} contiene el
+El repositorio oficial del _plugin_ {{< var plugin.name >}} contiene el
 código fuente actualizado, así como instrucciones detalladas sobre la
-instalación, configuración y uso del plugin.
+instalación, configuración y uso del _plugin_.
 
 - **GitHub**  
   [{{< var repository.base >}}]({{< var repository.base >}})
-  En este repositorio también se gestionan los issues, pull requests y contribuciones al proyecto.
+  En este repositorio también se gestionan las _issues_, los PR y las contribuciones al proyecto.
 
 ## Documentación de OpenAI
 
-El plugin utiliza la API de OpenAI para generar contenido adaptativo. La
+El _plugin_ utiliza la API de OpenAI para generar contenido adaptativo. La
 comprensión y el correcto uso de esta API son fundamentales para
-personalizar o extender las funcionalidades del plugin.
+personalizar o extender las funcionalidades del _plugin_.
 
 - **Guía de inicio rápido de OpenAI**  
   [https://platform.openai.com/docs/quickstart](https://platform.openai.com/docs/quickstart)  
@@ -52,7 +52,7 @@ personalizar o extender las funcionalidades del plugin.
 
 ## Recursos sobre PHP y Composer
 
-El desarrollo del plugin requiere bastante conocimiento de PHP, así como
+El desarrollo del _plugin_ requiere bastante conocimiento de PHP, así como
 del uso de Composer para la gestión de dependencias.
 
 - **Documentación oficial de PHP**  
@@ -67,7 +67,7 @@ del uso de Composer para la gestión de dependencias.
 
 ## Recursos para el manejo de dependencias
 
-El plugin utiliza varias dependencias externas, como `guzzlehttp` para
+El _plugin_ utiliza varias dependencias externas, como `guzzlehttp` para
 realizar solicitudes HTTP y `smalot/pdfparser` para procesar archivos
 PDF. Aquí se incluyen los enlaces a sus respectivas documentaciones:
 
@@ -96,7 +96,7 @@ PDF. Aquí se incluyen los enlaces a sus respectivas documentaciones:
 
 ## Recursos para pruebas
 
-La calidad del plugin se garantiza a través de pruebas exhaustivas.
+La calidad del _plugin_ se garantiza a través de pruebas exhaustivas.
 Moodle soporta PHPUnit para pruebas unitarias.
 
 - **PHPUnit**  

@@ -1,7 +1,7 @@
 # Instalación del _plugin_
 
-La instalación del _plugin_ en Moodle requiere seguir unos pasos
-sencillos pero cruciales para asegurar su funcionamiento correcto. A
+La instalación del _plugin_ en Moodle requiere seguir unos sencillos
+pasos para asegurar su correcto funcionamiento. A
 continuación, se describe detalladamente el proceso.
 
 ## Descarga e instalación
@@ -21,7 +21,7 @@ continuación, se describe detalladamente el proceso.
 1. Descomprime el archivo descargado en tu equipo.
 2. Verifica que la carpeta raíz del _plugin_ tenga un nombre distinto al
    resto de _plugins_ instalados (por defecto es `dalek`). Si el nombre
-   coincide con otro plugin que tenas instalado, cámbialo para que
+   coincide con otro _plugin_ que tengas instalado, cámbialo para que
    coincida.
 3. Accede al directorio donde está instalado Moodle en tu servidor. Por
    ejemplo, si Moodle está instalado en `/var/www/moodle/`, utiliza esa
@@ -62,23 +62,23 @@ continuación, se describe detalladamente el proceso.
    para el _plugin_:
    - Versión de Moodle: 4.1 o superior.
    - Versión de PHP: 8.1 o superior.
-   - Extensiones de PHP necesarias, como curl y json.
+   - Extensiones de PHP necesarias, como `curl` y `json`.
 2. Si algún requisito no se cumple, Moodle mostrará un error. Resuelve
    los problemas indicados antes de proceder.
 
 ### Paso 4: Completar la instalación
 
-1. Si todo está correcto, Moodle instalará automáticamente las tablas de
+1. Si todo ha ido bien, Moodle instalará automáticamente las tablas de
    base de datos necesarias para el _plugin_, utilizando el archivo
    `install.xml` incluido en la carpeta `db`.
 2. Una vez finalizado, aparecerá un mensaje de confirmación indicando
    que el _plugin_ se instaló correctamente.
 
-## Configuración inicial del plugin
+## Configuración inicial del _plugin_
 
 ### Paso 1: Acceder a la configuración
 
-1. Tras la instalación, accede a la configuración del plugin a través de
+1. Tras la instalación, accede a la configuración del _plugin_ a través de
    _Administración del sitio > Plugins > Actividades >
    {{< var plugin.name >}}_
 
@@ -102,13 +102,14 @@ por los estudiantes.
    _plugin_ {{< var plugin.name >}}.
 2. Sube un archivo PDF con contenido para generar un cuestionario.
 3. Comprueba que el cuestionario se genera correctamente y que las
-   preguntas son coherentes.
+   preguntas tienen sentido y son coherentes con el contenido
+   a evaluar.
 
 ### Paso 2: Habilitar la depuración (opcional)
 
-1. Si encuentras errores, habilita el modo de depuración en Moodle para
-   obtener más detalles en _Administración del sitio > Desarrollo >
-   Depuración_
+Si encuentras errores, habilita el modo de depuración en Moodle para
+obtener más detalles en _Administración del sitio > Desarrollo >
+Depuración_
 
 ### Paso 3: Probar diferentes configuraciones
 
@@ -120,12 +121,12 @@ asignatura o curso.
 
 ### Paso 1: Obtener la nueva versión
 
-Descarga la última versión del plugin desde el
+Descarga la última versión del _plugin_ desde el
 [repositorio oficial]({{< var repository.base >}})
 
 ### Paso 2: Reemplazar los archivos
 
-1. Realiza una copia de seguridad (nunca viene mal) de la carpeta del
+1. Realiza una copia de seguridad (que nunca viene mal) de la carpeta del
    _plugin_ a reemplazar:
 
    ```bash
@@ -154,6 +155,6 @@ Descarga la última versión del plugin desde el
   configuración, consulta la documentación oficial de Moodle o abre un
   _issue_ en el repositorio del _plugin_.
 
-Con estos pasos, el plugin {{< var plugin.name >}} estará completamente
+Con estos pasos, el _plugin_ {{< var plugin.name >}} estará completamente
 operativo en la instalación de Moodle. Si necesitas ayuda adicional,
 consulta la sección de soporte en esta guía.

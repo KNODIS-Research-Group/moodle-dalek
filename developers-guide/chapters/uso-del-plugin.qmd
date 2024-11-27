@@ -1,4 +1,4 @@
-# Uso del plugin
+# Uso del _plugin_
 
 En este capítulo explicamos cómo utilizar {{< var plugin.name >}} desde
 la perspectiva de un usuario que desee aprovechar al máximo sus
@@ -13,7 +13,7 @@ principales:
 1. **Carga del documento base**: El profesor carga un documento (en
    formato PDF) que será utilizado como base para la generación de
    preguntas.
-2. **Procesamiento del contenido**: El plugin analiza el contenido del
+2. **Procesamiento del contenido**: El _plugin_ analiza el contenido del
    documento y lo envía a un LLM a través de la API de OpenAI.
 3. **Generación de preguntas**: El LLM devuelve un conjunto de preguntas
    adaptadas al contenido del documento.
@@ -35,7 +35,7 @@ principales:
 
 1. Haz clic en _Añadir una actividad o un recurso_ dentro del tema o
    sección deseada.
-2. En el cuadro emergente, selecciona _Cuestionario LLM_ y pulsa Añadir.
+2. En el cuadro emergente, selecciona _Cuestionario LLM_ y pulsa _Añadir_.
 
 ### Paso 3: Configuración inicial
 
@@ -56,10 +56,8 @@ Se abrirá un formulario con las siguientes opciones principales:
 
 ### Paso 4: Guardar y procesar
 
-1. Una vez completado el formulario, pulsa _Guardar y regresar_ al curso
-   o _Guardar y mostrar_.
-
-En este punto el _plugin_ procesará el archivo y generará
+Una vez completado el formulario, pulsa _Guardar y regresar_ al curso 
+o _Guardar y mostrar_. En este punto el _plugin_ procesará el archivo y generará
 automáticamente las preguntas.
 
 ## Configuración avanzada de las preguntas
@@ -68,27 +66,28 @@ Después de la generación inicial, el profesor puede ajustar las
 preguntas generadas. Para ello:
 
 1. Entra en la actividad recién creada.
-2. Haz clic en el botón Editar preguntas.
+2. Haz clic en el botón _Editar preguntas_.
 3. Aparecerá una lista con las preguntas generadas. Cada pregunta
    incluye:
-   - El **texto** de la pregunta.
+   - **Texto** de la pregunta.
    - **Opciones de respuesta**: En caso de preguntas de opción múltiple.
    - **Respuesta correcta**: Resaltada para facilitar la revisión.
-4. Se dispone, en caso de que sea encesario, de las siguientes opciones
+4. Se dispone, en caso de que sea necesario, de las siguientes opciones
    de edición:
    - **Modificar el texto de la pregunta**: Pulsa el icono de edición
      junto a la pregunta para ajustarla.
-   - **Añadir nuevas preguntas**: Haz clic en el botón Añadir pregunta
-     manualmente para incluir preguntas no generadas por el _plugin_.
+   - **Añadir nuevas preguntas**: Haz clic en el botón 
+   _Añadir pregunta manualmente_ para incluir preguntas 
+   no generadas por el _plugin_.
    - **Eliminar preguntas**: Marca las preguntas no deseadas y
-     selecciona la opción de eliminar.
+     selecciona la opción de _Eliminar_.
 
 ## Publicación del cuestionario
 
 Una vez revisadas y ajustadas las preguntas:
 
 1. Dirígete a la página principal de la actividad.
-2. Pulsa el botón Hacer visible si la actividad está oculta.
+2. Pulsa el botón _Hacer visible_ si la actividad está oculta.
 3. Comparte las instrucciones con los estudiantes en el foro del curso o
    mediante un mensaje directo.
 

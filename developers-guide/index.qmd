@@ -1,10 +1,10 @@
 # Prefacio {.unnumbered}
 
 Este es el manual para desarrolladores del _plugin_
-{{< var plugin.long_name >}}, una herramienta diseñada para mejorar la
+{{< var plugin.long_name >}}, una herramienta diseñada para mejorar 
 la eficiencia de los docentes a la hora de evaluar mediante
-cuestionarios dentro de la plataforma Moodle. Este documento tiene como
-objetivo ser una guía para quienes deseen entender, personalizar o
+cuestionarios dentro de la plataforma Moodle. Este documento trata de 
+ser una guía para quienes deseen entender, personalizar o
 extender el funcionamiento de {{< var plugin.name >}}, facilitando tanto
 su integración como su evolución en entornos educativos.
 
@@ -18,47 +18,48 @@ Este manual se ha creado con dos objetivos principales:
 Este documento está dirigido a desarrolladores con conocimientos básicos
 o avanzados de programación, familiarizados con PHP y la arquitectura de
 Moodle. También es útil para administradores de sistemas educativos que
-necesiten entender el funcionamiento del plugin para mantenerlo en
+necesiten entender el funcionamiento del _plugin_ para mantenerlo en
 entornos de producción.
 
 Si eres nuevo en el desarrollo de Moodle, no te preocupes: el manual
 incluye explicaciones claras (esperamos) y referencias a documentación
 externa que te guiarán en los conceptos fundamentales. Si ya tienes
 experiencia, encontrarás información detallada que te permitirá trabajar
-directamente en la personalización del plugin.
+directamente en la personalización del _plugin_.
 
 ## ¿Qué encontrarás en este manual?
 
 Este manual está organizado de la siguiente manera:
 
-- Una descripción detallada de la estructura del plugin, incluyendo su
+- Una **descripción detallada de la estructura del _plugin_**, incluyendo su
   integración con la API de Moodle y las dependencias externas que
   utiliza.
-- Instrucciones paso a paso para instalar y configurar DALEK en tu
+- **Instrucciones** paso a paso **para instalar y configurar DALEK** en tu
   plataforma Moodle.
-- Guías para personalizar el plugin y añadir nuevas funcionalidades.
-- Soluciones a problemas comunes, métodos para depurar errores y
+- **Guías para personalizar el _plugin_** y añadir nuevas funcionalidades.
+- **Soluciones a problemas comunes**, métodos para depurar errores y
   sugerencias para realizar pruebas efectivas.
-- Información sobre licencias y cómo contribuir al desarrollo del plugin
-  o usar su base para nuevos proyectos.
+- **Información sobre licencias** y cómo contribuir al desarrollo del _plugin_
+  o usarlo de base para nuevos proyectos.
 
 ## Licencias y filosofía del proyecto
 
-El plugin DALEK está licenciado bajo GPLv3, lo que significa que puedes
+El _plugin_ DALEK está licenciado bajo GPLv3, lo que significa que puedes
 usar, modificar y redistribuir el código siempre que respetes los
-términos de esta licencia. Por su parte, este manual está licenciado
+términos de esta licencia. Por su parte, toda la documentación, 
+incluido este manual, está licenciado
 bajo CC-BY-SA, lo que fomenta su uso, adaptación y mejora, siempre que
 se reconozca el trabajo original y se mantenga la misma licencia en
 versiones derivadas.
 
 Esta filosofía abierta refleja los valores del proyecto: creemos que la
 educación debe estar al alcance de todos, y que las herramientas
-tecnológicas que la respaldan deben ser accesibles y adaptables.
+tecnológicas que la respaldan deben ser totalmente accesibles.
 
 ## Tu papel en el desarrollo
 
 El desarrollo de {{< var plugin.name >}} no termina con este manual ni
-con su primera versión. Como desarrollador, tu contribución es clave
+con la primera versión del _plugin_. Como desarrollador, tu contribución es clave
 para ampliar las posibilidades del _plugin_. Ya sea solucionando un
 problema, implementando una nueva funcionalidad, mejorando y ampliando
 la documentación o compartiendo ideas para mejorar el sistema, tu
@@ -66,5 +67,5 @@ participación ayuda a mantener vivo el proyecto y a hacerlo más útil
 para la comunidad educativa.
 
 Esperamos que este manual no solo sea una herramienta práctica, sino
-también una invitación a formar parte de un esfuerzo colaborativo para
+también una invitación a formar parte de un esfuerzo colectivo para
 mejorar la educación.

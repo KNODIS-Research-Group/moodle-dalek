@@ -1,21 +1,7 @@
 # Introducción
 
-Este documento está diseñado para ser una guía técnica completa
-destinada a los desarrolladores interesados en trabajar con el plugin
-{{< var plugin.long_name >}}. Su objetivo es proporcionar toda la
-información necesaria para comprender, instalar, personalizar y extender
-el plugin en entornos Moodle. Además, incluye detalles sobre su
-arquitectura interna, los requisitos técnicos, y consejos para la
-solución de problemas.
-
-El manual está pensado tanto para aquellos que desean contribuir al
-desarrollo del plugin como para quienes buscan integrarlo o adaptarlo a
-las necesidades específicas de sus plataformas educativas.
-
-## Resumen del plugin
-
-{{< var plugin.name >}} es un plugin desarrollado para Moodle, que
-utiliza modelos de lenguaje avanzados (LLM, como ChatGPT) para generar
+{{< var plugin.name >}} es un _plugin_ desarrollado para Moodle, que
+utiliza modelos de lenguaje avanzados (LLM) para generar
 cuestionarios adaptativos de manera automática. Este sistema tiene como
 objetivo mejorar la personalización de la evaluación educativa, creando
 preguntas basadas en contenidos textuales proporcionados por los
@@ -27,7 +13,7 @@ actividades de evaluación y garantizar que estas estén alineadas con los
 contenidos. Además, fomenta una evaluación más equitativa y
 personalizada, ajustándose al nivel y contexto de cada estudiante.
 
-## Características clave del plugin:
+## Características clave del _plugin_
 
 - Generación automática de preguntas a partir de documentos de texto,
   utilizando la API de OpenAI.
@@ -44,12 +30,12 @@ El manual está organizado en capítulos que cubren todos los aspectos del
 _plugin_. A continuación, se resumen los contenidos que se incluyen:
 
 - **Requisitos previos**: Software y conocimientos necesarios para
-  instalar y trabajar con el plugin.
-- **Estructura del plugin**: Explicación detallada de la arquitectura de
+  instalar y trabajar con el _plugin_.
+- **Estructura del _plugin_**: Explicación detallada de la arquitectura de
   carpetas y archivos.
-- **Instalación del plugin**: Instrucciones paso a paso para instalar y
+- **Instalación del _plugin_**: Instrucciones paso a paso para instalar y
   configurar {{< var plugin.name >}} en Moodle.
-- **Uso del plugin**: Guía para los usuarios finales y administradores
+- **Uso del _plugin_**: Guía para los usuarios finales y administradores
   que deseen configurar actividades con el _plugin_.
 - **Desarrollo y personalización**: Información para programadores que
   deseen ampliar o modificar la funcionalidad del _plugin_.

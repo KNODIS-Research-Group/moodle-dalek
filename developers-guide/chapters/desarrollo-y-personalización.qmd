@@ -1,6 +1,6 @@
 # Desarrollo y personalización
 
-Este capítulo ofrece una guía detallada para entender cómo podemos
+En este capítulo se explica cómo podemos
 personalizar o extender el _plugin_ de acuerdo a las necesidades de
 desarrollo.
 
@@ -72,6 +72,7 @@ la carga que ello implica.
 1. Localiza la función responsable:
    - En `lib.php`, busca la función que realiza la llamada a la API de
      OpenAI. Por ejemplo:
+     
      ```php
      $response = $client->post('https://api.openai.com/v1/completions', [
          'headers' => ['Authorization' => "Bearer $apikey"],
@@ -82,6 +83,8 @@ la carga que ello implica.
              'temperature' => 0.7,
          ]
      ]);
+    ```
+
 2. Ajusta los parámetros:
    - Cambia valores como `temperature` para controlar la creatividad de
      las respuestas, o `max_tokens` para limitar la longitud.
@@ -94,7 +97,7 @@ la carga que ello implica.
    - En el mismo archivo, modifica el contenido del _prompt_ para
      ajustar el estilo de las preguntas generadas. Por ejemplo:
      ```php
-     $prompt = "Genera una pregunta de opción múltiple basada en el siguiente texto: $texto";
+     $prompt = "Genera una pregunta de opción múltiple basada en el texto: $texto";
      ```
 2. Añadir opciones avanzadas:
    - Por ejemplo, permitir que el usuario elija el tipo de pregunta

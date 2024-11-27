@@ -1,6 +1,6 @@
 # Licencias y contribuciones
 
-El plugin {{< var plugin.long_name >}} y su documentación están
+El _plugin_ {{< var plugin.long_name >}} y su documentación están
 distribuidos bajo licencias que aseguran la libertad de uso,
 modificación y redistribución, respetando las normativas de software
 libre y acceso abierto.
@@ -10,9 +10,9 @@ contribuir al proyecto.
 
 ## Licencia del código fuente: GPLv3
 
-El código fuente del plugin está publicado bajo la Licencia Pública
-General de GNU versión 3 (GPLv3), que garantiza las siguientes
-libertades:
+El código fuente del _plugin_ está publicado bajo la [Licencia Pública
+General de GNU versión 3 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.html), 
+que garantiza las siguientes libertades:
 
 1. **Uso libre**: Puedes utilizar el _plugin_ para cualquier propósito,
    sin restricciones de tipo comercial, académico o personal.
@@ -23,7 +23,7 @@ libertades:
    para adaptarlo a tus necesidades. Por ejemplo, puedes añadir nuevas
    funcionalidades, mejorar el rendimiento o personalizar su integración
    en Moodle.
-4. **Distribución**: Puedes redistribuir el plugin original o tus
+4. **Distribución**: Puedes redistribuir el _plugin_ original o tus
    versiones modificadas, siempre que respetes las mismas condiciones de
    la GPLv3, es decir:
    - Proporcionar acceso al código fuente.
@@ -32,21 +32,22 @@ libertades:
 
 ### Obligaciones de la GPLv3
 
-Si decides redistribuir el plugin o una versión modificada, debes:
+Si decides redistribuir el _plugin_ o una versión modificada, debes:
 
 - Incluir el aviso de copyright original.
 - Acompañar el código fuente con una copia de la licencia GPLv3.
 - Garantizar que las modificaciones sean públicas y accesibles bajo los
   mismos términos.
 
-Para más información sobre la GPLv3, visita la web oficial de la
+Para más información sobre la GPLv3, visita la [web oficial de la
 Free Software Foundation](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Licencia de la documentación: CC-BY-SA
 
-La documentación del plugin, incluyendo este manual, está licenciada
-bajo Creative Commons Attribution-ShareAlike 4.0 International
-(CC-BY-SA). Esto significa que:
+La documentación del _plugin_, incluyendo este manual, está licenciada
+bajo [Creative Commons Attribution-ShareAlike 4.0 International
+(CC-BY-SA)](https://creativecommons.org/licenses/by-sa/4.0/). 
+Esto significa que:
 
 - **Atribución** (BY): Puedes compartir (copiar y redistribuir) y
   adaptar (modificar o transformar) este documento para cualquier
@@ -69,11 +70,11 @@ Para más información sobre esta licencia, puedes visitar la web de la
 ## Contribuciones al proyecto
 
 El desarrollo de DALEK está abierto a la colaboración de cualquier
-persona interesada en mejorar el plugin o aportar ideas. A continuación,
+persona interesada en mejorar el _plugin_ o aportar ideas. A continuación,
 se explica cómo puedes contribuir.
 
 1. **Reportar problemas**: Si encuentras errores, problemas de
-   compatibilidad o sugerencias de mejora, puedes abrir un _issue_ en el
+   compatibilidad o sugerencias de mejora, puedes abrir una _issue_ en el
    [repositorio oficial en GitHub]({{ var repository.base }}) del
    proyecto. Detalla claramente:
    - El problema encontrado.
@@ -81,7 +82,7 @@ se explica cómo puedes contribuir.
    - Mensajes de error (si los hay).
    - Tu entorno de trabajo (versión de Moodle, PHP, etc.).
 2. **Proponer mejoras**: Si tienes ideas para nuevas funcionalidades o
-   mejoras, abre un _issue_ con una descripción detallada de tu
+   mejoras, abre una _issue_ con una descripción detallada de tu
    propuesta.
 3. **Aportar código**: Puedes realizar un _fork_ del repositorio,
    trabajar en tus cambios y enviar un _pull request_ (PR). Asegúrate de
@@ -91,8 +92,8 @@ se explica cómo puedes contribuir.
    - Explicación de cómo probar los cambios.
    - Referencia a cualquier issue relacionado.
 4. **Traducir el _plugin_**: Si deseas colaborar con traducciones,
-   puedes enviar archivos de idioma para otros idiomas además del
-   español e inglés.
+   puedes enviar archivos de idioma para otros idiomas, además del
+   español.
 5. **Crear o mejorar la documentación**: Puedes aportar guías
    adicionales, ejemplos prácticos o tutoriales para mejorar la
    experiencia de otros usuarios y desarrolladores.

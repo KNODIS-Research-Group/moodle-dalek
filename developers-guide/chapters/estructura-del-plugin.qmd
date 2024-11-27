@@ -9,7 +9,7 @@ propósito y funcionalidad.
 
 La estructura del _plugin_ sigue el estándar de desarrollo de Moodle, lo
 que permite su integración con la plataforma. A continuación, se
-presenta el árbol de directorios y archivos principales del _plugin_,
+presenta su árbol de directorios y sus archivos principales,
 junto con una breve descripción de cada uno:
 
 ```text
@@ -46,14 +46,14 @@ organizadas según las convenciones de Moodle. Un subdirectorio típico
 dentro de esta carpeta es `event/`.
 
 - `event/`: Contiene clases de eventos que Moodle utiliza para 
-  rastrearlas interacciones del usuario con el _plugin_.
+  rastrear las interacciones del usuario con el _plugin_.
   - `course_module_instance_list_viewed.php`: Evento que registra cuándo
     un usuario visualiza la lista de actividades del _plugin_.
   - `course_module_viewed.php`: Evento que registra cuándo un usuario
     accede a una actividad específica.
 
 Si deseas añadir nuevas funcionalidades al _plugin_, como eventos
-personalizados, este es el lugar donde debes incluir las clases
+personalizados, este es el lugar donde se deberían incluir las clases
 correspondientes.
 
 ### `db/`
@@ -62,19 +62,19 @@ La carpeta `db/` contiene archivos relacionados con la configuración de
 la base de datos y los permisos.
 
 - `access.php`: Define las capacidades o permisos que los usuarios
-  pueden tener al interactuar con el plugin. Por ejemplo, permisos para
+  pueden tener al interactuar con el _plugin_. Por ejemplo, permisos para
   crear, editar o eliminar actividades.
 - `install.xml`: Archivo XML que describe la estructura de las tablas
-  utilizadas por el plugin en la base de datos de Moodle. Si necesitas
+  utilizadas por el _plugin_ en la base de datos de Moodle. Si necesitas
   añadir nuevas tablas o campos, este archivo debe ser actualizado.
 
 ### `lang/`
 
 Esta carpeta almacena los archivos de idioma necesarios para
-internacionalizar el `plugin`.
+internacionalizar el _plugin_.
 
 - `en/cuestionariollm.php`: Contiene las cadenas de texto en inglés para
-  el _plugin_. Si deseas traducir el plugin a otros idiomas, debes crear
+  el _plugin_. Si deseas traducir el _plugin_ a otros idiomas, debes crear
   carpetas como `es/` (español) o `fr/` (francés), copiando y adaptando
   este archivo.
 
@@ -97,26 +97,26 @@ archivo `composer.json`.
 
 ### Archivos principales
 
-A continuación, se explican los archivos más importantes del _plugin_,
-que se encuentran en el nivel raíz:
+Los archivos más importantes del _plugin_,
+que se encuentran en el nivel raíz, son los siguientes
 
-`composer.json`: Contiene la configuración de las dependencias externas
+- `composer.json`: Contiene la configuración de las dependencias externas
 del _plugin_. Si necesitas añadir una nueva biblioteca, este archivo
 debe ser editado y actualizado con Composer.
-`lib.php`: Este archivo centraliza funciones genéricas del _plugin_.
+- `lib.php`: Este archivo centraliza funciones genéricas del _plugin_.
 Aquí se pueden definir hooks que extiendan o personalicen el
 comportamiento de Moodle.
-`mod_form.php`: Archivo que define el formulario de configuración del
+- `mod_form.php`: Archivo que define el formulario de configuración del
 _plugin_ cuando se crea o edita una actividad en Moodle. Aquí puedes
 personalizar las opciones que el usuario ve al configurar la actividad.
-`settings.php`: Archivo utilizado para definir configuraciones generales
-del plugin, accesibles desde el panel de administración de Moodle. Por
+- `settings.php`: Archivo utilizado para definir configuraciones generales
+del _plugin_, accesibles desde el panel de administración de Moodle. Por
 ejemplo, este archivo puede incluir la configuración de la API Key de
 OpenAI.
-`version.php`: Contiene la información sobre la versión del _plugin_,
+- `version.php`: Contiene la información sobre la versión del _plugin_,
 como el número de versión, la compatibilidad con Moodle y las
 dependencias requeridas.
-`view.php`: Es el archivo principal que renderiza la interfaz del plugin
+- `view.php`: Es el archivo principal que renderiza la interfaz del _plugin_
 cuando los usuarios acceden a una actividad.
 
 `pix/`
@@ -124,7 +124,7 @@ cuando los usuarios acceden a una actividad.
 Esta carpeta almacena los recursos gráficos del _plugin_, como iconos.
 Por ejemplo:
 
-- `monologo.svg`: Icono utilizado para representar el plugin en la
+- `monologo.svg`: Icono utilizado para representar el _plugin_ en la
   interfaz de Moodle.
 
 ## Buenas prácticas al trabajar con la estructura

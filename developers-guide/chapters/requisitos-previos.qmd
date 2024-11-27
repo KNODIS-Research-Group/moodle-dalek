@@ -12,7 +12,7 @@ modificarlo, debes contar con el siguiente software:
 
 ### Moodle
 
-Moodle es el entorno en el que opera el plugin. Es imprescindible que la
+Moodle es el entorno en el que opera el _plugin_. Es imprescindible que la
 instalación esté activa y correctamente configurada en un servidor
 accesible, por lo que si no es así, , descárgalo desde su
 [sitio oficial](https://moodle.org/), y sigue las guías de instalación.
@@ -51,30 +51,30 @@ que se encuentra en el `PATH` de tu sistema.
 
 Es otro de los requisitos necesarios para que Moodle funcione.
 Prácticamente cualquiera de los principales sistemas gestores de bases
-de datos nos vale (e.g. MariaDB, Postgrsql). Aun así, comprueba el
+de datos nos vale (e.g. MariaDB, PostgreSQL). Aun así, comprueba el
 manual de requisitos de Moodle para instalar el que mejor se ajuste a
 tus necesidades.
 
 ### Cliente SQL
 
-Para interactuar con la base de datos desde fuerea de Moodle (algo muy
-útil en entornos de desarrollo), viene bien tener un cliente SQL como:
+Para interactuar con la base de datos desde fuera de Moodle (algo muy
+útil durante el desarrollo), viene bien tener un cliente SQL como:
 
-- DBeaver (multiplataforma).
-- HeidiSQL (Windows).
-- MySQL Workbench (multiplataforma y nuestro preferido si usas MySQL o
+- **DBeaver** (multiplataforma).
+- **HeidiSQL** (Windows).
+- **MySQL Workbench** (multiplataforma y nuestro preferido si usas MySQL o
   MariaDB como gestor de bases de datos).
-- phpMyAdmin, si prefieres una interfaz web.
+- **phpMyAdmin**, si prefieres una interfaz web.
 
 ## Conocimientos recomendados
 
 Aunque no es estrictamente necesario ser un experto, tener ciertos
 conocimientos facilitará mucho el proceso de instalación,
-personalización o desarrollo del plugin.
+personalización o desarrollo del _plugin_.
 
 Es importante conocer las bases del lenguaje PHP, ya que el código del
-plugin está escrito en este lenguaje. También es interesante tener
-conocimientos de cómo interactuar con API REST, ya que el plugin se
+_plugin_ está escrito en este lenguaje. También es interesante tener
+conocimientos de cómo interactuar con API REST, ya que el _plugin_ se
 conecta con la API de OpenAI para generar preguntas adaptativas.
 
 Ya que Moodle almacena datos del _plugin_ en su base de datos, es
@@ -110,11 +110,11 @@ el _plugin_.
 
 ### Paso 3: Instala Composer
 
-1. Una vez instalado, navega al directorio del plugin y ejecuta:
+1. Una vez instalado, navega al directorio del _plugin_ y ejecuta:
    ```bash
    composer install
    ```
-   Esto descargará todas las dependencias definidas en el archivo composer.json.
+   Esto descargará todas las dependencias definidas en el archivo `composer.json`.
 
 ### Paso 4: Configura tu editor o IDE
 

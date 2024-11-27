@@ -1,26 +1,26 @@
 # Solución de problemas
 
 En este capítulo detallaremos cómo identificar y resolver los problemas
-más comunes que pueden surgir al instalar, configurar o usar el plugin
+más comunes que pueden surgir al instalar, configurar o usar el _plugin_
 {{< var plugin.name >}} en Moodle. Se incluyen en ellos los pasos para
 habilitar la depuración, interpretar mensajes de error y solucionar
-conflictos con dependencias u otros plugins.
+conflictos con dependencias u otros _plugins_.
 
 ## Errores comunes y sus soluciones
 
-### Error durante la instalación del plugin
+### Error durante la instalación del _plugin_
 
-Al instalar el plugin desde el panel de administración de Moodle,
+Al instalar el _plugin_ desde el panel de administración de Moodle,
 aparece un mensaje de error indicando que faltan dependencias o que la
 versión de Moodle no es compatible.
 
-- Causa/s posible:
+- **Causa/s posible**:
   - Moodle no está actualizado a la versión mínima requerida (4.1).
   - No se han instalado correctamente las dependencias con Composer.
-- Solución:
+- **Solución**:
   1. Asegúrate de que Moodle está actualizado. Si es necesario, descarga
      la última versión.
-  2. En la raíz del plugin, ejecuta:
+  2. En la raíz del _plugin_, ejecuta:
      ```bash
      composer install
      ```
@@ -29,17 +29,17 @@ versión de Moodle no es compatible.
 
 ### El cuestionario no se genera correctamente
 
-El plugin crea una actividad, pero no aparecen preguntas generadas
+El _plugin_ crea una actividad, pero no aparecen preguntas generadas
 automáticamente.
 
-- Causa/s posible:
+- **Causa/s posible**:
   - La API Key de OpenAI no está configurada o no es válida.
   - El archivo cargado (PDF o texto) tiene un formato incompatible.
-- Solución:
+- **Solución**:
   1. Verifica que la API Key está configurada correctamente en
      `settings.php`. Prueba la conexión con:
      ```php
-     $client = new \OpenAI\Client('tu_api_key');
+     $client = new OpenAIClient('tu_api_key');
      ```
   2. Asegúrate de que el archivo cargado tiene texto legible (no imágenes
      escaneadas). Puedes usar herramientas como `pdftotext` para
@@ -52,10 +52,10 @@ automáticamente.
 
 Moodle se ralentiza notablemente cuando el _plugin_ está en uso.
 
-- Causa/s posible:
+- **Causa/s posible**:
   - Las solicitudes a la API de OpenAI no están optimizadas o el
     servidor de Moodle tiene recursos limitados.
-- Solución:
+- **Solución**:
   1. Revisa los tiempos de respuesta de la API de OpenAI desde el
      archivo de registro.
   2. Si el problema persiste, habilita el almacenamiento en caché de las
@@ -70,7 +70,7 @@ Algunas funciones del _plugin_ no funcionan correctamente o Moodle
 muestra errores relacionados con otros _plugins_.
 
 - Causa posible:
-  - Otro plugin está sobrescribiendo eventos o funciones usadas por
+  - Otro _plugin_ está sobrescribiendo eventos o funciones usadas por
     {{< var plugin.name >}}.
 - Solución:
   1. Desactiva temporalmente los otros _plugins_ sospechosos desde el
@@ -111,7 +111,7 @@ problemas. Sus ubicaciones son las siguientes:
   ```text
   Exception: OpenAI API request failed with status 401 (Unauthorized)
   ```
-- Detalles de la actividad del plugin, como fallos al cargar archivos o errores en la generación de preguntas.
+- Detalles de la actividad del _plugin_, como fallos al cargar archivos o errores en la generación de preguntas.
 
 ## Solución de conflictos de dependencias
 
@@ -141,7 +141,7 @@ Pasos para resolver conflictos:
 
 ## Preguntas frecuentes
 
-### ¿Por qué no puedo subir archivos grandes al plugin?
+### ¿Por qué no puedo subir archivos grandes al _plugin_?
 
 1. Verifica los límites en `php.ini`:
    ```text
@@ -152,11 +152,11 @@ Pasos para resolver conflictos:
 
 ### ¿Qué hacer si la API de OpenAI no responde?
 
-1. Comprueba el estado del servicio en su página de estado oficial.
+1. Comprueba el estado del servicio en su 
+[página de estado oficial](https://status.openai.com/).
 2. Asegúrate de que el servidor tiene acceso a Internet.
 
 ### ¿Cómo depurar errores relacionados con las preguntas generadas?
 
-1. Activa los _logs_ detallados en la API de OpenAI configurando el modo
-2. de prueba (`test_mode`) en el _plugin_.
-3. 
+Activa los _logs_ detallados en la API de OpenAI configurando el modo
+de prueba (`test_mode`) en el _plugin_.
