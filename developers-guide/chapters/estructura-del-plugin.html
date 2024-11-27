@@ -139,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/uso-del-plugin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -214,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
 <p>DALEK está compuesto por una estructura organizada en carpetas y archivos que cumplen funciones específicas dentro del entorno Moodle. A continuación, se describe cada componente para entender su propósito y funcionalidad.</p>
 <section id="descripción-general" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="descripción-general"><span class="header-section-number">3.1</span> Descripción general</h2>
-<p>La estructura del <em>plugin</em> sigue el estándar de desarrollo de Moodle, lo que permite su integración con la plataforma. A continuación, se presenta el árbol de directorios y archivos principales del <em>plugin</em>, junto con una breve descripción de cada uno:</p>
+<p>La estructura del <em>plugin</em> sigue el estándar de desarrollo de Moodle, lo que permite su integración con la plataforma. A continuación, se presenta su árbol de directorios y sus archivos principales, junto con una breve descripción de cada uno:</p>
 <pre class="text"><code>├── backup/         # Gestión de copias de seguridad y restauración.
 ├── classes/        # Clases PHP, incluyendo eventos y lógica principal.
 ├── db/             # Configuración de base de datos y permisos.
@@ -239,27 +239,27 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="classes"><span class="header-section-number">3.1.2</span> <code>classes/</code></h3>
 <p>En esta carpeta se encuentran las clases principales del <em>plugin</em>, organizadas según las convenciones de Moodle. Un subdirectorio típico dentro de esta carpeta es <code>event/</code>.</p>
 <ul>
-<li><code>event/</code>: Contiene clases de eventos que Moodle utiliza para rastrearlas interacciones del usuario con el <em>plugin</em>.
+<li><code>event/</code>: Contiene clases de eventos que Moodle utiliza para rastrear las interacciones del usuario con el <em>plugin</em>.
 <ul>
 <li><code>course_module_instance_list_viewed.php</code>: Evento que registra cuándo un usuario visualiza la lista de actividades del <em>plugin</em>.</li>
 <li><code>course_module_viewed.php</code>: Evento que registra cuándo un usuario accede a una actividad específica.</li>
 </ul></li>
 </ul>
-<p>Si deseas añadir nuevas funcionalidades al <em>plugin</em>, como eventos personalizados, este es el lugar donde debes incluir las clases correspondientes.</p>
+<p>Si deseas añadir nuevas funcionalidades al <em>plugin</em>, como eventos personalizados, este es el lugar donde se deberían incluir las clases correspondientes.</p>
 </section>
 <section id="db" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="db"><span class="header-section-number">3.1.3</span> <code>db/</code></h3>
 <p>La carpeta <code>db/</code> contiene archivos relacionados con la configuración de la base de datos y los permisos.</p>
 <ul>
-<li><code>access.php</code>: Define las capacidades o permisos que los usuarios pueden tener al interactuar con el plugin. Por ejemplo, permisos para crear, editar o eliminar actividades.</li>
-<li><code>install.xml</code>: Archivo XML que describe la estructura de las tablas utilizadas por el plugin en la base de datos de Moodle. Si necesitas añadir nuevas tablas o campos, este archivo debe ser actualizado.</li>
+<li><code>access.php</code>: Define las capacidades o permisos que los usuarios pueden tener al interactuar con el <em>plugin</em>. Por ejemplo, permisos para crear, editar o eliminar actividades.</li>
+<li><code>install.xml</code>: Archivo XML que describe la estructura de las tablas utilizadas por el <em>plugin</em> en la base de datos de Moodle. Si necesitas añadir nuevas tablas o campos, este archivo debe ser actualizado.</li>
 </ul>
 </section>
 <section id="lang" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="lang"><span class="header-section-number">3.1.4</span> <code>lang/</code></h3>
-<p>Esta carpeta almacena los archivos de idioma necesarios para internacionalizar el <code>plugin</code>.</p>
+<p>Esta carpeta almacena los archivos de idioma necesarios para internacionalizar el <em>plugin</em>.</p>
 <ul>
-<li><code>en/cuestionariollm.php</code>: Contiene las cadenas de texto en inglés para el <em>plugin</em>. Si deseas traducir el plugin a otros idiomas, debes crear carpetas como <code>es/</code> (español) o <code>fr/</code> (francés), copiando y adaptando este archivo.</li>
+<li><code>en/cuestionariollm.php</code>: Contiene las cadenas de texto en inglés para el <em>plugin</em>. Si deseas traducir el <em>plugin</em> a otros idiomas, debes crear carpetas como <code>es/</code> (español) o <code>fr/</code> (francés), copiando y adaptando este archivo.</li>
 </ul>
 </section>
 <section id="vendor" class="level3" data-number="3.1.5">
@@ -274,12 +274,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="archivos-principales" class="level3" data-number="3.1.6">
 <h3 data-number="3.1.6" class="anchored" data-anchor-id="archivos-principales"><span class="header-section-number">3.1.6</span> Archivos principales</h3>
-<p>A continuación, se explican los archivos más importantes del <em>plugin</em>, que se encuentran en el nivel raíz:</p>
-<p><code>composer.json</code>: Contiene la configuración de las dependencias externas del <em>plugin</em>. Si necesitas añadir una nueva biblioteca, este archivo debe ser editado y actualizado con Composer. <code>lib.php</code>: Este archivo centraliza funciones genéricas del <em>plugin</em>. Aquí se pueden definir hooks que extiendan o personalicen el comportamiento de Moodle. <code>mod_form.php</code>: Archivo que define el formulario de configuración del <em>plugin</em> cuando se crea o edita una actividad en Moodle. Aquí puedes personalizar las opciones que el usuario ve al configurar la actividad. <code>settings.php</code>: Archivo utilizado para definir configuraciones generales del plugin, accesibles desde el panel de administración de Moodle. Por ejemplo, este archivo puede incluir la configuración de la API Key de OpenAI. <code>version.php</code>: Contiene la información sobre la versión del <em>plugin</em>, como el número de versión, la compatibilidad con Moodle y las dependencias requeridas. <code>view.php</code>: Es el archivo principal que renderiza la interfaz del plugin cuando los usuarios acceden a una actividad.</p>
+<p>Los archivos más importantes del <em>plugin</em>, que se encuentran en el nivel raíz, son los siguientes</p>
+<ul>
+<li><code>composer.json</code>: Contiene la configuración de las dependencias externas del <em>plugin</em>. Si necesitas añadir una nueva biblioteca, este archivo debe ser editado y actualizado con Composer.</li>
+<li><code>lib.php</code>: Este archivo centraliza funciones genéricas del <em>plugin</em>. Aquí se pueden definir hooks que extiendan o personalicen el comportamiento de Moodle.</li>
+<li><code>mod_form.php</code>: Archivo que define el formulario de configuración del <em>plugin</em> cuando se crea o edita una actividad en Moodle. Aquí puedes personalizar las opciones que el usuario ve al configurar la actividad.</li>
+<li><code>settings.php</code>: Archivo utilizado para definir configuraciones generales del <em>plugin</em>, accesibles desde el panel de administración de Moodle. Por ejemplo, este archivo puede incluir la configuración de la API Key de OpenAI.</li>
+<li><code>version.php</code>: Contiene la información sobre la versión del <em>plugin</em>, como el número de versión, la compatibilidad con Moodle y las dependencias requeridas.</li>
+<li><code>view.php</code>: Es el archivo principal que renderiza la interfaz del <em>plugin</em> cuando los usuarios acceden a una actividad.</li>
+</ul>
 <p><code>pix/</code></p>
 <p>Esta carpeta almacena los recursos gráficos del <em>plugin</em>, como iconos. Por ejemplo:</p>
 <ul>
-<li><code>monologo.svg</code>: Icono utilizado para representar el plugin en la interfaz de Moodle.</li>
+<li><code>monologo.svg</code>: Icono utilizado para representar el <em>plugin</em> en la interfaz de Moodle.</li>
 </ul>
 </section>
 </section>

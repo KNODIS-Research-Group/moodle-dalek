@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/uso-del-plugin.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/uso-del-plugin.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -139,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/uso-del-plugin.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -195,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></h1>
 </div>
 
 
@@ -218,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 <p>El flujo de trabajo del <em>plugin</em> se basa en los siguientes pasos principales:</p>
 <ol type="1">
 <li><strong>Carga del documento base</strong>: El profesor carga un documento (en formato PDF) que será utilizado como base para la generación de preguntas.</li>
-<li><strong>Procesamiento del contenido</strong>: El plugin analiza el contenido del documento y lo envía a un LLM a través de la API de OpenAI.</li>
+<li><strong>Procesamiento del contenido</strong>: El <em>plugin</em> analiza el contenido del documento y lo envía a un LLM a través de la API de OpenAI.</li>
 <li><strong>Generación de preguntas</strong>: El LLM devuelve un conjunto de preguntas adaptadas al contenido del documento.</li>
 <li><strong>Configuración del cuestionario</strong>: El profesor ajusta las opciones del cuestionario, como el número de preguntas y el formato de las mismas.</li>
 <li><strong>Publicación y uso</strong>: El cuestionario se publica en el curso de Moodle para que los estudiantes puedan resolverlo.</li>
@@ -238,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="paso-2-añadir-una-actividad"><span class="header-section-number">5.2.2</span> Paso 2: Añadir una actividad</h3>
 <ol type="1">
 <li>Haz clic en <em>Añadir una actividad o un recurso</em> dentro del tema o sección deseada.</li>
-<li>En el cuadro emergente, selecciona <em>Cuestionario LLM</em> y pulsa Añadir.</li>
+<li>En el cuadro emergente, selecciona <em>Cuestionario LLM</em> y pulsa <em>Añadir</em>.</li>
 </ol>
 </section>
 <section id="paso-3-configuración-inicial" class="level3" data-number="5.2.3">
@@ -254,10 +254,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="paso-4-guardar-y-procesar" class="level3" data-number="5.2.4">
 <h3 data-number="5.2.4" class="anchored" data-anchor-id="paso-4-guardar-y-procesar"><span class="header-section-number">5.2.4</span> Paso 4: Guardar y procesar</h3>
-<ol type="1">
-<li>Una vez completado el formulario, pulsa <em>Guardar y regresar</em> al curso o <em>Guardar y mostrar</em>.</li>
-</ol>
-<p>En este punto el <em>plugin</em> procesará el archivo y generará automáticamente las preguntas.</p>
+<p>Una vez completado el formulario, pulsa <em>Guardar y regresar</em> al curso o <em>Guardar y mostrar</em>. En este punto el <em>plugin</em> procesará el archivo y generará automáticamente las preguntas.</p>
 </section>
 </section>
 <section id="configuración-avanzada-de-las-preguntas" class="level2" data-number="5.3">
@@ -265,18 +262,18 @@ ul.task-list li input[type="checkbox"] {
 <p>Después de la generación inicial, el profesor puede ajustar las preguntas generadas. Para ello:</p>
 <ol type="1">
 <li>Entra en la actividad recién creada.</li>
-<li>Haz clic en el botón Editar preguntas.</li>
+<li>Haz clic en el botón <em>Editar preguntas</em>.</li>
 <li>Aparecerá una lista con las preguntas generadas. Cada pregunta incluye:
 <ul>
-<li>El <strong>texto</strong> de la pregunta.</li>
+<li><strong>Texto</strong> de la pregunta.</li>
 <li><strong>Opciones de respuesta</strong>: En caso de preguntas de opción múltiple.</li>
 <li><strong>Respuesta correcta</strong>: Resaltada para facilitar la revisión.</li>
 </ul></li>
-<li>Se dispone, en caso de que sea encesario, de las siguientes opciones de edición:
+<li>Se dispone, en caso de que sea necesario, de las siguientes opciones de edición:
 <ul>
 <li><strong>Modificar el texto de la pregunta</strong>: Pulsa el icono de edición junto a la pregunta para ajustarla.</li>
-<li><strong>Añadir nuevas preguntas</strong>: Haz clic en el botón Añadir pregunta manualmente para incluir preguntas no generadas por el <em>plugin</em>.</li>
-<li><strong>Eliminar preguntas</strong>: Marca las preguntas no deseadas y selecciona la opción de eliminar.</li>
+<li><strong>Añadir nuevas preguntas</strong>: Haz clic en el botón <em>Añadir pregunta manualmente</em> para incluir preguntas no generadas por el <em>plugin</em>.</li>
+<li><strong>Eliminar preguntas</strong>: Marca las preguntas no deseadas y selecciona la opción de <em>Eliminar</em>.</li>
 </ul></li>
 </ol>
 </section>
@@ -285,7 +282,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Una vez revisadas y ajustadas las preguntas:</p>
 <ol type="1">
 <li>Dirígete a la página principal de la actividad.</li>
-<li>Pulsa el botón Hacer visible si la actividad está oculta.</li>
+<li>Pulsa el botón <em>Hacer visible</em> si la actividad está oculta.</li>
 <li>Comparte las instrucciones con los estudiantes en el foro del curso o mediante un mensaje directo.</li>
 </ol>
 </section>

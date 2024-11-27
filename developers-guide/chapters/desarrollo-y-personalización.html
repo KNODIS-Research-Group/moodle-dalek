@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/uso-del-plugin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -246,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Este capítulo ofrece una guía detallada para entender cómo podemos personalizar o extender el <em>plugin</em> de acuerdo a las necesidades de desarrollo.</p>
+<p>En este capítulo se explica cómo podemos personalizar o extender el <em>plugin</em> de acuerdo a las necesidades de desarrollo.</p>
 <section id="añadiendo-funcionalidades" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="añadiendo-funcionalidades"><span class="header-section-number">6.1</span> Añadiendo funcionalidades</h2>
 <p>Veamos cómo añadir nuevas funcionalidades a través de varios ejemplos:</p>
@@ -313,7 +313,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Localiza la función responsable:
 <ul>
-<li>En <code>lib.php</code>, busca la función que realiza la llamada a la API de OpenAI. Por ejemplo: ```php $response = $client-&gt;post(‘https://api.openai.com/v1/completions’, [ ‘headers’ =&gt; [‘Authorization’ =&gt; “Bearer $apikey”], ‘json’ =&gt; [ ‘model’ =&gt; ‘text-davinci-003’, ‘prompt’ =&gt; $prompt, ‘max_tokens’ =&gt; 200, ‘temperature’ =&gt; 0.7, ]]);</li>
+<li><p>En <code>lib.php</code>, busca la función que realiza la llamada a la API de OpenAI. Por ejemplo:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode php code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">$response</span> <span class="op">=</span> <span class="va">$client</span>-&gt;post(<span class="st">'https://api.openai.com/v1/completions'</span><span class="ot">,</span> [</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'headers'</span> =&gt; [<span class="st">'Authorization'</span> =&gt; <span class="st">"Bearer </span><span class="va">$apikey</span><span class="st">"</span>]<span class="ot">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'json'</span> =&gt; [</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'model'</span> =&gt; <span class="st">'text-davinci-003'</span><span class="ot">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'prompt'</span> =&gt; <span class="va">$prompt</span><span class="ot">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'max_tokens'</span> =&gt; <span class="dv">200</span><span class="ot">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'temperature'</span> =&gt; <span class="fl">0.7</span><span class="ot">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>])<span class="ot">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 <li>Ajusta los parámetros:
 <ul>
@@ -328,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Editar la plantilla de generación:
 <ul>
 <li><p>En el mismo archivo, modifica el contenido del <em>prompt</em> para ajustar el estilo de las preguntas generadas. Por ejemplo:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode php code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">$prompt</span> <span class="op">=</span> <span class="st">"Genera una pregunta de opción múltiple basada en el siguiente texto: </span><span class="va">$texto</span><span class="st">"</span><span class="ot">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode php code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">$prompt</span> <span class="op">=</span> <span class="st">"Genera una pregunta de opción múltiple basada en el texto: </span><span class="va">$texto</span><span class="st">"</span><span class="ot">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 <li>Añadir opciones avanzadas:
 <ul>
@@ -341,16 +350,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En algunos casos, es posible que desees extender la funcionalidad del <em>plugin</em> mediante nuevas tablas o campos en la base de datos. Para ello:</p>
 <ol type="1">
 <li><p><strong>Actualiza <code>install.xml</code></strong>: Añade una nueva tabla o un nuevo campo siguiendo el formato XML. Ejemplo de una nueva tabla:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode php code-with-copy"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="cn">TABLE</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"cuestionariollm_extra_data"</span><span class="op">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span><span class="cn">FIELDS</span><span class="op">&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span><span class="cn">FIELD</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"id"</span> <span class="cn">TYPE</span><span class="op">=</span><span class="st">"int"</span> <span class="cn">LENGTH</span><span class="op">=</span><span class="st">"10"</span> <span class="cn">NOTNULL</span><span class="op">=</span><span class="st">"true"</span> <span class="cn">SEQUENCE</span><span class="op">=</span><span class="st">"true"</span><span class="op">/&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span><span class="cn">FIELD</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"moduleid"</span> <span class="cn">TYPE</span><span class="op">=</span><span class="st">"int"</span> <span class="cn">LENGTH</span><span class="op">=</span><span class="st">"10"</span> <span class="cn">NOTNULL</span><span class="op">=</span><span class="st">"true"</span><span class="op">/&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span><span class="cn">FIELD</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"extra_info"</span> <span class="cn">TYPE</span><span class="op">=</span><span class="st">"text"</span> <span class="cn">NOTNULL</span><span class="op">=</span><span class="st">"false"</span><span class="op">/&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span><span class="cn">FIELDS</span><span class="op">&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span><span class="cn">KEYS</span><span class="op">&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span><span class="fu">KEY</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"primary"</span> <span class="cn">TYPE</span><span class="op">=</span><span class="st">"primary"</span> <span class="cn">FIELDS</span><span class="op">=</span><span class="st">"id"</span><span class="op">/&gt;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span><span class="cn">KEYS</span><span class="op">&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span><span class="cn">TABLE</span><span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode php code-with-copy"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="cn">TABLE</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"cuestionariollm_extra_data"</span><span class="op">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span><span class="cn">FIELDS</span><span class="op">&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span><span class="cn">FIELD</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"id"</span> <span class="cn">TYPE</span><span class="op">=</span><span class="st">"int"</span> <span class="cn">LENGTH</span><span class="op">=</span><span class="st">"10"</span> <span class="cn">NOTNULL</span><span class="op">=</span><span class="st">"true"</span> <span class="cn">SEQUENCE</span><span class="op">=</span><span class="st">"true"</span><span class="op">/&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span><span class="cn">FIELD</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"moduleid"</span> <span class="cn">TYPE</span><span class="op">=</span><span class="st">"int"</span> <span class="cn">LENGTH</span><span class="op">=</span><span class="st">"10"</span> <span class="cn">NOTNULL</span><span class="op">=</span><span class="st">"true"</span><span class="op">/&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span><span class="cn">FIELD</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"extra_info"</span> <span class="cn">TYPE</span><span class="op">=</span><span class="st">"text"</span> <span class="cn">NOTNULL</span><span class="op">=</span><span class="st">"false"</span><span class="op">/&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span><span class="cn">FIELDS</span><span class="op">&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span><span class="cn">KEYS</span><span class="op">&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span><span class="fu">KEY</span> <span class="cn">NAME</span><span class="op">=</span><span class="st">"primary"</span> <span class="cn">TYPE</span><span class="op">=</span><span class="st">"primary"</span> <span class="cn">FIELDS</span><span class="op">=</span><span class="st">"id"</span><span class="op">/&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span><span class="cn">KEYS</span><span class="op">&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span><span class="cn">TABLE</span><span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Crea funciones de acceso en <code>lib.php</code></strong>: Por ejemplo, para insertar datos: <code>php    function insert_extra_data($moduleid, $extra_info) {        global $DB;        $record = new stdClass();        $record-&gt;moduleid = $moduleid;        $record-&gt;extra_info = $extra_info;        $DB-&gt;insert_record('cuestionariollm_extra_data', $record);     }</code></p></li>
 </ol>
 
@@ -778,8 +787,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/uso-del-plugin.html" class="pagination-link" aria-label="Uso del plugin">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span>
+      <a href="../chapters/uso-del-plugin.html" class="pagination-link" aria-label="Uso del _plugin_">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

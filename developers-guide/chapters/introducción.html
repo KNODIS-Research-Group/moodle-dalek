@@ -139,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/uso-del-plugin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -176,9 +176,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#resumen-del-plugin" id="toc-resumen-del-plugin" class="nav-link active" data-scroll-target="#resumen-del-plugin"><span class="header-section-number">1.1</span> Resumen del plugin</a></li>
-  <li><a href="#características-clave-del-plugin" id="toc-características-clave-del-plugin" class="nav-link" data-scroll-target="#características-clave-del-plugin"><span class="header-section-number">1.2</span> Características clave del plugin:</a></li>
-  <li><a href="#estructura-del-documento" id="toc-estructura-del-documento" class="nav-link" data-scroll-target="#estructura-del-documento"><span class="header-section-number">1.3</span> Estructura del documento</a></li>
+  <li><a href="#características-clave-del-plugin" id="toc-características-clave-del-plugin" class="nav-link active" data-scroll-target="#características-clave-del-plugin"><span class="header-section-number">1.1</span> Características clave del <em>plugin</em></a></li>
+  <li><a href="#estructura-del-documento" id="toc-estructura-del-documento" class="nav-link" data-scroll-target="#estructura-del-documento"><span class="header-section-number">1.2</span> Estructura del documento</a></li>
   </ul>
 </nav>
     </div>
@@ -204,15 +203,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Este documento está diseñado para ser una guía técnica completa destinada a los desarrolladores interesados en trabajar con el plugin DALEK: Digital Analysis and Learning Enhancement Kit. Su objetivo es proporcionar toda la información necesaria para comprender, instalar, personalizar y extender el plugin en entornos Moodle. Además, incluye detalles sobre su arquitectura interna, los requisitos técnicos, y consejos para la solución de problemas.</p>
-<p>El manual está pensado tanto para aquellos que desean contribuir al desarrollo del plugin como para quienes buscan integrarlo o adaptarlo a las necesidades específicas de sus plataformas educativas.</p>
-<section id="resumen-del-plugin" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="resumen-del-plugin"><span class="header-section-number">1.1</span> Resumen del plugin</h2>
-<p>DALEK es un plugin desarrollado para Moodle, que utiliza modelos de lenguaje avanzados (LLM, como ChatGPT) para generar cuestionarios adaptativos de manera automática. Este sistema tiene como objetivo mejorar la personalización de la evaluación educativa, creando preguntas basadas en contenidos textuales proporcionados por los docentes, como memorias, informes o apuntes en formato PDF.</p>
+<p>DALEK es un <em>plugin</em> desarrollado para Moodle, que utiliza modelos de lenguaje avanzados (LLM) para generar cuestionarios adaptativos de manera automática. Este sistema tiene como objetivo mejorar la personalización de la evaluación educativa, creando preguntas basadas en contenidos textuales proporcionados por los docentes, como memorias, informes o apuntes en formato PDF.</p>
 <p>La principal ventaja de DALEK es su capacidad para reducir la carga de trabajo de los docentes a la hora de diseñar actividades de evaluación y garantizar que estas estén alineadas con los contenidos. Además, fomenta una evaluación más equitativa y personalizada, ajustándose al nivel y contexto de cada estudiante.</p>
-</section>
-<section id="características-clave-del-plugin" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="características-clave-del-plugin"><span class="header-section-number">1.2</span> Características clave del plugin:</h2>
+<section id="características-clave-del-plugin" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="características-clave-del-plugin"><span class="header-section-number">1.1</span> Características clave del <em>plugin</em></h2>
 <ul>
 <li>Generación automática de preguntas a partir de documentos de texto, utilizando la API de OpenAI.</li>
 <li>Integración completa con Moodle, respetando su estructura de permisos, roles y flujos de trabajo.</li>
@@ -220,14 +214,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Soporte multilingüe a través del sistema de internacionalización de Moodle.</li>
 </ul>
 </section>
-<section id="estructura-del-documento" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="estructura-del-documento"><span class="header-section-number">1.3</span> Estructura del documento</h2>
+<section id="estructura-del-documento" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="estructura-del-documento"><span class="header-section-number">1.2</span> Estructura del documento</h2>
 <p>El manual está organizado en capítulos que cubren todos los aspectos del <em>plugin</em>. A continuación, se resumen los contenidos que se incluyen:</p>
 <ul>
-<li><strong>Requisitos previos</strong>: Software y conocimientos necesarios para instalar y trabajar con el plugin.</li>
-<li><strong>Estructura del plugin</strong>: Explicación detallada de la arquitectura de carpetas y archivos.</li>
-<li><strong>Instalación del plugin</strong>: Instrucciones paso a paso para instalar y configurar DALEK en Moodle.</li>
-<li><strong>Uso del plugin</strong>: Guía para los usuarios finales y administradores que deseen configurar actividades con el <em>plugin</em>.</li>
+<li><strong>Requisitos previos</strong>: Software y conocimientos necesarios para instalar y trabajar con el <em>plugin</em>.</li>
+<li><strong>Estructura del <em>plugin</em></strong>: Explicación detallada de la arquitectura de carpetas y archivos.</li>
+<li><strong>Instalación del <em>plugin</em></strong>: Instrucciones paso a paso para instalar y configurar DALEK en Moodle.</li>
+<li><strong>Uso del <em>plugin</em></strong>: Guía para los usuarios finales y administradores que deseen configurar actividades con el <em>plugin</em>.</li>
 <li><strong>Desarrollo y personalización</strong>: Información para programadores que deseen ampliar o modificar la funcionalidad del <em>plugin</em>.</li>
 <li><strong>Solución de problemas</strong>: Consejos para resolver errores comunes y utilizar herramientas de depuración.</li>
 <li><strong>Pruebas y validación</strong>: Metodologías para asegurar el correcto funcionamiento del <em>plugin</em>.</li>

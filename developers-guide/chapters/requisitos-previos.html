@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/uso-del-plugin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -258,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Para que el <em>plugin</em> funcione correctamente y puedas desarrollarlo o modificarlo, debes contar con el siguiente software:</p>
 <section id="moodle" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="moodle"><span class="header-section-number">2.1.1</span> Moodle</h3>
-<p>Moodle es el entorno en el que opera el plugin. Es imprescindible que la instalación esté activa y correctamente configurada en un servidor accesible, por lo que si no es así, , descárgalo desde su <a href="https://moodle.org/">sitio oficial</a>, y sigue las guías de instalación. Asegúrate de que tu servidor cumple los requisitos de la versión de Moodle.</p>
+<p>Moodle es el entorno en el que opera el <em>plugin</em>. Es imprescindible que la instalación esté activa y correctamente configurada en un servidor accesible, por lo que si no es así, , descárgalo desde su <a href="https://moodle.org/">sitio oficial</a>, y sigue las guías de instalación. Asegúrate de que tu servidor cumple los requisitos de la versión de Moodle.</p>
 <ul>
 <li><strong>Versión requerida</strong>: Moodle 4.1 o superior.</li>
 </ul>
@@ -281,23 +281,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="servidor-sql" class="level3" data-number="2.1.5">
 <h3 data-number="2.1.5" class="anchored" data-anchor-id="servidor-sql"><span class="header-section-number">2.1.5</span> Servidor SQL</h3>
-<p>Es otro de los requisitos necesarios para que Moodle funcione. Prácticamente cualquiera de los principales sistemas gestores de bases de datos nos vale (e.g.&nbsp;MariaDB, Postgrsql). Aun así, comprueba el manual de requisitos de Moodle para instalar el que mejor se ajuste a tus necesidades.</p>
+<p>Es otro de los requisitos necesarios para que Moodle funcione. Prácticamente cualquiera de los principales sistemas gestores de bases de datos nos vale (e.g.&nbsp;MariaDB, PostgreSQL). Aun así, comprueba el manual de requisitos de Moodle para instalar el que mejor se ajuste a tus necesidades.</p>
 </section>
 <section id="cliente-sql" class="level3" data-number="2.1.6">
 <h3 data-number="2.1.6" class="anchored" data-anchor-id="cliente-sql"><span class="header-section-number">2.1.6</span> Cliente SQL</h3>
-<p>Para interactuar con la base de datos desde fuerea de Moodle (algo muy útil en entornos de desarrollo), viene bien tener un cliente SQL como:</p>
+<p>Para interactuar con la base de datos desde fuera de Moodle (algo muy útil durante el desarrollo), viene bien tener un cliente SQL como:</p>
 <ul>
-<li>DBeaver (multiplataforma).</li>
-<li>HeidiSQL (Windows).</li>
-<li>MySQL Workbench (multiplataforma y nuestro preferido si usas MySQL o MariaDB como gestor de bases de datos).</li>
-<li>phpMyAdmin, si prefieres una interfaz web.</li>
+<li><strong>DBeaver</strong> (multiplataforma).</li>
+<li><strong>HeidiSQL</strong> (Windows).</li>
+<li><strong>MySQL Workbench</strong> (multiplataforma y nuestro preferido si usas MySQL o MariaDB como gestor de bases de datos).</li>
+<li><strong>phpMyAdmin</strong>, si prefieres una interfaz web.</li>
 </ul>
 </section>
 </section>
 <section id="conocimientos-recomendados" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="conocimientos-recomendados"><span class="header-section-number">2.2</span> Conocimientos recomendados</h2>
-<p>Aunque no es estrictamente necesario ser un experto, tener ciertos conocimientos facilitará mucho el proceso de instalación, personalización o desarrollo del plugin.</p>
-<p>Es importante conocer las bases del lenguaje PHP, ya que el código del plugin está escrito en este lenguaje. También es interesante tener conocimientos de cómo interactuar con API REST, ya que el plugin se conecta con la API de OpenAI para generar preguntas adaptativas.</p>
+<p>Aunque no es estrictamente necesario ser un experto, tener ciertos conocimientos facilitará mucho el proceso de instalación, personalización o desarrollo del <em>plugin</em>.</p>
+<p>Es importante conocer las bases del lenguaje PHP, ya que el código del <em>plugin</em> está escrito en este lenguaje. También es interesante tener conocimientos de cómo interactuar con API REST, ya que el <em>plugin</em> se conecta con la API de OpenAI para generar preguntas adaptativas.</p>
 <p>Ya que Moodle almacena datos del <em>plugin</em> en su base de datos, es recomendable, aunque no imprescindible, nociones de lenguaje SQL, sobre todo referente a cómo interpretar esquemas y como realizar consultas y modificaciones.</p>
 <p>Por último, si te has planteado colaborar en el desarrollo del <em>plugin</em>, es recomendable tener conocimientos de sistema de control de versiones, concretamente de Git, ya que el repositorio se encuentra alojado en GitHub.</p>
 </section>
@@ -326,9 +326,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="paso-3-instala-composer" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="paso-3-instala-composer"><span class="header-section-number">2.3.3</span> Paso 3: Instala Composer</h3>
 <ol type="1">
-<li><p>Una vez instalado, navega al directorio del plugin y ejecuta:</p>
+<li><p>Una vez instalado, navega al directorio del <em>plugin</em> y ejecuta:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">composer</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Esto descargará todas las dependencias definidas en el archivo composer.json.</p></li>
+<p>Esto descargará todas las dependencias definidas en el archivo <code>composer.json</code>.</p></li>
 </ol>
 </section>
 <section id="paso-4-configura-tu-editor-o-ide" class="level3" data-number="2.3.4">

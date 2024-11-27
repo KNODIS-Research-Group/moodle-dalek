@@ -139,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapters/uso-del-plugin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del plugin</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uso del <em>plugin</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -216,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="prefacio" class="level1 unnumbered">
 <h1 class="unnumbered">Prefacio</h1>
-<p>Este es el manual para desarrolladores del <em>plugin</em> DALEK: Digital Analysis and Learning Enhancement Kit, una herramienta diseñada para mejorar la la eficiencia de los docentes a la hora de evaluar mediante cuestionarios dentro de la plataforma Moodle. Este documento tiene como objetivo ser una guía para quienes deseen entender, personalizar o extender el funcionamiento de DALEK, facilitando tanto su integración como su evolución en entornos educativos.</p>
+<p>Este es el manual para desarrolladores del <em>plugin</em> DALEK: Digital Analysis and Learning Enhancement Kit, una herramienta diseñada para mejorar la eficiencia de los docentes a la hora de evaluar mediante cuestionarios dentro de la plataforma Moodle. Este documento trata de ser una guía para quienes deseen entender, personalizar o extender el funcionamiento de DALEK, facilitando tanto su integración como su evolución en entornos educativos.</p>
 <p>Este manual se ha creado con dos objetivos principales:</p>
 <ol type="1">
 <li>Facilitar la comprensión técnica del <em>plugin</em></li>
@@ -224,29 +224,29 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <section id="a-quién-está-dirigido" class="level2">
 <h2 class="anchored" data-anchor-id="a-quién-está-dirigido">¿A quién está dirigido?</h2>
-<p>Este documento está dirigido a desarrolladores con conocimientos básicos o avanzados de programación, familiarizados con PHP y la arquitectura de Moodle. También es útil para administradores de sistemas educativos que necesiten entender el funcionamiento del plugin para mantenerlo en entornos de producción.</p>
-<p>Si eres nuevo en el desarrollo de Moodle, no te preocupes: el manual incluye explicaciones claras (esperamos) y referencias a documentación externa que te guiarán en los conceptos fundamentales. Si ya tienes experiencia, encontrarás información detallada que te permitirá trabajar directamente en la personalización del plugin.</p>
+<p>Este documento está dirigido a desarrolladores con conocimientos básicos o avanzados de programación, familiarizados con PHP y la arquitectura de Moodle. También es útil para administradores de sistemas educativos que necesiten entender el funcionamiento del <em>plugin</em> para mantenerlo en entornos de producción.</p>
+<p>Si eres nuevo en el desarrollo de Moodle, no te preocupes: el manual incluye explicaciones claras (esperamos) y referencias a documentación externa que te guiarán en los conceptos fundamentales. Si ya tienes experiencia, encontrarás información detallada que te permitirá trabajar directamente en la personalización del <em>plugin</em>.</p>
 </section>
 <section id="qué-encontrarás-en-este-manual" class="level2">
 <h2 class="anchored" data-anchor-id="qué-encontrarás-en-este-manual">¿Qué encontrarás en este manual?</h2>
 <p>Este manual está organizado de la siguiente manera:</p>
 <ul>
-<li>Una descripción detallada de la estructura del plugin, incluyendo su integración con la API de Moodle y las dependencias externas que utiliza.</li>
-<li>Instrucciones paso a paso para instalar y configurar DALEK en tu plataforma Moodle.</li>
-<li>Guías para personalizar el plugin y añadir nuevas funcionalidades.</li>
-<li>Soluciones a problemas comunes, métodos para depurar errores y sugerencias para realizar pruebas efectivas.</li>
-<li>Información sobre licencias y cómo contribuir al desarrollo del plugin o usar su base para nuevos proyectos.</li>
+<li>Una <strong>descripción detallada de la estructura del <em>plugin</em></strong>, incluyendo su integración con la API de Moodle y las dependencias externas que utiliza.</li>
+<li><strong>Instrucciones</strong> paso a paso <strong>para instalar y configurar DALEK</strong> en tu plataforma Moodle.</li>
+<li><strong>Guías para personalizar el <em>plugin</em></strong> y añadir nuevas funcionalidades.</li>
+<li><strong>Soluciones a problemas comunes</strong>, métodos para depurar errores y sugerencias para realizar pruebas efectivas.</li>
+<li><strong>Información sobre licencias</strong> y cómo contribuir al desarrollo del <em>plugin</em> o usarlo de base para nuevos proyectos.</li>
 </ul>
 </section>
 <section id="licencias-y-filosofía-del-proyecto" class="level2">
 <h2 class="anchored" data-anchor-id="licencias-y-filosofía-del-proyecto">Licencias y filosofía del proyecto</h2>
-<p>El plugin DALEK está licenciado bajo GPLv3, lo que significa que puedes usar, modificar y redistribuir el código siempre que respetes los términos de esta licencia. Por su parte, este manual está licenciado bajo CC-BY-SA, lo que fomenta su uso, adaptación y mejora, siempre que se reconozca el trabajo original y se mantenga la misma licencia en versiones derivadas.</p>
-<p>Esta filosofía abierta refleja los valores del proyecto: creemos que la educación debe estar al alcance de todos, y que las herramientas tecnológicas que la respaldan deben ser accesibles y adaptables.</p>
+<p>El <em>plugin</em> DALEK está licenciado bajo GPLv3, lo que significa que puedes usar, modificar y redistribuir el código siempre que respetes los términos de esta licencia. Por su parte, toda la documentación, incluido este manual, está licenciado bajo CC-BY-SA, lo que fomenta su uso, adaptación y mejora, siempre que se reconozca el trabajo original y se mantenga la misma licencia en versiones derivadas.</p>
+<p>Esta filosofía abierta refleja los valores del proyecto: creemos que la educación debe estar al alcance de todos, y que las herramientas tecnológicas que la respaldan deben ser totalmente accesibles.</p>
 </section>
 <section id="tu-papel-en-el-desarrollo" class="level2">
 <h2 class="anchored" data-anchor-id="tu-papel-en-el-desarrollo">Tu papel en el desarrollo</h2>
-<p>El desarrollo de DALEK no termina con este manual ni con su primera versión. Como desarrollador, tu contribución es clave para ampliar las posibilidades del <em>plugin</em>. Ya sea solucionando un problema, implementando una nueva funcionalidad, mejorando y ampliando la documentación o compartiendo ideas para mejorar el sistema, tu participación ayuda a mantener vivo el proyecto y a hacerlo más útil para la comunidad educativa.</p>
-<p>Esperamos que este manual no solo sea una herramienta práctica, sino también una invitación a formar parte de un esfuerzo colaborativo para mejorar la educación.</p>
+<p>El desarrollo de DALEK no termina con este manual ni con la primera versión del <em>plugin</em>. Como desarrollador, tu contribución es clave para ampliar las posibilidades del <em>plugin</em>. Ya sea solucionando un problema, implementando una nueva funcionalidad, mejorando y ampliando la documentación o compartiendo ideas para mejorar el sistema, tu participación ayuda a mantener vivo el proyecto y a hacerlo más útil para la comunidad educativa.</p>
+<p>Esperamos que este manual no solo sea una herramienta práctica, sino también una invitación a formar parte de un esfuerzo colectivo para mejorar la educación.</p>
 
 
 </section>
