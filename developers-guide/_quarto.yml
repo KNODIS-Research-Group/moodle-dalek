@@ -3,7 +3,8 @@ project:
 
 book:
   title: Guía de desarrollador
-  date: "09/16/2024"
+  date: 2024-09-16
+  date-format: "DD/MM/YYYY"
   chapters:
     - index.qmd
     - chapters/introducción.qmd
@@ -21,6 +22,8 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
+
+lang: es  
 
 
 
