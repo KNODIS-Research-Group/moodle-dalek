@@ -95,6 +95,14 @@ dependencias incluidas son:
 necesitas añadir o actualizar dependencias, utiliza Composer y el
 archivo `composer.json`.
 
+### `pix/`
+
+Esta carpeta almacena los recursos gráficos del _plugin_, como iconos.
+Por ejemplo:
+
+- `monologo.svg`: Icono utilizado para representar el _plugin_ en la
+  interfaz de Moodle.
+
 ### Archivos principales
 
 Los archivos más importantes del _plugin_,
@@ -118,14 +126,6 @@ como el número de versión, la compatibilidad con Moodle y las
 dependencias requeridas.
 - `view.php`: Es el archivo principal que renderiza la interfaz del _plugin_
 cuando los usuarios acceden a una actividad.
-
-`pix/`
-
-Esta carpeta almacena los recursos gráficos del _plugin_, como iconos.
-Por ejemplo:
-
-- `monologo.svg`: Icono utilizado para representar el _plugin_ en la
-  interfaz de Moodle.
 
 ## Buenas prácticas al trabajar con la estructura
 
