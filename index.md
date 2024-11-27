@@ -22,4 +22,4 @@ del docente y adaptar la experiencia educativa al estudiante.
 
 - **Guía de usuario**: En formato [web](https://KNODIS-Research-Group.github.io/moodle-dalek/users-guide/) o [pdf](https://KNODIS-Research-Group.github.io/moodle-dalek/users-guide/Guía-de-usuario.pdf).
 - **Guía de desarrollador**: En formato [web](https://KNODIS-Research-Group.github.io/moodle-dalek/developers-guide/) o [pdf](https://KNODIS-Research-Group.github.io/moodle-dalek/developers-guide/Guía-de-desarrollador.pdf).
-- **Repositorio de código**: Aquí al lado, en <https://KNODIS-Research-Group.github.io/moodle-dalek/users-guide/>.
+- **Repositorio de código**: Aquí al lado, en <https://KNODIS-Research-Group.github.io/moodle-dalek/>.
