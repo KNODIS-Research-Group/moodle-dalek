@@ -1,0 +1,155 @@
+---
+lang: es
+---
+
+# Licencia, contacto y soporte
+
+El plugin {{< var plugin.long_name >}} es un desarrollo libre y abierto
+a toda la comunidad educativa y tecnológica. Este proyecto utiliza la
+licencia GPL 3.0 para el código fuente, garantizando la libertad de
+usar, modificar y distribuir el software mientras se mantiene la misma
+licencia en trabajos derivados. Además, la documentación asociada al
+proyecto está disponible bajo una licencia de Creative Commons
+Reconocimiento 4.0 Internacional (CC BY 4.0), permitiendo su
+reutilización con la atribución adecuada.
+
+El objetivo de {{< var plugin.name >}} no es solo proporcionar una
+herramienta potente para la generación de cuestionarios adaptativos,
+sino también fomentar una comunidad activa de usuarios y desarrolladores
+que puedan contribuir al crecimiento y mejora continua del proyecto.
+Este apartado detalla cómo puedes contactar para obtener soporte,
+participar en su desarrollo o proponer mejoras.
+
+## Soporte técnico
+
+Si tienes algún problema al instalar o utilizar {{< var plugin.name >}},
+puedes usar el [repositorio oficial]({{< var repository.base >}}) en GitHub.
+Este está diseñado para centralizar toda la comunicación relacionada con
+el proyecto, facilitando el seguimiento de problemas, sugerencias y
+mejoras.
+
+El uso del este repositorio oficial para todo tipo de soporte asegura
+que las contribuciones y problemas queden centralizados y accesibles a
+toda la comunidad, promoviendo la colaboración y el crecimiento del. En
+el repositorio puedes:
+
+1. **Consultar problemas y soluciones existentes**: Antes de abrir un
+   nuevo _issue_, revisa los existentes para comprobar si alguien más ya
+   reportó el mismo problema o realizó una propuesta similar. Esto evita
+   duplicidades y permite centralizar esfuerzos.
+2. **Abrir issues**: Si experimentas un problema, tienes una sugerencia
+   o deseas proponer mejoras, abre un _issue_. Para ello:
+   - Inicia sesión en tu cuenta de GitHub.
+   - Dirígete a la sección _Issues_ del repositorio.
+   - Haz clic en _New Issue_ y selecciona el tipo de _issue_ (problema,
+     sugerencia, pregunta, etc.).
+   - Completa el formulario detallando:
+     - Una descripción clara del problema o idea.
+     - Pasos para reproducir el error, en caso de ser un problema.
+     - Capturas de pantalla o fragmentos de _logs_, si es relevante.
+   - Envía el _issue_ para que sea revisado por los mantenedores del
+     proyecto.
+3. **Seguir Actualizaciones**: Todas las versiones nuevas, correcciones
+   de errores y funcionalidades añadidas se publican como _releases_ en
+   el repositorio. Visita la pestaña _Releases_ para mantener tu
+   instalación actualizada.
+4. **Participar en discusiones**: Puedes participar en discusiones
+   abiertas sobre futuras características, problemas específicos o
+   cualquier tema relacionado con {{< var plugin.name >}}. La pestaña
+   _Discussions_ está abierta a toda la comunidad.
+
+## Reglas para la publicación de issues {#sec-issues-pub}
+
+Para facilitar la resolución de problemas y la evaluación de
+sugerencias, sigue estas pautas al abrir un _issue_:
+
+- **Sé claro y detallado**: Describe el problema o la idea de forma
+  precisa. Incluye pasos para reproducir problemas o detalles
+  específicos para sugerencias.
+- **Incluye información relevante**: Si es un problema técnico, menciona
+  la versión de Moodle, el sistema operativo, la configuración del
+  servidor, y cualquier mensaje de error relevante.
+- **Sé respetuoso y colaborativo**: Recuerda que {{< var plugin.name >}}
+  es un proyecto comunitario. Los mantenedores del proyecto y el resto
+  de usuarios apreciarán un tono respetuoso y constructivo.
+
+### Documentación y recursos
+
+Además de los _issues_, el repositorio incluye recursos que pueden
+ayudar a resolver problemas.
+
+- **Guía de usuario**: Es justo la guía que estás leyendo. Se encuentra
+  disponible como [web]({{< var repository.users_guide.web >}}) o como
+  [pdf]({{< var repository.users_guide.pdf >}}) listo para descargar.
+- **Guía del desarrollador**:Incluye información específica acerca
+  de cómo está desarrollado el plugin. Puedes acceder a la última vesión
+  en formato [web]({{< var repository.developers_guide.web >}}) o como
+  [pdf]({{< var repository.developers_guide.pdf >}}).
+
+## Participación en el proyecto
+
+{{< var plugin.name >}} está diseñado para ser un proyecto vivo y en
+constante mejora gracias a las contribuciones de la comunidad. Si deseas
+participar, aquí te indicamos cómo hacerlo:
+
+1. **Contribuye con código o documentación**
+   1. **Haz un _fork_**: En el repositorio oficial realiza un _fork_ del
+      proyecto para crear una copia en tu cuenta.
+   2. **Crea una rama**: Trabaja en una nueva funcionalidad o corrección
+      en una rama dedicada:
+
+      ```bash
+      git checkout -b nueva-funcionalidad
+      ```
+   3. **Realiza cambios**: Añade tu contribución asegurándote de seguir
+      las guías de estilo y convenciones (en caso de que las
+      implementemos alguna vez; ¿te animas?).
+   4. Crea un _pull request_: Una vez termines, envía un _pull request_
+      detallando los cambios realizados.
+2. **Propón ideas**: Si tienes sugerencias o nuevas funcionalidades que
+   podrían mejorar {{< var plugin.name >}}, abre un _issue_ etiquetado
+   como _enhancement_ en GitHub. Describe tu idea de manera clara y
+   justifica su relevancia.
+3. **Traduce**: Si te encuentras cómodo con otros idiomas, puedes
+   contribuir traduciendo el _plugin_ o la documentación.
+4. **Reporta errores**: La mejor forma de ayudar es informar de errores
+   que te encuentres -y todavía mejor acompañándolos con un parche
+   que los corrija-. Para ello descríbelos tal y somo se especifica en
+   la sección @sec-issues-pub.
+5. **Promueve el proyecto**: Ayuda a difundir {{< var plugin.name >}}
+   entre tus colegas y en comunidades educativas o tecnológicas. Cuantos
+   más usuarios tenga, más rápida será su evolución.
+
+## Código de conducta
+
+El proyecto {{< var plugin.name >}} sigue un código de conducta basado
+en la inclusión, el respeto y la colaboración abierta. Toda interacción
+en el repositorio debe adherirse a estos principios. Consulta el archivo
+`CODE_OF_CONDUCT.md` en el repositorio para más información.
+
+## Filosofía del proyecto
+
+{{< var plugin.name >}} se basa en los siguientes principios:
+
+- **Acceso abierto**: Todo el mundo puede usar y mejorar el software sin
+  restricciones innecesarias.
+- **Transparencia**: El código y la documentación están y estarán
+  disponibles públicamente para garantizar la confianza y permitir su
+  auditoría.
+- **Colaboración comunitaria**: El proyecto prospera gracias a la
+  participación activa de educadores, desarrolladores y estudiantes.
+- **Mejora continua**: Las nuevas ideas y funcionalidades son siempre
+  bienvenidas, fomentando la evolución del software.
+
+## Licencias
+
+- **Código**: Distribuido bajo licencia GPL 3.0. Esto asegura que
+  cualquier modificación o redistribución del código debe mantener la
+  misma licencia, promoviendo la libertad y el acceso continuo.
+- **Documentación**: Disponible bajo licencia Creative Commons BY 4.0,
+  permitiendo su uso, modificación y distribución siempre que se
+  reconozca al autor original.
+
+Para más detalles sobre las licencias, consulta los archivos
+`LICENSE-GPL` (código) y `LICENSE-CC-BY-SA` (documentación) en el
+repositorio.

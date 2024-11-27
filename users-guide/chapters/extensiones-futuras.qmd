@@ -1,0 +1,125 @@
+# Extensiones futuras
+
+El plugin {{< var plugin.name >}} ha sido planteado como una
+aproximación al uso de LLM para dar soporte a docentes y estudiantes.
+Por lo tanto es un proyecto en evolución. A continuación, se describen
+algunas posibles extensiones y mejoras que podrían implementarse en
+versiones futuras para ampliar su funcionalidad y adaptarse a nuevos
+requisitos tanto tecnológicos como pedagógicos.
+
+## Compatibilidad con modelos de lenguaje más avanzados
+
+El uso de modelos de lenguaje como GPT-3.5 es una base sólida para la
+generación de contenido, pero la tecnología avanza rápidamente. GPT 4o
+supera con creces las capacidades de GPT 3.5, y nuevos modelos más
+potentes están emergiendo. Las mejoras en esta área podrían incluir:
+
+- **Soporte para GPT-4, GPT 1o y versiones posteriores**: Estos modelos
+  ofrecen mayor capacidad de comprensión, análisis y generación de
+  contenido más preciso, permitiendo una mejor personalización de los
+  cuestionarios.
+- **Integración con modelos de código abierto**: Implementar
+  compatibilidad con alternativas como BLOOM o LLaMA, que permiten mayor
+  control sobre los datos procesados y una reducción de costes en el uso
+  de API externas. Bueno, y que son _Open Source_, mucho mejor que usar
+  software propietario.
+
+Para implementar esta extensión, sería necesario actualizar el código
+del plugin para soportar múltiples APIs y modelos, añadiendo una
+interfaz en la configuración que permita a los administradores
+seleccionar el modelo deseado.
+
+## Soporte multilingüe ampliado
+
+Actualmente, {{< var plugin.name >}} **genera preguntas en el idioma
+predominante del contenido cargado**. Sin embargo, se podrían incluir
+funciones avanzadas para gestionar múltiples idiomas:
+
+- **Traducción de cuestionarios**: Los docentes podrían solicitar que
+  las preguntas generadas se traduzcan a otro idioma utilizando
+  servicios como DeepL o la API de traducción de OpenAI.
+- **Interfaz multilingüe para estudiantes**: Los estudiantes podrían
+  seleccionar su idioma preferido para interactuar con los
+  cuestionarios, garantizando accesibilidad global.
+
+Esto requeriría integrar servicios de traducción, lo que implica
+configurar nuevas dependencias y gestionar límites de uso de dichas API.
+
+## Mejora en la generación de preguntas
+
+Aunque actualmente {{< var plugin.name >}} genera preguntas relevantes
+basadas en el contenido proporcionado, futuras versiones podrían
+incluir:
+
+- **Soporte para más tipos de preguntas**: Incorporar preguntas de tipo
+  "verdadero o falso", "emparejamiento", y "respuestas cortas", además
+  de las de opción múltiple ya disponibles.
+- **Análisis semántico más profundo**: Utilizar herramientas de
+  procesamiento de lenguaje natural (NLP), incluidos los mismos LLM,
+  para identificar conceptos clave, jerarquías de contenido y temas
+  secundarios, generando preguntas más variadas y completas.
+- **Incorporación de niveles de dificultad**: Permitir a los docentes
+  establecer niveles de dificultad (básico, intermedio, avanzado), de
+  manera que las preguntas generadas se adapten al perfil del curso y
+  los estudiantes.
+
+Esto implicaría ajustes en la lógica de generación de preguntas, así
+como una mayor personalización de las opciones configurables en la
+interfaz de usuario.
+
+## Análisis y estadísticas del rendimiento de los estudiantes
+
+{{< var plugin.name >}} podría evolucionar para no solo generar
+cuestionarios, sino también proporcionar métricas útiles para los
+docentes. Algunas ideas incluyen:
+
+- **Informes de rendimiento**: Análisis automáticos de los resultados de
+  los estudiantes, destacando áreas fuertes y no tan fuertes.
+- **Recomendaciones personalizadas**: Basándose en los resultados de los
+  cuestionarios, {{< var plugin.name >}} podría sugerir contenido
+  adicional o nuevas preguntas adaptadas a cada estudiante.
+- **Comparativas grupales**: Mostrar gráficos y datos que comparen el
+  rendimiento de diferentes grupos de estudiantes.
+
+## Integración con otas herramientas Externas
+
+El plugin podría integrarse con otras herramientas y servicios
+educativos más allá de Moodle para ampliar sus funcionalidades:
+
+- **Integración con sistemas de gestión de bibliografía**: Permitir a
+  los docentes cargar referencias directamente desde gestores (e.g.,
+  Zotero o Mendeley) para generar preguntas relacionadas.
+- **Conexión con bases de datos de conocimiento**: Incorporar contenido
+  de fuentes externas como Wikipedia o bases de datos científicas para
+  enriquecer los cuestionarios con información adicional.
+
+## Optimización del rendimiento y la escalabilidad
+
+A medida que el _plugin_ se adoptade por un mayor número de usuarios,
+será esencial optimizar su rendimiento para manejar cargas más altas.
+Esto podría lograrse mediante:
+
+- **Procesamiento asíncrono de contenidos**: Delegar la generación de
+  cuestionarios a procesos en segundo plano, permitiendo al docente
+  continuar trabajando mientras el _plugin_ realiza el análisis.
+
+Esto requeriría optimizar la arquitectura del plugin y, posiblemente,
+integrar servicios de colas como RabbitMQ o Redis.
+
+## Generación de _feedback_ más avanzada
+
+El _feedback_ es esencial para un aprendizaje efectivo.
+{{< var plugin.name >}} podría mejorar esta funcionalidad mediante:
+
+- **Retroalimentación adaptativa**: Personalizar las explicaciones y
+  sugerencias basándose en las respuestas incorrectas de los
+  estudiantes, ayudándoles a entender mejor el contenido.
+- **Explicaciones detalladas**: Proveer una breve explicación para cada
+  pregunta, generada automáticamente a partir del contenido base.
+- **Rutas de aprendizaje**: Sugerir actividades o materiales adicionales
+  dependiendo del rendimiento del estudiante en los cuestionarios.
+
+Este desarrollo requeriría ajustar el análisis del modelo para centrarse
+no solo en las preguntas, sino también en generar respuestas detalladas
+y en analizar las respuestas de usuarios para identificar las posibles
+lagunas existentes en cada uno de ellos.

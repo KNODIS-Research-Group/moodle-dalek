@@ -1,0 +1,20 @@
+# Requisitos previos
+
+Para instalar y utilizar el plugin {{< var plugin.name >}}, es necesario
+cumplir con los siguientes requisitos:
+
+1. **Moodle**: El plugin {{< var plugin.name >}} es una extensión de
+   Moodle, por lo que es necesario contar con una instalación previa de
+   esta plataforma. La versión mínima requerida es Moodle 4.1.
+3. **Servidor web**: Como requisito para Moodle, es necesario contar con
+   un servidor web que soporte PHP y MySQL. La versión de PHP necesaria
+   es PHP 8.1 o superior.
+4. **API Key de OpenAI**: El plugin utiliza la API de OpenAI para
+   generar preguntas a partir de documentos. Es necesario contar con una
+   clave de API válida para que el plugin acceda a los modelos de
+   lenguaje que utiliza el plugin.
+5. **Permisos de administrador**: Solo los administradores de Moodle
+   pueden instalar y configurar plugins en la plataforma. Es necesario
+   contar con permisos de administrador para instalar y configurar el
+   plugin {{< var plugin.name >}}.
+

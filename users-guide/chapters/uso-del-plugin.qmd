@@ -1,0 +1,121 @@
+# Uso del _plugin_
+
+El uso del _plugin_ de generación de cuestionarios adaptativos se puede
+dividir en varias etapas: configuración de la actividad, generación
+automática de preguntas, revisión y ajustes, y finalmente publicación
+del cuestionario. En esencia, el resumen del flujo de uso es el
+siguiente:
+
+1. Crea la actividad en el curso.
+2. Configura el cuestionario introduciendo un título, descripción y
+   contenido base.
+3. Deja que el plugin analice el material y genere preguntas
+   automáticamente.
+4. Revisa y ajusta las preguntas para garantizar su relevancia.
+5. Publica el cuestionario y monitorea los resultados.
+
+Siguiendo este proceso se asegura que los cuestionarios son útiles y
+coherentes con el material del curso. A continuación, se detalla el uso
+paso a paso.
+
+## Paso 1: Acceso y creación de la actividad
+
+Inicia sesión en Moodle con una cuenta que tenga permisos de profesor en
+el curso donde deseas crear el cuestionario.
+
+1. **Activa el modo de edición**
+   - Dentro del curso, haz clic en el botón _Activar edición_ ubicado en
+     la parte superior derecha de la página.
+   - Esto permitirá añadir nuevas actividades o recursos al curso.
+2. **Añade una nueva actividad**
+   - En la sección donde quieres incluir el cuestionario, haz clic en el
+     botón _Añadir una actividad o un recurso_.
+   - Se abrirá una ventana con una lista de actividades y recursos
+     disponibles.
+1. **Selecciona el tipo de actividad _Cuestionario LLM_**
+   - Busca en la lista la actividad denominada _Cuestionario LLM_ (el
+     nombre que corresponde al _plugin_ {{< var plugin.name >}}).
+   - Haz clic sobre ella para abrir la configuración inicial de la
+     actividad.
+
+## Paso 2: Configuración inicial del cuestionario
+
+1. **Introduce un título y una descripción**
+   - **Título**: Proporciona un nombre claro y descriptivo para el
+     cuestionario, como "Evaluación de Tema 1" o "Cuestionario:
+     Optimización y regularización".
+   - **Descripción**: Añade una breve explicación del propósito del
+     cuestionario. Por ejemplo:
+
+     > "Este cuestionario evalúa los conceptos de las técnicas clave
+        para mejorar la eficiencia y precisión de modelos de aprendizaje
+        automático".
+2. **Carga el contenido base**: El plugin necesita un documento que
+   contenga la información a partir de la cual se generarán las
+   preguntas. Tienes dos opciones:
+     - **Subir un archivo PDF**: Haz clic en _Elegir archivo_ selecciona
+       el archivo desde tu ordenador y súbelo.
+     - **Introducir texto manualmente**: Utiliza el campo de texto
+       proporcionado para escribir directamente el contenido. Este
+       método es útil si el material es breve.
+3. **Aplica ajustes opcionales** (si quieres)
+   - Configura la cantidad máxima de preguntas que deseas generar (si
+     esta opción está habilitada por el administrador del sitio).
+   - Define el idioma en el que se generarán las preguntas si estás
+     trabajando en un entorno multilingüe.
+4. **Guarda los cambios**: Haz clic en _Guardar cambios y mostrar_ para
+   proceder con la generación de preguntas.
+
+## Paso 3: Generación automática de preguntas
+
+1. **Proceso de análisis**: Al guardar los cambios, el _plugin_
+   comenzará a procesar el contenido. Este paso tardará unos segundos,
+   dependiendo del tamaño del documento.
+2. **Creación de preguntas**
+   - El _plugin_ genera un conjunto de preguntas de tipo selección
+     múltiple. Cada pregunta incluye varias opciones, una de las cuales
+     está marcada como correcta.
+   - Las preguntas se basan exclusivamente en conceptos extraídos del
+     contenido.
+3. **Notificación de finalización**
+   - Una vez completado el análisis, aparecerá un mensaje indicando que
+     las preguntas han sido generadas correctamente.
+
+## Paso 4: Revisión y ajustes
+
+1. **Accede al cuestionario**: En la página del curso, haz clic en el
+   cuestionario que acabas de crear para ver las preguntas generadas.
+2. **Revisa las preguntas**: Verifica que las preguntas sean relevantes
+   y adecuadas para el contenido del curso. Asegúrate de que las
+   respuestas correctas estén marcadas correctamente.
+3. **Realiza los ajustes que consideres necesarios**
+   - Editar preguntas: Haz clic en el botón _Editar_ junto a cada
+     pregunta para modificar el texto o las opciones de respuesta.
+   - Eliminar preguntas: Si alguna pregunta no es adecuada, puedes
+     eliminarla.
+   - Añadir nuevas preguntas: Utiliza el editor del cuestionario para
+     incluir preguntas adicionales que no hayan sido generadas
+     automáticamente.
+4. **Configura las opciones del cuestionario**: Ajusta parámetros como:
+    - **Límite de tiempo**: Define el tiempo máximo permitido para
+      completar el cuestionario.
+    - **Número de intentos permitidos**: Decide si los estudiantes
+      pueden realizar el cuestionario varias veces.
+    - **Retroalimentación personalizada**: Activa la opción para que los
+      estudiantes reciban comentarios detallados sobre sus respuestas.
+
+## Paso 5: Publicación del cuestionario
+
+En realidad esto es común para cuestionarios y el _plugin_
+{{< var plugin.name >}}, pero nunca está de más recordarlo, sobre todo
+si queremos identificar preguntas no suficientemente bien afinadas.
+
+1. **Haz visible el cuestionario para los estudiantes**: Asegúrate de
+   que el cuestionario esté configurado como "Visible" en las opciones
+   de disponibilidad del curso.
+2. **Realiza una prueba**: Antes de publicar el cuestionario, pruébalo
+   como estudiante para verificar que todo funciona correctamente y que
+   las preguntas son claras.
+3. **Monitoriza los resultados**: Una vez que los estudiantes comiencen
+   a realizar el cuestionario, puedes acceder a la sección de
+   calificaciones para revisar sus resultados y evaluar su desempeño.

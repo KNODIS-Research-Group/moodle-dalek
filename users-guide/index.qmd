@@ -1,0 +1,35 @@
+# Prefacio {.unnumbered}
+
+La educación es sido la base sobre la que se construye nuestro futuro, y
+los avances tecnológicos de los últimos años están cambiando la forma en
+la que enseñamos y aprendemos. Uno de esos avances es la inteligencia
+artificial que, al igual que hace en muchos otros dominios, puede
+ayudarnos de formas muy prácticas en el día a día de la enseñanza.
+
+Esta guía de usuario surge de la idea de acercar esas tecnologías al
+aula de una manera sencilla y útil. En concreto, se centra en DALEK,
+un _plugin_ desarrollado para Moodle que facilita la creación de
+cuestionarios adaptativos basados en los contenidos de los cursos. DALEK
+no solo ahorra tiempo a los profesores, sino que también permite ofrecer
+a los estudiantes una enseñanza más personalizada de los contenidos
+que se supone deben adquirir, ajustándose a sus necesidades y
+rendimiento.
+
+El objetivo de este manual es doble. Por un lado, quiere ser una guía
+práctica para que los docentes y administradores puedan instalar,
+configurar y usar este _plugin_. Por otro, busca mostrar cómo
+herramientas como esta pueden transformar la educación, haciendo que la
+tecnología sea un apoyo real y tangible en el aula.
+
+Aunque aquí encontrarás instrucciones y explicaciones técnicas, este
+manual está pensado para ser claro y accesible. No necesitas ser un
+experto en tecnología para entenderlo ni para usar el plugin. Además, te
+invito a reflexionar sobre el impacto que estas herramientas pueden
+llegar a tener en la enseñanza: ¿cómo pueden ayudarnos a ser mejores
+docentes? ¿qué cambios podrían traer al sistema educativo?
+
+Esperamos que estas páginas no solo te ayuden a implementar DALEK en tus
+cursos, sino que también te inspiren a seguir explorando cómo la
+tecnología puede enriquecer la enseñanza. Este es un paso más hacia una
+educación centrada en las personas, en contraposicion a aquella centrada
+únicamente en los resultados.

@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: Guía de usuario
+  date: 09/16/2024
+  chapters:
+    - index.qmd
+    - chapters/introducción.qmd
+    - chapters/requisitos-previos.qmd
+    - chapters/instalación.qmd
+    - chapters/uso-del-plugin.qmd
+    - chapters/consejos-y-buenas-prácticas.qmd
+    - chapters/extensiones-futuras.qmd
+    - chapters/licencia-contacto-y-soporte.qmd
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

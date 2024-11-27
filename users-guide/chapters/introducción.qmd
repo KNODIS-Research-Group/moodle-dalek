@@ -1,0 +1,13 @@
+# Introducción
+
+El plugin DALEK es una herramienta diseñada para la plataforma Moodle
+que permite la creación automática de cuestionarios adaptativos basados
+en contenido proporcionado por los usuarios. Utiliza grandes modelos de
+lenguaje (LLM) para analizar documentos y generar preguntas
+personalizadas, mejorando la experiencia educativa de estudiantes y
+profesores.
+
+Este manual describe detalladamente cómo instalar, configurar y utilizar
+el plugin. Está destinado a administradores de Moodle y educadores
+interesados en implementar este tipo de cuestionarios adaptativos en sus
+cursos.

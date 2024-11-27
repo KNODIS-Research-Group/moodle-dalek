@@ -1,0 +1,80 @@
+# Consejos y buenas prácticas
+
+{{< var plugin.name >}} trabaja con un sistema LLM y como tal, depende
+no solo de la calidad de los _prompts_ los cuales son transparentes al
+usuario, sino también de la calidad del contenido con el que se alimenta
+al modelo.
+
+Aquí te proporcionamos una serie de consejos detallados para maximizar
+su potencial.
+
+## Preparación de los documentos de entrada
+
+La calidad de las preguntas generadas automáticamente depende en gran
+medida de la calidad y claridad del contenido que se proporciona al
+_plugin_. Sigue estas recomendaciones para preparar tus documentos:
+
+- **Formato claro y estructurado**: Utiliza documentos PDF o textos que
+  contengan títulos, subtítulos y párrafos claramente definidos. Evita
+  el uso excesivo de tablas, imágenes o formatos complejos que puedan
+  dificultar el análisis del contenido.
+- **Divide temas extensos**: Si el contenido a evaluar es muy amplio,
+  divide el material en secciones más pequeñas y genera cuestionarios
+  individuales para cada sección. Esto ayuda al modelo a centrarse en un
+  tema específico y mejora la relevancia de las preguntas.
+- **Revisión del lenguaje**: Asegúrate de que el texto esté bien
+  redactado, sin errores ortográficos ni gramaticales. Los modelos de
+  lenguaje procesan mejor textos claros y coherentes.
+- **Eliminar información irrelevante**: Filtra cualquier contenido que
+  no sea relevante para los objetivos del cuestionario. Información
+  adicional o poco relacionada puede confundir al modelo y generar
+  preguntas poco útiles.
+
+## Revisión y edición de las preguntas generadas
+
+Aunque el plugin genera preguntas automáticamente, es importante
+revisarlas antes de publicarlas:
+
+- **Verifica la relevancia**: Asegúrate de que cada pregunta esté
+  directamente relacionada con el contenido proporcionado. Si una
+  pregunta parece confusa o fuera de contexto, edítala o elimínala.
+- **Equilibra la dificultad**: Revisa el nivel de dificultad de las
+  preguntas y ajusta las respuestas según sea necesario. Un buen
+  cuestionario debe incluir preguntas de diferentes niveles para evaluar
+  tanto conocimientos básicos como avanzados.
+- **Corrige errores**: Comprueba que no haya errores en las preguntas,
+  opciones de respuesta o en las explicaciones proporcionadas. Un error
+  puede generar confusión y afectar mucho en el aprendizaje del
+  estudiante.
+
+## Gestión de *tokens* y límite de texto
+
+El modelo LLM tiene un límite en la cantidad de _tokens_ que puede
+procesar en cada solicitud. Optimiza el contenido para evitar problemas:
+
+- **Resúmenes**: Si el documento original es demasiado largo, crea un
+  resumen que cubra los puntos más importantes y utiliza este resumen
+  como entrada para el plugin.
+- **Elimina texto redundante**: Identifica y elimina secciones
+  repetitivas o poco relevantes que no aporten información clave al
+  cuestionario.
+- **Pruebas con documentos reducidos**: Si experimentas problemas,
+  prueba reduciendo el tamaño del texto y analiza si las preguntas
+  generadas son más precisas.
+
+## Pruebas y ajustes antes de la publicación
+
+**Nunca publiques un cuestionario sin revisarlo completamente**. Trata
+de seguir siempre estos pasos:
+
+- **Vista previa**: Utiliza la función de vista previa de Moodle para
+  revisar el cuestionario desde la perspectiva del estudiante. Esto te
+  permitirá detectar posibles errores en las preguntas o
+  configuraciones.
+- **Simula un examen**: Intenta completar el cuestionario como si fueras
+  un estudiante. Evalúa si las preguntas son claras, si las respuestas
+  son adecuadas y si el tiempo límite es suficiente.
+- **Solicita opiniones**: Pide a un colega que revise el cuestionario y
+  proporcione comentarios antes de hacerlo público. Una segunda opinión
+  puede ayudarte a detectar problemas que tú podrías haber pasado por
+  alto.

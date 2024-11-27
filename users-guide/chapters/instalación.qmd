@@ -1,0 +1,122 @@
+# Instalación
+
+El proceso de instalación del plugin {{< var plugin.name >}} para Moodle
+es sencillo, pero requiere seguir una serie de pasos detallados para
+garantizar que funciona correctamente.
+
+## Proceso de instalación
+
+A continuación, se describe el procedimiento completo.
+
+### Paso 1: Descargar el _plugin_
+
+1. Accede al [repositorio oficial]({{< var repository >}}) en GitHub.
+2. Dentro de _releases_ se encuentran los manuales de usuario, el
+   contenido del repositorio y el _plugin_ comprimido para descargar.
+   Este fichero el formato ` dalek-nightly-YYYMMDD.zip` que se
+   corresponde con la versión del _plugin_ del día indicado.
+3. Alternativamente, si tienes acceso a la línea de comandos y prefieres
+   clonar el repositorio, ejecuta el siguiente comando:
+
+   ```bash
+   git clone {{< var repository >}}
+   ```
+
+   El repositorio incluye múltiples directorios, pero el que nos
+   interesa es `dalek`. Para poder usarlo en Moodle debemos antes
+   comprimirlo en un fichero `zip`. Podemos hacerlo desde la línea de
+   comandos como sigue:
+
+   ```bash
+   zip -r dalek.zip dalek
+   ```
+
+   Con esto tendremos el _plugin_ listo para instalar desde la ultima
+   versión del repositorio.
+
+### Paso 2: Subir el _plugin_ a Moodle
+
+1. Accede a la administración de Moodle con una cuenta que tenga
+   permisos de administrador.
+2. Dirígete a la sección _Administración del sitio > Extensiones >
+   Instalar plugins_.
+3. En la opción **Subir un paquete ZIP**, selecciona el archivo
+   comprimido del _plugin_ descargado en el paso anterior.
+4. Haz clic en **Subir este archivo**. Moodle procesará el archivo y
+   verificará su validez.
+5. Si todo ha sido correcto, Moodle mostrará un mensaje indicando que
+   el _plugin_ está listo para instalarse. Haz clic en **Continuar**.
+
+### Paso 3: Verificación de Dependencias
+
+Durante el proceso de instalación, Moodle verificará si el servidor
+cumple con las dependencias necesarias para el _plugin_. Esto incluye:
+
+- Versión de Moodle: El _plugin_ requiere Moodle 4.1 o superior.
+- Versión de PHP: Es necesario tener PHP 8.1 o superior.
+- Extensiones de PHP:
+  - `curl`: Permite la comunicación con la API de OpenAI.
+  - `json`: Necesaria para procesar respuestas de la API.
+  - `mbstring`: Para manejar cadenas de texto multibyte.
+
+Si falta alguna dependencia, detén el proceso de instalación, instala la
+dependencia en tu servidor y vuelve a intentarlo.
+
+### Paso 4: Configuración inicial del _plugin_
+
+1. Una vez instalado, dirígete a _Administración del sitio > Plugins >
+   Configuración de {{< var plugin.name >}}_.
+2. En la página de configuración, introduce tu **API Key** de OpenAI.
+   Esta clave es necesaria para que el plugin pueda generar preguntas y
+   respuestas basadas en modelos de lenguaje.
+3. Configura otros parámetros básicos, como:
+   - **Tamaño máximo de los archivos PDF** que los usuarios pueden
+     cargar.
+   - **Idiomas permitidos** para la generación de preguntas.
+1. Haz clic en **Guardar cambios**.
+
+### Paso 5: Comprobar el funcionamiento
+
+Asegúrate de que el plugin aparece en la lista de actividades
+disponibles en Moodle. Para verificarlo:
+
+1. Ve a un curso en el que tengas permisos de edición.
+2. Haz clic en _Añadir una actividad o recurso_.
+3. Busca _Cuestionario LLM_ en la lista de actividades disponibles. Si
+   aparece, la instalación se ha realizado correctamente.
+4. Crea un cuestionario de prueba para confirmar que el _plugin_
+   funciona como se espera:
+   1. Añade la actividad _Cuestionario LLM_.
+   2. Sube un archivo PDF con contenido sencillo (por ejemplo, un
+      archivo con dos párrafos).
+   4. Asegúrate de que el _plugin_ genera preguntas basadas en el
+      contenido y que puedes visualizarlas.
+
+## Consejos y buenas prácticas durante la instalación
+
+- **Respaldar Moodle**: Antes de instalar cualquier _plugin_, realiza
+  una copia de seguridad completa de tu instalación de Moodle. Esto
+  implica un _backup_ tanto de los archivos como de la base de datos.
+- **Entorno de pruebas**: Si es posible, instala y prueba el
+  _plugin_ en un entorno de desarrollo antes de implantarlo en el
+  entorno de producción.
+- **Monitorización de _logs_**: Después de la instalación, revisa los
+  registros del servidor y de Moodle para identificar posibles errores o
+  conflictos con otros _plugins_.
+
+## Posibles problemas durante la instalación
+
+- **Error al subir el archivo ZIP**
+  1. Verifica que el archivo no esté corrupto y que sea compatible con
+     tu versión de Moodle.
+  2. Comprueba que el directorio donde se aloja Moodle tiene permisos de
+     escritura adecuados.
+
+- **El plugin no aparece en las actividades**
+  1. Confirma que la instalación se completó correctamente.
+  2. Verifica los permisos de usuario para asegurarte de que el rol
+     actual tiene acceso a la actividad.
+
+- **Problemas con la API de OpenAI**
+  1. Asegúrate de que la API Key introducida es válida y está activa.
+  2. Comprueba la conexión a Internet desde el servidor.
