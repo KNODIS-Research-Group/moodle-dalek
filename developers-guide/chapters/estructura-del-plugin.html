@@ -183,7 +183,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#db" id="toc-db" class="nav-link" data-scroll-target="#db"><span class="header-section-number">3.1.3</span> <code>db/</code></a></li>
   <li><a href="#lang" id="toc-lang" class="nav-link" data-scroll-target="#lang"><span class="header-section-number">3.1.4</span> <code>lang/</code></a></li>
   <li><a href="#vendor" id="toc-vendor" class="nav-link" data-scroll-target="#vendor"><span class="header-section-number">3.1.5</span> <code>vendor/</code></a></li>
-  <li><a href="#archivos-principales" id="toc-archivos-principales" class="nav-link" data-scroll-target="#archivos-principales"><span class="header-section-number">3.1.6</span> Archivos principales</a></li>
+  <li><a href="#pix" id="toc-pix" class="nav-link" data-scroll-target="#pix"><span class="header-section-number">3.1.6</span> <code>pix/</code></a></li>
+  <li><a href="#archivos-principales" id="toc-archivos-principales" class="nav-link" data-scroll-target="#archivos-principales"><span class="header-section-number">3.1.7</span> Archivos principales</a></li>
   </ul></li>
   <li><a href="#buenas-prácticas-al-trabajar-con-la-estructura" id="toc-buenas-prácticas-al-trabajar-con-la-estructura" class="nav-link" data-scroll-target="#buenas-prácticas-al-trabajar-con-la-estructura"><span class="header-section-number">3.2</span> Buenas prácticas al trabajar con la estructura</a></li>
   </ul>
@@ -272,8 +273,15 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Nota</strong>: No modifiques manualmente los archivos de esta carpeta. Si necesitas añadir o actualizar dependencias, utiliza Composer y el archivo <code>composer.json</code>.</p>
 </section>
-<section id="archivos-principales" class="level3" data-number="3.1.6">
-<h3 data-number="3.1.6" class="anchored" data-anchor-id="archivos-principales"><span class="header-section-number">3.1.6</span> Archivos principales</h3>
+<section id="pix" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="pix"><span class="header-section-number">3.1.6</span> <code>pix/</code></h3>
+<p>Esta carpeta almacena los recursos gráficos del <em>plugin</em>, como iconos. Por ejemplo:</p>
+<ul>
+<li><code>monologo.svg</code>: Icono utilizado para representar el <em>plugin</em> en la interfaz de Moodle.</li>
+</ul>
+</section>
+<section id="archivos-principales" class="level3" data-number="3.1.7">
+<h3 data-number="3.1.7" class="anchored" data-anchor-id="archivos-principales"><span class="header-section-number">3.1.7</span> Archivos principales</h3>
 <p>Los archivos más importantes del <em>plugin</em>, que se encuentran en el nivel raíz, son los siguientes</p>
 <ul>
 <li><code>composer.json</code>: Contiene la configuración de las dependencias externas del <em>plugin</em>. Si necesitas añadir una nueva biblioteca, este archivo debe ser editado y actualizado con Composer.</li>
@@ -282,11 +290,6 @@ ul.task-list li input[type="checkbox"] {
 <li><code>settings.php</code>: Archivo utilizado para definir configuraciones generales del <em>plugin</em>, accesibles desde el panel de administración de Moodle. Por ejemplo, este archivo puede incluir la configuración de la API Key de OpenAI.</li>
 <li><code>version.php</code>: Contiene la información sobre la versión del <em>plugin</em>, como el número de versión, la compatibilidad con Moodle y las dependencias requeridas.</li>
 <li><code>view.php</code>: Es el archivo principal que renderiza la interfaz del <em>plugin</em> cuando los usuarios acceden a una actividad.</li>
-</ul>
-<p><code>pix/</code></p>
-<p>Esta carpeta almacena los recursos gráficos del <em>plugin</em>, como iconos. Por ejemplo:</p>
-<ul>
-<li><code>monologo.svg</code>: Icono utilizado para representar el <em>plugin</em> en la interfaz de Moodle.</li>
 </ul>
 </section>
 </section>
