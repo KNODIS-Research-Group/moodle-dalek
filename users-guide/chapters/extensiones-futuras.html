@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.38">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-52267d870f217a66dbfd24a6d5e99412.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-cd7de1037569933fbb609f06423bd096.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -196,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>El plugin DALEK ha sido planteado como una aproximación al uso de LLM para dar soporte a docentes y estudiantes. Por lo tanto es un proyecto en evolución. A continuación, se describen algunas posibles extensiones y mejoras que podrían implementarse en versiones futuras para ampliar su funcionalidad y adaptarse a nuevos requisitos tanto tecnológicos como pedagógicos.</p>
+<p>El <em>plugin</em> DALEK ha sido planteado como una aproximación al uso de LLM para dar soporte a docentes y estudiantes. Por lo tanto es un proyecto en evolución. A continuación, se describen algunas posibles extensiones y mejoras que podrían implementarse en versiones futuras para ampliar su funcionalidad y adaptarse a nuevos requisitos tanto tecnológicos como pedagógicos.</p>
 <section id="compatibilidad-con-modelos-de-lenguaje-más-avanzados" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="compatibilidad-con-modelos-de-lenguaje-más-avanzados"><span class="header-section-number">6.1</span> Compatibilidad con modelos de lenguaje más avanzados</h2>
 <p>El uso de modelos de lenguaje como GPT-3.5 es una base sólida para la generación de contenido, pero la tecnología avanza rápidamente. GPT 4o supera con creces las capacidades de GPT 3.5, y nuevos modelos más potentes están emergiendo. Las mejoras en esta área podrían incluir:</p>
@@ -204,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Soporte para GPT-4, GPT 1o y versiones posteriores</strong>: Estos modelos ofrecen mayor capacidad de comprensión, análisis y generación de contenido más preciso, permitiendo una mejor personalización de los cuestionarios.</li>
 <li><strong>Integración con modelos de código abierto</strong>: Implementar compatibilidad con alternativas como BLOOM o LLaMA, que permiten mayor control sobre los datos procesados y una reducción de costes en el uso de API externas. Bueno, y que son <em>Open Source</em>, mucho mejor que usar software propietario.</li>
 </ul>
-<p>Para implementar esta extensión, sería necesario actualizar el código del plugin para soportar múltiples APIs y modelos, añadiendo una interfaz en la configuración que permita a los administradores seleccionar el modelo deseado.</p>
+<p>Para implementar esta extensión, sería necesario actualizar el código del <em>plugin</em> para soportar múltiples APIs y modelos, añadiendo una interfaz en la configuración que permita a los administradores seleccionar el modelo deseado.</p>
 </section>
 <section id="soporte-multilingüe-ampliado" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="soporte-multilingüe-ampliado"><span class="header-section-number">6.2</span> Soporte multilingüe ampliado</h2>
@@ -236,9 +236,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="integración-con-otas-herramientas-externas" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="integración-con-otas-herramientas-externas"><span class="header-section-number">6.5</span> Integración con otas herramientas Externas</h2>
-<p>El plugin podría integrarse con otras herramientas y servicios educativos más allá de Moodle para ampliar sus funcionalidades:</p>
+<p>El <em>plugin</em> podría integrarse con otras herramientas y servicios educativos más allá de Moodle para ampliar sus funcionalidades:</p>
 <ul>
-<li><strong>Integración con sistemas de gestión de bibliografía</strong>: Permitir a los docentes cargar referencias directamente desde gestores (e.g., Zotero o Mendeley) para generar preguntas relacionadas.</li>
+<li><strong>Sistemas de gestión de bibliografía</strong>: Permitir a los docentes cargar referencias directamente desde gestores (e.g., Zotero o Mendeley) para generar preguntas relacionadas.</li>
 <li><strong>Conexión con bases de datos de conocimiento</strong>: Incorporar contenido de fuentes externas como Wikipedia o bases de datos científicas para enriquecer los cuestionarios con información adicional.</li>
 </ul>
 </section>
@@ -248,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><strong>Procesamiento asíncrono de contenidos</strong>: Delegar la generación de cuestionarios a procesos en segundo plano, permitiendo al docente continuar trabajando mientras el <em>plugin</em> realiza el análisis.</li>
 </ul>
-<p>Esto requeriría optimizar la arquitectura del plugin y, posiblemente, integrar servicios de colas como RabbitMQ o Redis.</p>
+<p>Esto requeriría optimizar la arquitectura del <em>plugin</em> y, posiblemente, integrar servicios de colas como RabbitMQ o Redis.</p>
 </section>
 <section id="generación-de-feedback-más-avanzada" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="generación-de-feedback-más-avanzada"><span class="header-section-number">6.7</span> Generación de <em>feedback</em> más avanzada</h2>
